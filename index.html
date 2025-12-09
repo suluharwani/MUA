@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maulia - Professional Wedding Make Up Artist</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #f8f0e9;
+            --secondary-color: #f9e4e4;
+            --accent-color: #e6b8b8;
+            --text-color: #5a5a5a;
+            --heading-color: #333333;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+        
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px var(--shadow);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color) !important;
+        }
+        
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: var(--text-color) !important;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(248, 240, 233, 0.9)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            margin-top: 76px;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--heading-color);
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #d9a6a6;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 184, 184, 0.3);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
+            height: 100%;
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            height: 300px;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 240, 233, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 20px;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .about-section {
+            background-color: var(--primary-color);
+            padding: 100px 0;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        
+        .contact-section {
+            background-color: var(--secondary-color);
+            padding: 100px 0;
+        }
+        
+        .contact-form .form-control {
+            border-radius: 5px;
+            border: 1px solid #e0d6d6;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-form .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(230, 184, 184, 0.25);
+            border-color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--white);
+            padding: 70px 0 20px;
+            box-shadow: 0 -5px 15px var(--shadow);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-flower1 me-2" style="color: var(--accent-color);"></i>Maulia
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Saya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1>Maulia - Wedding Make Up Artist</h1>
+                    <p class="lead">Mengabadikan kecantikan alami Anda di momen spesial pernikahan dengan sentuhan profesional. Specialized in natural, elegant, and timeless bridal makeup.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">Pesan Konsultasi Gratis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">Tentang Maulia</h2>
+                    <p>Halo, saya Maulia, seorang Make Up Artist spesialis pernikahan dengan pengalaman lebih dari 8 tahun. Saya telah membantu lebih dari 200 pengantin merasakan kecantikan terbaik mereka di hari pernikahan.</p>
+                    <p>Filosofi makeup saya adalah meningkatkan keindahan alami Anda dengan teknik yang halus dan produk berkualitas tinggi. Saya percaya bahwa setiap pengantin memiliki keunikan tersendiri yang layak disorot di hari istimewa mereka.</p>
+                    <p>Saya terus mengikuti tren terbaru dalam dunia bridal makeup dan mengikuti berbagai pelatihan untuk memastikan Anda mendapatkan hasil terbaik.</p>
+                    <a href="#portfolio" class="btn btn-primary mt-3">Lihat Portfolio Saya</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80" alt="Maulia Make Up Artist" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Layanan Saya</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <h3>Make Up Pengantin</h3>
+                        <p>Make up lengkap untuk pengantin dengan trial session, menggunakan produk high-end yang tahan lama sepanjang hari.</p>
+                        <ul class="text-start">
+                            <li>Trial make up</li>
+                            <li>Make up hari-H</li>
+                            <li>Touch up kit</li>
+                            <li>Konsultasi gaya</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h3>Make Up Bridal Party</h3>
+                        <p>Make up untuk keluarga dan teman dekat pengantin (ibu pengantin, bridesmaid, dan lainnya).</p>
+                        <ul class="text-start">
+                            <li>Make up untuk 2-6 orang</li>
+                            <li>Konsultasi warna</li>
+                            <li>Produk sesuai jenis kulit</li>
+                            <li>Waktu fleksibel</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="bi bi-camera-fill"></i>
+                        </div>
+                        <h3>Pre-Wedding Make Up</h3>
+                        <p>Make up khusus untuk sesi foto pre-wedding dengan berbagai tema dan lokasi.</p>
+                        <ul class="text-start">
+                            <li>Konsultasi konsep</li>
+                            <li>Make up indoor/outdoor</li>
+                            <li>Touch up selama sesi</li>
+                            <li>2-3 perubahan look</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5" style="background-color: var(--primary-color);">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Bridal Make Up 1" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4>Natural Glam</h4>
+                            <p>Make up pengantin dengan sentuhan natural dan glowing skin.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Bridal Make Up 2" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4>Classic Elegant</h4>
+                            <p>Tampilan klasik dengan fokus pada mata yang dramatis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1542599741744-6b00bcd4d3f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Bridal Make Up 3" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4>Soft Romantic</h4>
+                            <p>Make up dengan warna-warna soft dan romantic untuk tema garden wedding.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Testimoni Klien</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card text-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client 1" class="testimonial-img">
+                        <h5>Sarah</h5>
+                        <p class="fst-italic">"Maulia membuat saya merasa begitu cantik dan percaya diri di hari pernikahan saya. Make up-nya tahan sepanjang hari dan foto-foto saya terlihat sempurna!"</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card text-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 2" class="testimonial-img">
+                        <h5>Dewi</h5>
+                        <p class="fst-italic">"Saya sangat merekomendasikan Maulia untuk make up pernikahan. Hasilnya natural namun tetap terlihat special. Proses trial-nya juga membantu saya menentukan look yang tepat."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card text-center">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client 3" class="testimonial-img">
+                        <h5>Rina</h5>
+                        <p class="fst-italic">"Make up dari Maulia tidak hanya cantik tetapi juga nyaman dipakai sepanjang hari. Dia sangat profesional dan detail-oriented. Terima kasih telah membuat hari spesial saya sempurna!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center p-4" style="background-color: var(--white); border-radius: 10px;">
+                                <i class="bi bi-telephone-fill fs-1 mb-3" style="color: var(--accent-color);"></i>
+                                <h5>Telepon</h5>
+                                <p>+62 812 3456 7890</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center p-4" style="background-color: var(--white); border-radius: 10px;">
+                                <i class="bi bi-envelope-fill fs-1 mb-3" style="color: var(--accent-color);"></i>
+                                <h5>Email</h5>
+                                <p>hello@maulia-mua.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center p-4" style="background-color: var(--white); border-radius: 10px;">
+                                <i class="bi bi-instagram fs-1 mb-3" style="color: var(--accent-color);"></i>
+                                <h5>Instagram</h5>
+                                <p>@maulia_mua</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Nama Lengkap" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control" placeholder="Nomor Telepon" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Tanggal Acara" required>
+                            </div>
+                        </div>
+                        <textarea class="form-control" rows="5" placeholder="Pesan Anda" required></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Kirim Pesan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <h3 class="navbar-brand mb-3">
+                        <i class="bi bi-flower1 me-2" style="color: var(--accent-color);"></i>Maulia
+                    </h3>
+                    <p>Professional Wedding Make Up Artist dengan spesialisasi dalam natural, elegant, dan timeless bridal makeup.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-decoration-none text-muted">Beranda</a></li>
+                        <li><a href="#about" class="text-decoration-none text-muted">Tentang Saya</a></li>
+                        <li><a href="#services" class="text-decoration-none text-muted">Layanan</a></li>
+                        <li><a href="#portfolio" class="text-decoration-none text-muted">Portfolio</a></li>
+                        <li><a href="#contact" class="text-decoration-none text-muted">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Ikuti Saya</h5>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Maulia Make Up Artist. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="bi bi-chevron-up"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarToggler.click();
+                    }
+                }
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.pageYOffset > 50) {
+                navbar.style.padding = '10px 0';
+                navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.padding = '15px 0';
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+            }
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah berhasil dikirim. Saya akan menghubungi Anda dalam waktu 1x24 jam.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
