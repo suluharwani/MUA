@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maulia - Professional Wedding Make Up Artist</title>
+    <title>Maulia - Professional Wedding Make Up Artist & Kostum Sewa - Grobogan</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         :root {
             --primary-color: #f9f7f4;
             --secondary-color: #f4f0eb;
             --accent-color: #e8d7c9;
             --accent-dark: #d4b8a3;
+            --costume-color: #b8a7c8;
             --text-color: #5a5a5a;
             --heading-color: #333333;
             --white: #ffffff;
@@ -72,17 +75,27 @@
         }
         
         .hero-section h1 {
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             margin-bottom: 25px;
             color: var(--heading-color);
             line-height: 1.2;
         }
         
         .hero-section p.lead {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 35px;
             color: var(--text-color);
+        }
+        
+        .location-badge {
+            background-color: var(--accent-dark);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
         }
         
         .btn-primary {
@@ -99,6 +112,24 @@
             background-color: #c9a989;
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(212, 184, 163, 0.3);
+        }
+        
+        .btn-costume {
+            background-color: var(--costume-color);
+            border: none;
+            padding: 14px 35px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 2px;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+        
+        .btn-costume:hover {
+            background-color: #9d8bb0;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(184, 167, 200, 0.3);
+            color: white;
         }
         
         .btn-outline-primary {
@@ -133,6 +164,10 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
+        }
+        
+        .section-title.costume:after {
+            background-color: var(--costume-color);
         }
         
         .section-padding {
@@ -204,6 +239,10 @@
             transform: scale(1.05) translateY(-15px);
         }
         
+        .pricing-card.costume {
+            border-top: 5px solid var(--costume-color);
+        }
+        
         .featured-badge {
             position: absolute;
             top: 20px;
@@ -249,78 +288,80 @@
             color: #cccccc;
         }
         
-        /* Booking Process */
-        .booking-process {
-            background-color: var(--secondary-color);
+        /* Costume Rental Section */
+        .costume-section {
+            background-color: #f9f7fb;
         }
         
-        .booking-step {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px var(--shadow);
-            height: 100%;
-        }
-        
-        .booking-step .step-icon {
-            font-size: 2.5rem;
-            color: var(--accent-dark);
-            margin-bottom: 20px;
-        }
-        
-        /* Service Detail */
-        .service-detail {
-            background-color: var(--primary-color);
-        }
-        
-        .service-card {
+        .costume-card {
             background-color: var(--white);
             border-radius: 8px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 25px var(--shadow);
+            box-shadow: 0 8px 25px rgba(184, 167, 200, 0.1);
             height: 100%;
             transition: transform 0.3s;
+            border-left: 4px solid var(--costume-color);
         }
         
-        .service-card:hover {
+        .costume-card:hover {
             transform: translateY(-10px);
         }
         
-        .service-icon {
-            font-size: 2.2rem;
-            color: var(--accent-dark);
+        .costume-icon {
+            font-size: 2.5rem;
+            color: var(--costume-color);
             margin-bottom: 20px;
         }
         
-        /* Testimonial */
-        .testimonial-card {
+        .costume-badge {
+            background-color: var(--costume-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        /* Service Area Section */
+        .service-area {
+            background-color: var(--secondary-color);
+        }
+        
+        .area-card {
             background-color: var(--white);
             border-radius: 10px;
-            padding: 35px 30px;
-            margin: 20px;
-            box-shadow: 0 8px 25px var(--shadow);
-            position: relative;
+            padding: 25px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s;
         }
         
-        .testimonial-card:before {
-            content: '"';
-            position: absolute;
-            top: 15px;
-            left: 25px;
-            font-size: 5rem;
-            color: var(--accent-color);
-            font-family: Georgia, serif;
-            opacity: 0.3;
+        .area-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow);
         }
         
-        .testimonial-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
+        .area-card.main {
+            border: 2px solid var(--accent-dark);
+        }
+        
+        .area-icon {
+            font-size: 2rem;
+            color: var(--accent-dark);
+            margin-bottom: 15px;
+        }
+        
+        /* Map Container */
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         
         /* Booking Form */
@@ -346,6 +387,55 @@
         .form-control:focus, .form-select:focus {
             box-shadow: 0 0 0 0.25rem rgba(232, 215, 201, 0.25);
             border-color: var(--accent-dark);
+        }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            left: 25px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .whatsapp-text {
+            position: fixed;
+            bottom: 25px;
+            left: 95px;
+            background-color: #25D366;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+        
+        .whatsapp-float:hover + .whatsapp-text {
+            opacity: 1;
         }
         
         /* Footer */
@@ -393,8 +483,8 @@
         
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 100px;
+            right: 25px;
             width: 50px;
             height: 50px;
             background-color: var(--accent-dark);
@@ -430,6 +520,10 @@
             .booking-form-container {
                 margin-top: 0;
             }
+            
+            .whatsapp-text {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
@@ -438,7 +532,7 @@
             }
             
             .hero-section h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
             .section-padding {
@@ -447,6 +541,14 @@
             
             .booking-form-container {
                 padding: 30px;
+            }
+            
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 25px;
+                bottom: 20px;
+                left: 20px;
             }
         }
     </style>
@@ -470,16 +572,16 @@
                         <a class="nav-link" href="#process">Proses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Paket & Harga</a>
+                        <a class="nav-link" href="#pricing">Paket Makeup</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Layanan</a>
+                        <a class="nav-link" href="#costume">Sewa Kostum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#location">Lokasi & Area</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#booking">Pesan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Testimoni</a>
                     </li>
                 </ul>
             </div>
@@ -491,11 +593,14 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1>Kecantikan Abadi untuk Hari Istimewa Anda</h1>
-                    <p class="lead">Sebagai Make Up Artist profesional spesialis pernikahan, saya menghadirkan sentuhan elegan yang akan membuat Anda bersinar di hari pernikahan dengan makeup yang tahan lama dan natural.</p>
+                    <div class="location-badge">
+                        <i class="bi bi-geo-alt me-1"></i> Grobogan, Jawa Tengah
+                    </div>
+                    <h1>Maulia Makeup & Sewa Kostum Pernikahan</h1>
+                    <p class="lead">Profesional Wedding Make Up Artist & Penyewaan Kostum Pernikahan di Grobogan dan sekitarnya. Melayani makeup pengantin dan sewa kostum pernikahan lengkap untuk hari istimewa Anda.</p>
                     <div class="mt-4">
-                        <a href="#booking" class="btn btn-primary btn-lg me-3">Pesan Sekarang</a>
-                        <a href="#pricing" class="btn btn-outline-primary btn-lg">Lihat Paket</a>
+                        <a href="#booking" class="btn btn-primary btn-lg me-2">Pesan Makeup</a>
+                        <a href="#costume" class="btn btn-costume btn-lg">Sewa Kostum</a>
                     </div>
                 </div>
             </div>
@@ -510,45 +615,45 @@
                 <div class="col-md-3">
                     <div class="process-step">
                         <div class="step-number">1</div>
-                        <h4>Konsultasi Awal</h4>
-                        <p>Diskusi via WhatsApp/telepon untuk memahami kebutuhan dan konsep pernikahan Anda.</p>
+                        <h4>Konsultasi Gratis</h4>
+                        <p>Diskusi via WhatsApp untuk memahami kebutuhan makeup atau kostum untuk pernikahan Anda.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="process-step">
                         <div class="step-number">2</div>
-                        <h4>Trial Makeup</h4>
-                        <p>Sesi trial untuk menentukan look yang sesuai dengan kepribadian dan tema pernikahan.</p>
+                        <h4>Trial & Fitting</h4>
+                        <p>Sesi trial makeup atau fitting kostum di studio untuk memastikan sesuai dengan keinginan.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="process-step">
                         <div class="step-number">3</div>
-                        <h4>Konfirmasi & DP</h4>
-                        <p>Konfirmasi paket dan pembayaran DP 50% untuk mengamankan booking tanggal.</p>
+                        <h4>DP & Booking</h4>
+                        <p>Konfirmasi paket dan pembayaran DP 50% untuk mengamankan tanggal booking.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="process-step">
                         <div class="step-number">4</div>
-                        <h4>Hari-H Eksekusi</h4>
-                        <p>Eksekusi makeup di lokasi sesuai jadwal dengan ketepatan waktu dan profesionalisme.</p>
+                        <h4>Eksekusi & Pengiriman</h4>
+                        <p>Eksekusi makeup di lokasi atau pengantaran kostum sesuai jadwal yang disepakati.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Makeup Pricing Section -->
     <section id="pricing" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Paket & Harga</h2>
+            <h2 class="section-title">Paket Make Up Pernikahan</h2>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="pricing-card">
                         <h3>Paket Basic</h3>
-                        <p class="text-muted">Ideal untuk pre-wedding atau acara sederhana</p>
-                        <div class="price">Rp 2.500.000<span class="price-period"> / sesi</span></div>
+                        <p class="text-muted">Untuk pernikahan sederhana atau pre-wedding</p>
+                        <div class="price">Rp 1.800.000<span class="price-period"> / sesi</span></div>
                         <div class="mt-4">
                             <div class="price-feature">
                                 <i class="bi bi-check-circle-fill"></i>
@@ -570,21 +675,17 @@
                                 <i class="bi bi-x-circle"></i>
                                 <span>Makeup keluarga</span>
                             </div>
-                            <div class="price-feature disabled">
-                                <i class="bi bi-x-circle"></i>
-                                <span>Free lashes</span>
-                            </div>
                         </div>
-                        <a href="#booking" class="btn btn-outline-primary w-100 mt-4">Pilih Paket</a>
+                        <a href="#booking" class="btn btn-outline-primary w-100 mt-4" data-package="Paket Basic - Rp 1.800.000">Pilih Paket</a>
                     </div>
                 </div>
                 
                 <div class="col-lg-4">
                     <div class="pricing-card featured">
-                        <div class="featured-badge">POPULER</div>
+                        <div class="featured-badge">FAVORIT</div>
                         <h3>Paket Premium</h3>
                         <p class="text-muted">Paket lengkap untuk pengantin dengan kebutuhan spesial</p>
-                        <div class="price">Rp 5.800.000<span class="price-period"> / paket</span></div>
+                        <div class="price">Rp 3.500.000<span class="price-period"> / paket</span></div>
                         <div class="mt-4">
                             <div class="price-feature">
                                 <i class="bi bi-check-circle-fill"></i>
@@ -604,22 +705,18 @@
                             </div>
                             <div class="price-feature">
                                 <i class="bi bi-check-circle-fill"></i>
-                                <span>Free lashes premium</span>
-                            </div>
-                            <div class="price-feature">
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Touch up kit</span>
+                                <span>Free lashes</span>
                             </div>
                         </div>
-                        <a href="#booking" class="btn btn-primary w-100 mt-4">Pilih Paket</a>
+                        <a href="#booking" class="btn btn-primary w-100 mt-4" data-package="Paket Premium - Rp 3.500.000">Pilih Paket</a>
                     </div>
                 </div>
                 
                 <div class="col-lg-4">
                     <div class="pricing-card">
                         <h3>Paket Royal</h3>
-                        <p class="text-muted">Experience mewah untuk pernikahan besar</p>
-                        <div class="price">Rp 8.900.000<span class="price-period"> / paket</span></div>
+                        <p class="text-muted">Experience lengkap untuk pernikahan besar</p>
+                        <div class="price">Rp 5.500.000<span class="price-period"> / paket</span></div>
                         <div class="mt-4">
                             <div class="price-feature">
                                 <i class="bi bi-check-circle-fill"></i>
@@ -639,28 +736,92 @@
                             </div>
                             <div class="price-feature">
                                 <i class="bi bi-check-circle-fill"></i>
-                                <span>Full day + night assistance</span>
-                            </div>
-                            <div class="price-feature">
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Premium skincare prep</span>
+                                <span>Full day + night</span>
                             </div>
                         </div>
-                        <a href="#booking" class="btn btn-outline-primary w-100 mt-4">Pilih Paket</a>
+                        <a href="#booking" class="btn btn-outline-primary w-100 mt-4" data-package="Paket Royal - Rp 5.500.000">Pilih Paket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Costume Rental Section -->
+    <section id="costume" class="section-padding costume-section">
+        <div class="container">
+            <h2 class="section-title costume">Sewa Kostum Pernikahan</h2>
+            <p class="text-center mb-5">Kami menyediakan berbagai pilihan kostum pernikahan untuk pengantin dan keluarga. Semua kostum dalam kondisi terawat dan siap pakai.</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="costume-card">
+                        <div class="costume-icon">
+                            <i class="bi bi-person-hearts"></i>
+                        </div>
+                        <div class="costume-badge">Pengantin Wanita</div>
+                        <h4>Gaun Pengantin</h4>
+                        <p>Koleksi gaun pengantin berbagai model, dari modern sampai tradisional. Tersedia berbagai ukuran dengan opsi penyesuaian.</p>
+                        <ul class="mb-4">
+                            <li>Gaun putih modern</li>
+                            <li>Gaun tradisional Jawa</li>
+                            <li>Gaun evening reception</li>
+                            <li>Kebaya pengantin</li>
+                        </ul>
+                        <div class="price">Rp 750.000<span class="price-period"> / 3 hari</span></div>
+                        <a href="#booking" class="btn btn-costume w-100 mt-3" data-package="Sewa Gaun Pengantin - Rp 750.000">Sewa Kostum</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="costume-card">
+                        <div class="costume-icon">
+                            <i class="bi bi-person-standing-dress"></i>
+                        </div>
+                        <div class="costume-badge">Pengantin Pria</div>
+                        <h4>Setelan Pengantin</h4>
+                        <p>Setelan jas dan baju tradisional untuk pengantin pria. Dilengkapi dengan aksesoris lengkap.</p>
+                        <ul class="mb-4">
+                            <li>Jas formal hitam/navy</li>
+                            <li>Batik pengantin pria</li>
+                            <li>Beskap tradisional</li>
+                            <li>Aksesoris lengkap</li>
+                        </ul>
+                        <div class="price">Rp 500.000<span class="price-period"> / 3 hari</span></div>
+                        <a href="#booking" class="btn btn-costume w-100 mt-3" data-package="Sewa Setelan Pengantin Pria - Rp 500.000">Sewa Kostum</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="costume-card">
+                        <div class="costume-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <div class="costume-badge">Keluarga</div>
+                        <h4>Kostum Keluarga</h4>
+                        <p>Paket kostum untuk orang tua pengantin, keluarga besar, dan pagar ayu.</p>
+                        <ul class="mb-4">
+                            <li>Kebaya ibu pengantin</li>
+                            <li>Batik keluarga</li>
+                            <li>Pagar ayu (5-10 set)</li>
+                            <li>Aksesoris tradisional</li>
+                        </ul>
+                        <div class="price">Rp 300.000<span class="price-period"> / orang / 2 hari</span></div>
+                        <a href="#booking" class="btn btn-costume w-100 mt-3" data-package="Sewa Kostum Keluarga - Rp 300.000/orang">Sewa Kostum</a>
                     </div>
                 </div>
             </div>
             
-            <div class="row mt-5">
+            <div class="row mt-4">
                 <div class="col-lg-8 mx-auto">
-                    <div class="alert alert-light border" style="background-color: var(--primary-color);">
-                        <h5 class="mb-3"><i class="bi bi-info-circle me-2"></i>Informasi Tambahan:</h5>
+                    <div class="alert alert-light border" style="background-color: white;">
+                        <h5 class="mb-3"><i class="bi bi-info-circle me-2"></i>Informasi Sewa Kostum:</h5>
                         <ul class="mb-0">
-                            <li>Harga belum termasuk transportasi (disesuaikan dengan lokasi)</li>
-                            <li>DP 50% diperlukan untuk konfirmasi booking</li>
-                            <li>Pembayaran lunas maksimal H-7 sebelum acara</li>
-                            <li>Trial makeup dilakukan di studio atau lokasi yang disepakati</li>
-                            <li>Pengantin tambahan: Rp 1.200.000/orang</li>
+                            <li>Masa sewa standar 3 hari (H-1, H, H+1)</li>
+                            <li>DP 50% diperlukan saat booking</li>
+                            <li>Denda keterlambatan pengembalian: Rp 50.000/hari</li>
+                            <li>Biaya cleaning sudah termasuk</li>
+                            <li>Boleh dicoba di studio sebelum disewa</li>
+                            <li>Kostum dapat diantar ke lokasi (biaya tambah)</li>
                         </ul>
                     </div>
                 </div>
@@ -668,90 +829,100 @@
         </div>
     </section>
 
-    <!-- Service Details -->
-    <section id="services" class="section-padding service-detail">
+    <!-- Location & Service Area -->
+    <section id="location" class="section-padding service-area">
         <div class="container">
-            <h2 class="section-title">Detail Layanan</h2>
+            <h2 class="section-title">Lokasi & Area Layanan</h2>
+            <div class="row mb-5">
+                <div class="col-lg-6">
+                    <h4 class="mb-4">Studio Maulia</h4>
+                    <p><i class="bi bi-geo-alt-fill me-2" style="color: var(--accent-dark);"></i>Desa Klambu, Kecamatan Klambu, Kabupaten Grobogan, Jawa Tengah</p>
+                    <p><i class="bi bi-clock-fill me-2" style="color: var(--accent-dark);"></i>Buka: Senin - Minggu, 08:00 - 18:00 WIB</p>
+                    <p><i class="bi bi-telephone-fill me-2" style="color: var(--accent-dark);"></i>0877-3131-0979 (WhatsApp/Telepon)</p>
+                    <p class="mt-4">Studio kami terletak di Desa Klambu, Grobogan. Kami melayani makeup dan sewa kostum untuk berbagai acara pernikahan di Grobogan dan sekitarnya.</p>
+                    <a href="https://maps.app.goo.gl/KaDJLxzmVYHNynfs5" target="_blank" class="btn btn-primary mt-2">
+                        <i class="bi bi-map me-2"></i>Buka di Google Maps
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div id="map"></div>
+                </div>
+            </div>
+            
+            <h4 class="text-center mb-5">Area Layanan Kami</h4>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-person-hearts"></i>
+                <div class="col-md-3">
+                    <div class="area-card main">
+                        <div class="area-icon">
+                            <i class="bi bi-house-heart"></i>
                         </div>
-                        <h4>Bridal Makeup</h4>
-                        <p>Makeup pengantin dengan teknik khusus untuk ketahanan sepanjang hari menggunakan produk high-end seperti Charlotte Tilbury, Dior, dan Make Up For Ever.</p>
-                        <ul>
-                            <li>Skin preparation dengan skincare premium</li>
-                            <li>Color matching sesuai tema & kulit</li>
-                            <li>Waterproof & transfer-resistant</li>
-                            <li>Long lasting hingga 12 jam</li>
-                        </ul>
+                        <h5>Grobogan</h5>
+                        <p class="small">Seluruh Kecamatan</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-people-fill"></i>
+                <div class="col-md-3">
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i class="bi bi-geo-alt"></i>
                         </div>
-                        <h4>Family & Bridal Party</h4>
-                        <p>Makeup untuk keluarga pengantin dan bridal party dengan tetap menjaga koordinasi warna dan tema keseluruhan.</p>
-                        <ul>
-                            <li>Makeup Ibu pengantin (2 look: pagi & siang)</li>
-                            <li>Makeup bridesmaid (natural glam)</li>
-                            <li>Makeup flower girls (soft & natural)</li>
-                            <li>Konsultasi warna grup</li>
-                        </ul>
+                        <h5>Purwodadi</h5>
+                        <p class="small">Kota & Sekitarnya</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="bi bi-camera-fill"></i>
+                <div class="col-md-3">
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i class="bi bi-geo-alt"></i>
                         </div>
-                        <h4>Pre-Wedding & Engagements</h4>
-                        <p>Makeup khusus untuk sesi foto pre-wedding dengan kemampuan tahan lama di berbagai kondisi pencahayaan.</p>
-                        <ul>
-                            <li>Makeup untuk indoor & outdoor shoot</li>
-                            <li>Multiple look changes (2-3 look)</li>
-                            <li>Touch up selama sesi foto</li>
-                            <li>Konsultasi dengan fotografer</li>
-                        </ul>
+                        <h5>Kudus</h5>
+                        <p class="small">Biaya transport +</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h5>Demak</h5>
+                        <p class="small">Biaya transport +</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Booking Process -->
-    <section id="booking" class="section-padding booking-process">
-        <div class="container">
-            <h2 class="section-title">Cara Pemesanan</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="booking-step">
-                        <div class="step-icon">
-                            <i class="bi bi-calendar-check"></i>
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i class="bi bi-geo-alt"></i>
                         </div>
-                        <h4>1. Pilih Tanggal</h4>
-                        <p>Hubungi saya untuk mengecek ketersediaan tanggal pernikahan Anda. Disarankan booking 6-12 bulan sebelum hari-H untuk tanggal populer.</p>
+                        <h5>Pati</h5>
+                        <p class="small">Biaya transport +</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="booking-step">
-                        <div class="step-icon">
-                            <i class="bi bi-chat-dots"></i>
+                <div class="col-md-3">
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i class="bi bi-geo-alt"></i>
                         </div>
-                        <h4>2. Konsultasi Gratis</h4>
-                        <p>Konsultasi via WhatsApp/telepon untuk mendiskusikan konsep, tema, dan kebutuhan spesial Anda. Saya akan merekomendasikan paket yang sesuai.</p>
+                        <h5>Blora</h5>
+                        <p class="small">Biaya transport +</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="booking-step">
-                        <div class="step-icon">
-                            <i class="bi bi-credit-card"></i>
+                <div class="col-md-3">
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i class="bi bi-geo-alt"></i>
                         </div>
-                        <h4>3. Konfirmasi & Pembayaran</h4>
-                        <p>Setelah setuju dengan paket, lakukan pembayaran DP 50% via transfer bank untuk mengamankan tanggal. Invoice resmi akan dikirimkan.</p>
+                        <h5>Rembang</h5>
+                        <p class="small">Biaya transport +</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h5>Semarang</h5>
+                        <p class="small">Biaya transport ++</p>
                     </div>
                 </div>
             </div>
@@ -774,7 +945,7 @@
                         <div class="col-md-6">
                             <div class="mb-4">
                                 <label for="phone" class="form-label">Nomor WhatsApp *</label>
-                                <input type="tel" class="form-control" id="phone" required>
+                                <input type="tel" class="form-control" id="phone" value="087731310979" required>
                             </div>
                         </div>
                     </div>
@@ -782,42 +953,53 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-4">
-                                <label for="email" class="form-label">Email *</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-4">
-                                <label for="weddingDate" class="form-label">Tanggal Pernikahan *</label>
-                                <input type="date" class="form-control" id="weddingDate" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-4">
-                                <label for="package" class="form-label">Paket yang Diminati *</label>
-                                <select class="form-select" id="package" required>
-                                    <option value="" selected disabled>Pilih paket...</option>
-                                    <option value="basic">Paket Basic - Rp 2.500.000</option>
-                                    <option value="premium">Paket Premium - Rp 5.800.000</option>
-                                    <option value="royal">Paket Royal - Rp 8.900.000</option>
-                                    <option value="custom">Custom Package (konsultasi)</option>
+                                <label for="serviceType" class="form-label">Jenis Layanan *</label>
+                                <select class="form-select" id="serviceType" required>
+                                    <option value="" selected disabled>Pilih layanan...</option>
+                                    <option value="makeup">Make Up Pernikahan</option>
+                                    <option value="costume">Sewa Kostum</option>
+                                    <option value="both">Makeup + Sewa Kostum</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-4">
+                                <label for="package" class="form-label">Paket yang Diminati *</label>
+                                <select class="form-select" id="package" required>
+                                    <option value="" selected disabled>Pilih paket...</option>
+                                    <optgroup label="Make Up">
+                                        <option value="Paket Basic - Rp 1.800.000">Paket Basic - Rp 1.800.000</option>
+                                        <option value="Paket Premium - Rp 3.500.000">Paket Premium - Rp 3.500.000</option>
+                                        <option value="Paket Royal - Rp 5.500.000">Paket Royal - Rp 5.500.000</option>
+                                    </optgroup>
+                                    <optgroup label="Sewa Kostum">
+                                        <option value="Sewa Gaun Pengantin - Rp 750.000">Sewa Gaun Pengantin - Rp 750.000</option>
+                                        <option value="Sewa Setelan Pengantin Pria - Rp 500.000">Sewa Setelan Pengantin Pria - Rp 500.000</option>
+                                        <option value="Sewa Kostum Keluarga - Rp 300.000/orang">Sewa Kostum Keluarga - Rp 300.000/orang</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <label for="eventDate" class="form-label">Tanggal Acara *</label>
+                                <input type="date" class="form-control" id="eventDate" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-4">
                                 <label for="location" class="form-label">Lokasi Acara *</label>
-                                <input type="text" class="form-control" id="location" placeholder="Kota & venue" required>
+                                <input type="text" class="form-control" id="location" placeholder="Desa/Kecamatan, Kabupaten Grobogan" required>
                             </div>
                         </div>
                     </div>
                     
                     <div class="mb-4">
                         <label for="additionalInfo" class="form-label">Informasi Tambahan</label>
-                        <textarea class="form-control" id="additionalInfo" rows="4" placeholder="Detail acara, jumlah orang yang perlu makeup, tema pernikahan, dll."></textarea>
+                        <textarea class="form-control" id="additionalInfo" rows="4" placeholder="Detail acara, jumlah orang, ukuran kostum (jika sewa), tema pernikahan, dll."></textarea>
                     </div>
                     
                     <div class="mb-4 form-check">
@@ -826,55 +1008,12 @@
                     </div>
                     
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg px-5">Kirim Permintaan Booking</button>
+                        <button type="submit" class="btn btn-primary btn-lg px-5">
+                            <i class="bi bi-whatsapp me-2"></i>Kirim via WhatsApp
+                        </button>
                         <p class="text-muted mt-3">Anda akan dihubungi via WhatsApp dalam 1x24 jam</p>
                     </div>
                 </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="section-padding">
-        <div class="container">
-            <h2 class="section-title">Apa Kata Klien</h2>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <p class="mb-4">"Maulia sangat profesional dan detail. Makeup-nya tahan dari pagi hingga malam, bahkan setelah menangis saat ijab kabul! Hasilnya natural tapi tetap terlihat special di foto."</p>
-                        <div class="d-flex align-items-center">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 1" class="testimonial-img">
-                            <div>
-                                <h5 class="mb-0">Sari Dewi</h5>
-                                <p class="text-muted mb-0">Jakarta, June 2023</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <p class="mb-4">"Proses trial-nya sangat membantu. Maulia mendengarkan keinginan saya dan memberikan saran profesional. Hasil di hari-H jauh lebih baik dari ekspektasi!"</p>
-                        <div class="d-flex align-items-center">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client 2" class="testimonial-img">
-                            <div>
-                                <h5 class="mb-0">Maya Ratnasari</h5>
-                                <p class="text-muted mb-0">Bandung, September 2023</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <p class="mb-4">"Bukan hanya makeup pengantin, tapi juga makeup untuk ibu saya dan 3 bridesmaid. Semuanya puas dengan hasilnya. Worth every penny!"</p>
-                        <div class="d-flex align-items-center">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client 3" class="testimonial-img">
-                            <div>
-                                <h5 class="mb-0">Rina Andriani</h5>
-                                <p class="text-muted mb-0">Bali, December 2023</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -887,59 +1026,49 @@
                     <a href="#" class="footer-logo">
                         <i class="bi bi-flower1 me-2" style="color: var(--accent-dark);"></i>Maulia
                     </a>
-                    <p class="mt-3">Profesional Wedding Make Up Artist dengan spesialisasi dalam natural, elegant, dan timeless bridal makeup. Berpengalaman lebih dari 8 tahun menangani berbagai konsep pernikahan.</p>
+                    <p class="mt-3">Profesional Wedding Make Up Artist & Penyewaan Kostum Pernikahan di Grobogan, Jawa Tengah. Berpengalaman melayani berbagai konsep pernikahan tradisional dan modern.</p>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="bi bi-instagram"></i></a>
                         <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://wa.me/6287731310979" target="_blank"><i class="bi bi-whatsapp"></i></a>
                         <a href="#"><i class="bi bi-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-5">
-                    <h5 class="mb-4">Menu</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#home" class="text-decoration-none text-muted">Beranda</a></li>
-                        <li class="mb-2"><a href="#process" class="text-decoration-none text-muted">Proses</a></li>
-                        <li class="mb-2"><a href="#pricing" class="text-decoration-none text-muted">Paket & Harga</a></li>
-                        <li class="mb-2"><a href="#services" class="text-decoration-none text-muted">Layanan</a></li>
-                        <li class="mb-2"><a href="#booking" class="text-decoration-none text-muted">Pemesanan</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-5">
-                    <h5 class="mb-4">Kontak</h5>
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <h5 class="mb-4">Kontak & Lokasi</h5>
                     <ul class="list-unstyled">
                         <li class="mb-3">
                             <i class="bi bi-whatsapp me-2" style="color: var(--accent-dark);"></i>
-                            <span>+62 812 3456 7890</span>
+                            <span>0877-3131-0979 (WhatsApp)</span>
                         </li>
                         <li class="mb-3">
-                            <i class="bi bi-envelope me-2" style="color: var(--accent-dark);"></i>
-                            <span>hello@mauliamua.com</span>
+                            <i class="bi bi-telephone me-2" style="color: var(--accent-dark);"></i>
+                            <span>0877-3131-0979 (Telepon)</span>
                         </li>
                         <li class="mb-3">
                             <i class="bi bi-geo-alt me-2" style="color: var(--accent-dark);"></i>
-                            <span>Studio: Jl. Kemang Raya No. 12, Jakarta Selatan</span>
+                            <span>Desa Klambu, Kec. Klambu, Grobogan, Jawa Tengah</span>
                         </li>
                         <li class="mb-3">
                             <i class="bi bi-clock me-2" style="color: var(--accent-dark);"></i>
-                            <span>Senin - Sabtu: 9:00 - 18:00</span>
+                            <span>Senin - Minggu: 08:00 - 18:00 WIB</span>
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-3 mb-5">
-                    <h5 class="mb-4">Area Layanan</h5>
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <h5 class="mb-4">Layanan Kami</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2">Jakarta & Sekitarnya</li>
-                        <li class="mb-2">Bogor & Depok</li>
-                        <li class="mb-2">Tangerang & BSD</li>
-                        <li class="mb-2">Bekasi & Cikarang</li>
-                        <li class="mb-2">Bandung (biaya transport tambah)</li>
-                        <li class="mb-2">Bali (biaya transport tambah)</li>
+                        <li class="mb-2">Make Up Pengantin</li>
+                        <li class="mb-2">Make Up Keluarga & Bridal Party</li>
+                        <li class="mb-2">Make Up Pre-Wedding</li>
+                        <li class="mb-2">Sewa Gaun Pengantin</li>
+                        <li class="mb-2">Sewa Setelan Pengantin Pria</li>
+                        <li class="mb-2">Sewa Kostum Keluarga</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Maulia Professional Make Up Artist. All rights reserved.</p>
+                <p>&copy; 2025 Maulia Makeup & Sewa Kostum. All rights reserved. | Desa Klambu, Grobogan, Jawa Tengah</p>
             </div>
         </div>
     </footer>
@@ -957,16 +1086,16 @@
                     <p>Tanggal akan dianggap terbooking setelah pembayaran DP 50% diterima. DP tidak dapat dikembalikan (non-refundable) namun dapat dialihkan ke tanggal lain dengan pemberitahuan minimal 30 hari sebelum acara.</p>
                     
                     <h6 class="mt-4">2. Pembayaran</h6>
-                    <p>DP 50% dibayarkan saat konfirmasi booking. Pelunasan maksimal H-7 sebelum acara. Keterlambatan pelunasan dapat mengakibatkan pembatalan booking dengan DP hangus.</p>
+                    <p>DP 50% dibayarkan saat konfirmasi booking. Pelunasan maksimal H-7 sebelum acara untuk makeup, dan saat pengambilan kostum. Keterlambatan pelunasan dapat mengakibatkan pembatalan booking dengan DP hangus.</p>
                     
-                    <h6 class="mt-4">3. Jadwal</h6>
-                    <p>Waktu mulai makeup akan disepakati saat konsultasi. Keterlambatan dari klien dapat mengurangi waktu makeup yang tersedia. Untuk keterlambatan lebih dari 1 jam, dikenakan biaya tambah 20%.</p>
+                    <h6 class="mt-4">3. Sewa Kostum</h6>
+                    <p>Masa sewa standar 3 hari (H-1, H, H+1). Denda keterlambatan pengembalian Rp 50.000/hari. Kerusakan kostum akan dikenakan biaya perbaikan sesuai tingkat kerusakan.</p>
                     
-                    <h6 class="mt-4">4. Perubahan</h6>
-                    <p>Perubahan paket atau penambahan orang dapat dilakukan maksimal H-14 dengan penyesuaian harga. Perubahan di bawah 14 hari dikenakan biaya tambah 15%.</p>
+                    <h6 class="mt-4">4. Transportasi</h6>
+                    <p>Harga sudah termasuk layanan di area Grobogan. Untuk daerah lain dikenakan biaya transportasi tambahan sesuai jarak. Biaya transport akan dikomunikasikan saat konsultasi.</p>
                     
-                    <h6 class="mt-4">5. Force Majeure</h6>
-                    <p>Untuk kondisi force majeure (bencana alam, pandemi, dll), DP dapat dialihkan ke tanggal lain atau dikembalikan 75% setelah dipotong biaya administrasi.</p>
+                    <h6 class="mt-4">5. Perubahan Jadwal</h6>
+                    <p>Perubahan tanggal dapat dilakukan maksimal 14 hari sebelum acara dengan ketersediaan yang terbatas. Perubahan di bawah 14 hari dikenakan biaya administrasi 10%.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -975,15 +1104,47 @@
         </div>
     </div>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6287731310979?text=Halo%20Maulia,%20saya%20ingin%20konsultasi%20tentang%20makeup%20atau%20sewa%20kostum%20pernikahan" 
+       class="whatsapp-float" 
+       target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+    <div class="whatsapp-text">Chat via WhatsApp</div>
+
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="bi bi-chevron-up"></i>
     </a>
 
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
+        // Initialize Map
+        function initMap() {
+            // Coordinates for Desa Klambu, Grobogan
+            const klambuCoords = [-7.0833, 110.8667];
+            
+            // Create map
+            const map = L.map('map').setView(klambuCoords, 13);
+            
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add marker
+            L.marker(klambuCoords).addTo(map)
+                .bindPopup('<b>Studio Maulia</b><br>Desa Klambu, Grobogan<br>Jawa Tengah')
+                .openPopup();
+        }
+        
+        // Initialize map when page loads
+        document.addEventListener('DOMContentLoaded', initMap);
+        
         // Back to top button functionality
         const backToTopButton = document.getElementById('backToTop');
         
@@ -1037,6 +1198,23 @@
             }
         });
         
+        // Auto-select package when clicking package buttons
+        document.querySelectorAll('[data-package]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (!this.getAttribute('href') || this.getAttribute('href') === '#booking') {
+                    e.preventDefault();
+                    const packageValue = this.getAttribute('data-package');
+                    document.getElementById('package').value = packageValue;
+                    
+                    // Scroll to booking form
+                    document.querySelector('#booking').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
         // Form submission
         const bookingForm = document.getElementById('bookingForm');
         bookingForm.addEventListener('submit', (e) => {
@@ -1045,22 +1223,36 @@
             // Get form values
             const fullName = document.getElementById('fullName').value;
             const phone = document.getElementById('phone').value;
+            const serviceType = document.getElementById('serviceType').value;
             const package = document.getElementById('package').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const location = document.getElementById('location').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            
+            // Format date
+            const formattedDate = new Date(eventDate).toLocaleDateString('id-ID', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
             
             // Create WhatsApp message
-            const message = `Halo Maulia, saya ${fullName} ingin booking makeup untuk pernikahan. Detail: 
-- Nama: ${fullName}
-- Telepon: ${phone}
-- Paket: ${package}
-- Tanggal: ${document.getElementById('weddingDate').value}
-- Lokasi: ${document.getElementById('location').value}
-- Email: ${document.getElementById('email').value}`;
+            const message = `Halo Maulia, saya ${fullName} ingin booking layanan pernikahan. Detail:
+📋 Jenis Layanan: ${serviceType}
+📦 Paket: ${package}
+📅 Tanggal Acara: ${formattedDate}
+📍 Lokasi Acara: ${location}
+📞 Telepon: ${phone}
+📝 Info Tambahan: ${additionalInfo || '-'}
+
+Saya sudah membaca syarat dan ketentuan.`;
             
             // Encode message for URL
             const encodedMessage = encodeURIComponent(message);
             
             // Create WhatsApp URL
-            const whatsappURL = `https://wa.me/6281234567890?text=${encodedMessage}`;
+            const whatsappURL = `https://wa.me/6287731310979?text=${encodedMessage}`;
             
             // Open WhatsApp
             window.open(whatsappURL, '_blank');
@@ -1072,12 +1264,12 @@
             bookingForm.reset();
         });
         
-        // Set minimum date for wedding date (tomorrow)
+        // Set minimum date for event date (tomorrow)
         const today = new Date();
         const tomorrow = new Date(today);
         tomorrow.setDate(tomorrow.getDate() + 1);
         const minDate = tomorrow.toISOString().split('T')[0];
-        document.getElementById('weddingDate').min = minDate;
+        document.getElementById('eventDate').min = minDate;
         
         // Highlight active nav link on scroll
         const sections = document.querySelectorAll('section[id]');
