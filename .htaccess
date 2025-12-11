@@ -5,6 +5,11 @@ RewriteCond %{HTTP_HOST} ^(www\.)?goldenrod-finch-327218\.hostingersite\.com [NC
 RewriteCond %{REQUEST_URI} !^/app/public/
 RewriteRule ^(.*)$ /app/public/$1 [L]
 
+# Remove index.php from URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
 # Optional: Redirect www to non-www (or vice versa)
 # RewriteCond %{HTTP_HOST} ^www\.cnf-cis\.online$ [NC]
 # RewriteRule ^(.*)$ https://cnf-cis.online/$1 [R=301,L]
