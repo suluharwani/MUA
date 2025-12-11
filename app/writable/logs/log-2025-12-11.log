@@ -1,0 +1,316 @@
+CRITICAL - 2025-12-11 03:02:07 --> Error: Class "App\Models\KostumModel" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:07:31 --> Error: Class "App\Models\KostumModel" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:15:16 --> Error: Class "App\Models\KostumModel" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:15:21 --> Error: Class "App\Models\KostumModel" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:15:37 --> Error: Class "App\Models\KostumModel" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:18:50 --> ErrorException: file_get_contents(C:\Users\suluh\Documents\GitHub\MUA\app\public\assets/js/custom.js): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in APPPATH\Views\template\footer.php on line 107.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\assets/js/custom.js): Failed to open stream: No such file or directory', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\template\\footer.php', 107)
+ 2 APPPATH\Views\template\footer.php(107): file_get_contents('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\assets/js/custom.js')
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\template\\footer.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('template/footer', null, true)
+ 6 APPPATH\Views\home.php(63): CodeIgniter\View\View->include('template/footer')
+ 7 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\home.php')
+ 8 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 9 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('home', [], true)
+10 APPPATH\Controllers\Home.php(19): view('home', [...])
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:20:23 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "paket_makeup.php"
+[Method: GET, Route: paket-makeup]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('paket_makeup.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('paket_makeup', [], true)
+ 3 APPPATH\Controllers\Home.php(31): view('paket_makeup', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->paketMakeup()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:20:31 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "paket_makeup.php"
+[Method: GET, Route: paket-makeup]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('paket_makeup.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('paket_makeup', [], true)
+ 3 APPPATH\Controllers\Home.php(31): view('paket_makeup', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->paketMakeup()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:20:34 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "sewa_kostum.php"
+[Method: GET, Route: sewa-kostum]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('sewa_kostum.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('sewa_kostum', [], true)
+ 3 APPPATH\Controllers\Home.php(43): view('sewa_kostum', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sewaKostum()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:20:40 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "paket_makeup.php"
+[Method: GET, Route: paket-makeup]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('paket_makeup.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('paket_makeup', [], true)
+ 3 APPPATH\Controllers\Home.php(31): view('paket_makeup', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->paketMakeup()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:28:07 --> Error: Class "App\Models\PengaturanModel" not found
+[Method: GET, Route: paket-makeup]
+in APPPATH\Controllers\Home.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->paketMakeup()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:28:30 --> Error: Class "App\Models\PengaturanModel" not found
+[Method: GET, Route: paket-makeup]
+in APPPATH\Controllers\Home.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->paketMakeup()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:38:28 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "sewa_kostum.php"
+[Method: GET, Route: sewa-kostum]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('sewa_kostum.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('sewa_kostum', [], true)
+ 3 APPPATH\Controllers\Home.php(59): view('sewa_kostum', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sewaKostum()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:39:25 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "sewa_kostum.php"
+[Method: GET, Route: sewa-kostum]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('sewa_kostum.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('sewa_kostum', [], true)
+ 3 APPPATH\Controllers\Home.php(59): view('sewa_kostum', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sewaKostum()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:41:51 --> CodeIgniter\Filters\Exceptions\FilterException: "auth" filter must have a matching alias defined.
+[Method: GET, Route: admin]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(467): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:45:49 --> CodeIgniter\Filters\Exceptions\FilterException: "auth" filter must have a matching alias defined.
+[Method: GET, Route: admin]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(467): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:45:54 --> Error: Call to undefined function character_limiter()
+[Method: GET, Route: sewa-kostum]
+in APPPATH\Views\sewa_kostum.php on line 105.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('sewa_kostum', [], true)
+ 4 APPPATH\Controllers\Home.php(71): view('sewa_kostum', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sewaKostum()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:48:27 --> Error: Call to undefined function App\Controllers\character_limiter()
+[Method: GET, Route: sewa-kostum/setelan-pengantin]
+in APPPATH\Controllers\Home.php on line 90.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->detailKostum('setelan-pengantin')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:49:21 --> Error: Call to undefined function App\Controllers\character_limiter()
+[Method: GET, Route: sewa-kostum/setelan-pengantin]
+in APPPATH\Controllers\Home.php on line 90.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->detailKostum('setelan-pengantin')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 03:49:27 --> Error: Call to undefined function App\Controllers\character_limiter()
+[Method: GET, Route: sewa-kostum/setelan-pengantin]
+in APPPATH\Controllers\Home.php on line 90.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->detailKostum('setelan-pengantin')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 04:18:24 --> Error: Call to undefined function character_limiter()
+[Method: GET, Route: mitra]
+in APPPATH\Views\mitra.php on line 157.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('mitra', [], true)
+ 4 APPPATH\Controllers\Home.php(207): view('mitra', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->mitra()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 04:22:54 --> ErrorException: Cannot redeclare character_limiter() (previously declared in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Helpers\text_helper.php:52)
+[Method: GET, Route: sewa-kostum]
+in APPPATH\Views\sewa_kostum.php on line 4.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-12-11 04:23:00 --> ErrorException: Cannot redeclare character_limiter() (previously declared in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Helpers\text_helper.php:52)
+[Method: GET, Route: sewa-kostum]
+in APPPATH\Views\sewa_kostum.php on line 4.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-12-11 04:49:50 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: gallery]
+in APPPATH\Views\gallery.php on line 88.
+ 1 APPPATH\Views\gallery.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\gallery.php', 88)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\gallery.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('gallery', [], true)
+ 5 APPPATH\Controllers\Home.php(256): view('gallery', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->gallery()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 04:51:21 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: gallery]
+in APPPATH\Views\gallery.php on line 88.
+ 1 APPPATH\Views\gallery.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\gallery.php', 88)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\gallery.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('gallery', [], true)
+ 5 APPPATH\Controllers\Home.php(257): view('gallery', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->gallery()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 04:52:30 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: gallery]
+in APPPATH\Views\gallery.php on line 88.
+ 1 APPPATH\Views\gallery.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\gallery.php', 88)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\gallery.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('gallery', [], true)
+ 5 APPPATH\Controllers\Home.php(258): view('gallery', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->gallery()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 04:53:37 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: gallery]
+in APPPATH\Views\gallery.php on line 88.
+ 1 APPPATH\Views\gallery.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\gallery.php', 88)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\gallery.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('gallery', [], true)
+ 5 APPPATH\Controllers\Home.php(256): view('gallery', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->gallery()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
