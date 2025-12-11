@@ -1869,3 +1869,37 @@ DEBUG - 2025-12-11 09:44:23 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-12-11 09:44:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-11 09:44:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-11 09:44:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 09:45:14 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\KostumModel::getRelated
+[Method: GET, Route: sewa-kostum/gaun-pengantin]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Home.php(88): CodeIgniter\Model->__call('getRelated', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->detailKostum('gaun-pengantin')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 09:53:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:53:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:53:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:53:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:53:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 09:53:25 --> Error saving kostum: Array to string conversion
+DEBUG - 2025-12-11 09:53:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:53:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 09:53:31 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: admin/pesanan]
+in APPPATH\Views\admin\pesanan\index.php on line 134.
+ 1 APPPATH\Views\admin\pesanan\index.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php', 134)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(36): view('admin/pesanan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')

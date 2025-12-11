@@ -241,6 +241,298 @@ class KostumModel extends Model
         return $kostum;
     }
     
+    /**
+     * Import kostum dari CSV yang sederhana
+     */
+    public function importCSVSimple($csvData)
+    {
+        $successCount = 0;
+        $errorCount = 0;
+        $errors = [];
+        
+        foreach ($csvData as $index => $row) {
+            try {
+                // Validasi data minimal
+                if (empty($row['nama_kostum']) || empty($row['harga_sewa'])) {
+                    $errorCount++;
+                    $errors[] = "Baris {$index}: Nama kostum dan harga harus diisi";
+                    continue;
+                }
+                
+                $data = [
+                    'kategori' => $row['kategori'] ?? 'lainnya',
+                    'nama_kostum' => $row['nama_kostum'],
+                    'deskripsi' => $row['deskripsi'] ?? '',
+                    'harga_sewa' => (float) str_replace(['.', ','], '', $row['harga_sewa']),
+                    'durasi_sewa' => $row['durasi_sewa'] ?? '3 hari',
+                    'ukuran' => $row['ukuran'] ?? '',
+                    'warna' => $row['warna'] ?? '',
+                    'bahan' => $row['bahan'] ?? '',
+                    'kondisi' => $row['kondisi'] ?? 'baik',
+                    'stok' => (int) ($row['stok'] ?? 1),
+                    'stok_tersedia' => (int) ($row['stok_tersedia'] ?? $row['stok'] ?? 1),
+                    'is_active' => isset($row['is_active']) && in_array(strtolower($row['is_active']), ['1', 'true', 'yes', 'aktif']) ? 1 : 0,
+                    'is_featured' => isset($row['is_featured']) && in_array(strtolower($row['is_featured']), ['1', 'true', 'yes']) ? 1 : 0,
+                    'meta_keywords' => $row['meta_keywords'] ?? '',
+                    'meta_description' => $row['meta_description'] ?? ''
+                ];
+                
+                // Handle spesifikasi
+                if (!empty($row['spesifikasi'])) {
+                    $spesifikasiArray = is_array($row['spesifikasi']) ? $row['spesifikasi'] : explode('|', $row['spesifikasi']);
+                    $data['spesifikasi'] = json_encode(array_filter(array_map('trim', $spesifikasiArray)));
+                }
+                
+                if ($this->save($data)) {
+                    $successCount++;
+                } else {
+                    $errorCount++;
+                    $errors[] = "Baris {$index}: " . implode(', ', $this->errors());
+                }
+            } catch (\Exception $e) {
+                $errorCount++;
+                $errors[] = "Baris {$index}: " . $e->getMessage();
+            }
+        }
+        
+        return [
+            'success' => $successCount,
+            'error' => $errorCount,
+            'errors' => $errors
+        ];
+    }
+    
+    /**
+     * Bulk actions sederhana
+     */
+    public function bulkActionSimple($ids, $action)
+    {
+        if (empty($ids)) {
+            return false;
+        }
+        
+        $data = [];
+        
+        switch ($action) {
+            case 'activate':
+                $data['is_active'] = 1;
+                break;
+            case 'deactivate':
+                $data['is_active'] = 0;
+                break;
+            case 'feature':
+                $data['is_featured'] = 1;
+                break;
+            case 'unfeature':
+                $data['is_featured'] = 0;
+                break;
+            case 'delete':
+                // Delete multiple records
+                return $this->whereIn('id', $ids)->delete();
+        }
+        
+        if (!empty($data)) {
+            return $this->whereIn('id', $ids)->set($data)->update();
+        }
+        
+        return false;
+    }
+    
+    // =============================================================
+    // METODE TAMBAHAN YANG HILANG
+    // =============================================================
+    
+    /**
+     * Get related kostum (kostum dengan kategori yang sama, kecuali yang sedang dilihat)
+     */
+    public function getRelated($kategori, $excludeId, $limit = 4)
+    {
+        $builder = $this->builder();
+        $builder->where('kategori', $kategori);
+        $builder->where('id !=', $excludeId);
+        $builder->where('is_active', 1);
+        $builder->where('stok_tersedia >', 0);
+        $builder->orderBy('is_featured', 'DESC');
+        $builder->orderBy('urutan', 'ASC');
+        $builder->orderBy('created_at', 'DESC');
+        $builder->limit($limit);
+        
+        $query = $builder->get();
+        $kostum = $query->getResultArray();
+        
+        // Decode spesifikasi untuk setiap kostum
+        foreach ($kostum as &$item) {
+            if (!empty($item['spesifikasi'])) {
+                $item['spesifikasi'] = json_decode($item['spesifikasi'], true);
+            } else {
+                $item['spesifikasi'] = [];
+            }
+        }
+        
+        return $kostum;
+    }
+    
+    /**
+     * Get popular kostum (berdasarkan yang sering disewa)
+     */
+    public function getPopular($limit = 6)
+    {
+        // NOTE: Ini adalah implementasi sederhana. 
+        // Di aplikasi sebenarnya, Anda mungkin ingin menghitung dari tabel penyewaan
+        
+        $builder = $this->builder();
+        $builder->where('is_active', 1);
+        $builder->where('stok_tersedia >', 0);
+        $builder->orderBy('is_featured', 'DESC');
+        $builder->orderBy('urutan', 'ASC');
+        $builder->limit($limit);
+        
+        $query = $builder->get();
+        $kostum = $query->getResultArray();
+        
+        // Decode spesifikasi untuk setiap kostum
+        foreach ($kostum as &$item) {
+            if (!empty($item['spesifikasi'])) {
+                $item['spesifikasi'] = json_decode($item['spesifikasi'], true);
+            } else {
+                $item['spesifikasi'] = [];
+            }
+        }
+        
+        return $kostum;
+    }
+    
+    /**
+     * Get kostum baru (ditambahkan dalam 30 hari terakhir)
+     */
+    public function getNewArrivals($limit = 6)
+    {
+        $thirtyDaysAgo = date('Y-m-d H:i:s', strtotime('-30 days'));
+        
+        $builder = $this->builder();
+        $builder->where('is_active', 1);
+        $builder->where('created_at >=', $thirtyDaysAgo);
+        $builder->orderBy('created_at', 'DESC');
+        $builder->limit($limit);
+        
+        $query = $builder->get();
+        $kostum = $query->getResultArray();
+        
+        // Decode spesifikasi untuk setiap kostum
+        foreach ($kostum as &$item) {
+            if (!empty($item['spesifikasi'])) {
+                $item['spesifikasi'] = json_decode($item['spesifikasi'], true);
+            } else {
+                $item['spesifikasi'] = [];
+            }
+        }
+        
+        return $kostum;
+    }
+    
+    /**
+     * Search kostum dengan pagination untuk frontend
+     */
+    public function searchKostum($keyword, $kategori = null, $minPrice = null, $maxPrice = null, $limit = 12, $offset = 0)
+    {
+        $builder = $this->builder();
+        $builder->where('is_active', 1);
+        
+        // Keyword search
+        if (!empty($keyword)) {
+            $builder->groupStart()
+                    ->like('nama_kostum', $keyword)
+                    ->orLike('deskripsi', $keyword)
+                    ->orLike('spesifikasi', $keyword)
+                    ->orLike('warna', $keyword)
+                    ->orLike('bahan', $keyword)
+                    ->groupEnd();
+        }
+        
+        // Kategori filter
+        if (!empty($kategori)) {
+            $builder->where('kategori', $kategori);
+        }
+        
+        // Price range filter
+        if (!empty($minPrice)) {
+            $builder->where('harga_sewa >=', $minPrice);
+        }
+        
+        if (!empty($maxPrice)) {
+            $builder->where('harga_sewa <=', $maxPrice);
+        }
+        
+        // Available stock only
+        $builder->where('stok_tersedia >', 0);
+        
+        $builder->orderBy('is_featured', 'DESC');
+        $builder->orderBy('urutan', 'ASC');
+        $builder->orderBy('created_at', 'DESC');
+        
+        // Get total count for pagination
+        $total = $builder->countAllResults(false);
+        
+        // Get results with limit and offset
+        $builder->limit($limit, $offset);
+        $query = $builder->get();
+        $kostum = $query->getResultArray();
+        
+        // Decode spesifikasi untuk setiap kostum
+        foreach ($kostum as &$item) {
+            if (!empty($item['spesifikasi'])) {
+                $item['spesifikasi'] = json_decode($item['spesifikasi'], true);
+            } else {
+                $item['spesifikasi'] = [];
+            }
+        }
+        
+        return [
+            'kostum' => $kostum,
+            'total' => $total
+        ];
+    }
+    
+    /**
+     * Update stok tersedia setelah penyewaan
+     */
+    public function updateStock($id, $quantity = 1, $operation = 'decrease')
+    {
+        $kostum = $this->find($id);
+        
+        if (!$kostum) {
+            return false;
+        }
+        
+        $newStock = $kostum['stok_tersedia'];
+        
+        if ($operation === 'decrease') {
+            $newStock -= $quantity;
+            if ($newStock < 0) $newStock = 0;
+        } elseif ($operation === 'increase') {
+            $newStock += $quantity;
+            if ($newStock > $kostum['stok']) $newStock = $kostum['stok'];
+        }
+        
+        return $this->update($id, ['stok_tersedia' => $newStock]);
+    }
+    
+    /**
+     * Get semua kategori yang memiliki kostum aktif
+     */
+    public function getActiveCategories()
+    {
+        $builder = $this->builder();
+        $builder->select('kategori, COUNT(*) as total');
+        $builder->where('is_active', 1);
+        $builder->where('stok_tersedia >', 0);
+        $builder->groupBy('kategori');
+        $builder->orderBy('total', 'DESC');
+        
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    
     // =============================================================
     // METODE EXISTING (DARI FILE ASLI) - TIDAK DIUBAH
     // =============================================================
@@ -254,9 +546,6 @@ class KostumModel extends Model
             $builder->groupStart()
                     ->like('nama_kostum', $search)
                     ->orLike('deskripsi', $search)
-                    ->orLike('ukuran', $search)
-                    ->orLike('warna', $search)
-                    ->orLike('bahan', $search)
                     ->groupEnd();
         }
         
@@ -290,9 +579,6 @@ class KostumModel extends Model
             $builder->groupStart()
                     ->like('nama_kostum', $search)
                     ->orLike('deskripsi', $search)
-                    ->orLike('ukuran', $search)
-                    ->orLike('warna', $search)
-                    ->orLike('bahan', $search)
                     ->groupEnd();
         }
         
@@ -313,7 +599,8 @@ class KostumModel extends Model
     
     public function getAllWithFilter($kategori = null, $status = 'active', $featured = null, $search = null, $limit = null, $offset = 0)
     {
-        $builder = $this->builder();
+        $builder = $this->db->table($this->table);
+        $builder->select('*');
         
         if ($kategori) {
             $builder->where('kategori', $kategori);
@@ -473,7 +760,7 @@ class KostumModel extends Model
         ];
         
         // Hitung per kategori
-        $builder = $this->builder();
+        $builder = $this->db->table($this->table);
         $builder->select('kategori, COUNT(*) as total');
         $builder->where('is_active', 1);
         $builder->groupBy('kategori');
@@ -509,97 +796,6 @@ class KostumModel extends Model
         }
         
         return false;
-    }
-    
-    public function bulkActionSimple($ids, $action)
-    {
-        if (empty($ids)) {
-            return false;
-        }
-        
-        $data = [];
-        
-        switch ($action) {
-            case 'activate':
-                $data['is_active'] = 1;
-                break;
-            case 'deactivate':
-                $data['is_active'] = 0;
-                break;
-            case 'feature':
-                $data['is_featured'] = 1;
-                break;
-            case 'unfeature':
-                $data['is_featured'] = 0;
-                break;
-            case 'delete':
-                // Delete multiple records
-                return $this->whereIn('id', $ids)->delete();
-        }
-        
-        if (!empty($data)) {
-            return $this->whereIn('id', $ids)->set($data)->update();
-        }
-        
-        return false;
-    }
-    
-    public function importCSVSimple($csvData)
-    {
-        $successCount = 0;
-        $errorCount = 0;
-        $errors = [];
-        
-        foreach ($csvData as $index => $row) {
-            try {
-                // Validasi data minimal
-                if (empty($row['nama_kostum']) || empty($row['harga_sewa'])) {
-                    $errorCount++;
-                    $errors[] = "Baris {$index}: Nama kostum dan harga harus diisi";
-                    continue;
-                }
-                
-                $data = [
-                    'kategori' => $row['kategori'] ?? 'lainnya',
-                    'nama_kostum' => $row['nama_kostum'],
-                    'deskripsi' => $row['deskripsi'] ?? '',
-                    'harga_sewa' => (float) str_replace(['.', ','], '', $row['harga_sewa']),
-                    'durasi_sewa' => $row['durasi_sewa'] ?? '3 hari',
-                    'ukuran' => $row['ukuran'] ?? '',
-                    'warna' => $row['warna'] ?? '',
-                    'bahan' => $row['bahan'] ?? '',
-                    'kondisi' => $row['kondisi'] ?? 'baik',
-                    'stok' => (int) ($row['stok'] ?? 1),
-                    'stok_tersedia' => (int) ($row['stok_tersedia'] ?? $row['stok'] ?? 1),
-                    'is_active' => isset($row['is_active']) && in_array(strtolower($row['is_active']), ['1', 'true', 'yes', 'aktif']) ? 1 : 0,
-                    'is_featured' => isset($row['is_featured']) && in_array(strtolower($row['is_featured']), ['1', 'true', 'yes']) ? 1 : 0,
-                    'meta_keywords' => $row['meta_keywords'] ?? '',
-                    'meta_description' => $row['meta_description'] ?? ''
-                ];
-                
-                // Handle spesifikasi
-                if (!empty($row['spesifikasi'])) {
-                    $spesifikasiArray = is_array($row['spesifikasi']) ? $row['spesifikasi'] : explode('|', $row['spesifikasi']);
-                    $data['spesifikasi'] = json_encode(array_filter(array_map('trim', $spesifikasiArray)));
-                }
-                
-                if ($this->save($data)) {
-                    $successCount++;
-                } else {
-                    $errorCount++;
-                    $errors[] = "Baris {$index}: " . implode(', ', $this->errors());
-                }
-            } catch (\Exception $e) {
-                $errorCount++;
-                $errors[] = "Baris {$index}: " . $e->getMessage();
-            }
-        }
-        
-        return [
-            'success' => $successCount,
-            'error' => $errorCount,
-            'errors' => $errors
-        ];
     }
     
     public function getKategoriOptions()

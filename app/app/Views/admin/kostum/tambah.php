@@ -360,6 +360,28 @@ form.addEventListener('submit', function(e) {
         alert('Harap isi semua field yang wajib diisi');
     }
 });
+const gambarInput = document.getElementById('gambar');
+if (gambarInput) {
+    gambarInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            // Ukuran maksimal 2MB
+            if (file.size > 2097152) {
+                alert('Ukuran gambar maksimal 2MB');
+                this.value = '';
+                return;
+            }
+            
+            // Tipe file
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Format gambar tidak didukung. Gunakan JPG, PNG, atau WebP');
+                this.value = '';
+                return;
+            }
+        }
+    });
+}
 </script>
 
 <style>
