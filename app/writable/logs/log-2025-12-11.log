@@ -314,3 +314,1558 @@ in APPPATH\Views\gallery.php on line 88.
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+CRITICAL - 2025-12-11 07:23:19 --> CodeIgniter\Filters\Exceptions\FilterException: "auth" filter must have a matching alias defined.
+[Method: GET, Route: admin]
+in SYSTEMPATH\Filters\Filters.php on line 590.
+ 1 SYSTEMPATH\Filters\Filters.php(590): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('auth')
+ 2 SYSTEMPATH\Filters\Filters.php(641): CodeIgniter\Filters\Filters->enableFilter('auth', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(467): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+ERROR - 2025-12-11 07:31:15 --> mysqli_sql_exception: Table 'users' already exists in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `u...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\app\Database\Migrations\2025-12-11-072736_CreateUsersTable.php(52): CodeIgniter\Database\Forge->createTable('users')
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(876): App\Database\Migrations\CreateUsersTable->up()
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+DEBUG - 2025-12-11 07:32:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:32:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:32:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:32:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:32:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:32:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:32:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:32:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:33:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:33:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:34:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:34:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 07:34:06 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: admin/pesanan]
+in APPPATH\Views\admin\pesanan\index.php on line 134.
+ 1 APPPATH\Views\admin\pesanan\index.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php', 134)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(36): view('admin/pesanan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 07:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:34:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:34:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:35:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:35:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:35:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:35:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:35:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:35:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:35:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 07:35:19 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/kostum/edit.php"
+[Method: GET, Route: admin/kostum/edit/1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/kostum/edit.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/kostum/edit', [], true)
+ 3 APPPATH\Controllers\Admin\Kostum.php(116): view('admin/kostum/edit', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->edit('1')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 07:35:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 07:35:29 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: admin/pesanan]
+in APPPATH\Views\admin\pesanan\index.php on line 134.
+ 1 APPPATH\Views\admin\pesanan\index.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php', 134)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(36): view('admin/pesanan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 07:35:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:35:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 07:35:38 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/paket/tambah.php"
+[Method: GET, Route: admin/paket/tambah]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/paket/tambah.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/paket/tambah', [], true)
+ 3 APPPATH\Controllers\Admin\Paket.php(29): view('admin/paket/tambah', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Paket->tambah()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Paket))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 07:41:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:42:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:42:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:42:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 07:42:33 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: admin/pesanan]
+in APPPATH\Views\admin\pesanan\index.php on line 134.
+ 1 APPPATH\Views\admin\pesanan\index.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php', 134)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(36): view('admin/pesanan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 07:42:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 07:42:39 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: admin/pesanan]
+in APPPATH\Views\admin\pesanan\index.php on line 134.
+ 1 APPPATH\Views\admin\pesanan\index.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php', 134)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(36): view('admin/pesanan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 07:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 07:42:47 --> ErrorException: Undefined variable $loop
+[Method: GET, Route: admin/pengaturan]
+in APPPATH\Views\admin\pengaturan\index.php on line 226.
+ 1 APPPATH\Views\admin\pengaturan\index.php(226): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $loop', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php', 226)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pengaturan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pengaturan.php(30): view('admin/pengaturan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pengaturan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 07:42:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:43:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 07:43:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/paket/tambah.php"
+[Method: GET, Route: admin/paket/tambah]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/paket/tambah.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/paket/tambah', [], true)
+ 3 APPPATH\Controllers\Admin\Paket.php(29): view('admin/paket/tambah', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Paket->tambah()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Paket))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 07:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 07:43:22 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/paket/tambah.php"
+[Method: GET, Route: admin/paket/tambah]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/paket/tambah.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/paket/tambah', [], true)
+ 3 APPPATH\Controllers\Admin\Paket.php(29): view('admin/paket/tambah', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Paket->tambah()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Paket))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 07:43:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:47:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:47:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:48:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:49:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:49:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:49:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:50:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:53:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:54:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:54:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:54:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:54:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:54:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:55:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:55:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:55:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:55:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:55:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:55:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:56:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 07:56:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:03:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:03:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:03:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:03:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:07:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:10:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:10:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:10:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:16:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:17:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-11 08:17:43 --> Saving package data: Array
+(
+    [nama_paket] => Paket Makeup Basic A
+    [deskripsi] => Paket makeup untuk acara casual seperti gathering, foto studio, atau pertemuan penting. Cocok untuk yang menginginkan tampilan fresh dan natural.
+    [harga] => 500000
+    [durasi] => 2 jam
+    [is_featured] => 0
+    [features] => Makeup wajah lengkap
+Hairdo sederhana
+Konsultasi warna dasar
+Touch up ringan
+    [urutan] => 3
+    [is_active] => 1
+    [created_at] => 2025-12-11 08:17:43
+    [updated_at] => 2025-12-11 08:17:43
+)
+
+DEBUG - 2025-12-11 08:17:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:17:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:21:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:21:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:21:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:21:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:24:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:24:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:24:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:24:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:24:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-12-11 08:29:27 --> Data to save: Array
+(
+    [id] => 1
+    [nama_paket] => Paket Basic
+    [deskripsi] => Paket makeup basic untuk kebutuhan sehari-hari
+    [harga] => 700000
+    [durasi] => 2 jam
+    [is_featured] => 0
+    [features] => Makeup wajah
+Hairdo sederhana
+    [urutan] => 1
+    [is_active] => 1
+    [updated_at] => 2025-12-11 08:29:27
+)
+
+DEBUG - 2025-12-11 08:29:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:29:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:32:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:33:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:42:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:42:30 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\KostumModel::getFiltered
+[Method: GET, Route: admin/kostum]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Admin\Kostum.php(40): CodeIgniter\Model->__call('getFiltered', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->index()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:43:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:43:19 --> Error: Call to a member function countAllResults() on array
+[Method: GET, Route: admin/kostum]
+in APPPATH\Controllers\Admin\Kostum.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:45:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:45:27 --> TypeError: CodeIgniter\Database\BaseBuilder::get(): Argument #2 ($offset) must be of type int, null given, called in C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\KostumModel.php on line 792
+[Method: GET, Route: admin/kostum]
+in SYSTEMPATH\Database\BaseBuilder.php on line 1636.
+ 1 APPPATH\Models\KostumModel.php(792): CodeIgniter\Database\BaseBuilder->get(null, null)
+ 2 APPPATH\Controllers\Admin\Kostum.php(41): App\Models\KostumModel->getFiltered(null, null, null, null, null, true)
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:45:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:45:31 --> TypeError: CodeIgniter\Database\BaseBuilder::get(): Argument #2 ($offset) must be of type int, null given, called in C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\KostumModel.php on line 792
+[Method: GET, Route: admin/kostum]
+in SYSTEMPATH\Database\BaseBuilder.php on line 1636.
+ 1 APPPATH\Models\KostumModel.php(792): CodeIgniter\Database\BaseBuilder->get(null, null)
+ 2 APPPATH\Controllers\Admin\Kostum.php(41): App\Models\KostumModel->getFiltered(null, null, null, null, null, true)
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:48:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:48:07 --> Error: Call to a member function countAllResults() on array
+[Method: GET, Route: admin/kostum]
+in APPPATH\Controllers\Admin\Kostum.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:48:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:48:20 --> Error: Call to a member function countAllResults() on array
+[Method: GET, Route: admin/kostum]
+in APPPATH\Controllers\Admin\Kostum.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:48:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:49:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:50:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:50:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:50:16 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/kostum/edit.php"
+[Method: GET, Route: admin/kostum/edit/1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/kostum/edit.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/kostum/edit', [], true)
+ 3 APPPATH\Controllers\Admin\Kostum.php(156): view('admin/kostum/edit', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->edit('1')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:52:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:52:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:52:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:53:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:53:00 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/kostum/tambah.php"
+[Method: GET, Route: admin/kostum/tambah]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/kostum/tambah.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/kostum/tambah', [], true)
+ 3 APPPATH\Controllers\Admin\Kostum.php(71): view('admin/kostum/tambah', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->tambah()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:53:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:53:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:53:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:53:44 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\KostumModel::bulkAction
+[Method: POST, Route: admin/kostum/bulk-action]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Admin\Kostum.php(272): CodeIgniter\Model->__call('bulkAction', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->bulkAction()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:53:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:56:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:56:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:56:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:56:51 --> Error: Xdebug has detected a possible infinite loop, and aborted your script with a stack depth of '512' frames
+[Method: GET, Route: admin/kostum/toggle-featured/1]
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 370.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(370): mysqli->real_escape_string('2025-12-11 08:56:51')
+ 2 SYSTEMPATH\Database\BaseConnection.php(1412): CodeIgniter\Database\MySQLi\Connection->_escapeString('2025-12-11 08:56:51')
+ 3 SYSTEMPATH\Database\BaseConnection.php(1376): CodeIgniter\Database\BaseConnection->escapeString('2025-12-11 08:56:51')
+ 4 SYSTEMPATH\Database\Query.php(327): CodeIgniter\Database\BaseConnection->escape('2025-12-11 08:56:51')
+ 5 SYSTEMPATH\Database\Query.php(314): CodeIgniter\Database\Query->matchNamedBinds('UPDATE `kostum` SET `stok_tersedia` = :stok_tersedia:, `updated_at` = :updated_at:
+WHERE `kostum`.`id` IN :kostum.id:', [...])
+ 6 SYSTEMPATH\Database\Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 7 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\Query->getQuery()
+ 8 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `kostum` SET `stok_tersedia` = :stok_tersedia:, `updated_at` = :updated_at:
+WHERE `kostum`.`id` IN :kostum.id:', [...], false)
+ 9 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+10 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+11 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+12 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+13 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+14 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+15 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+16 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+17 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+18 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+19 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+20 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+21 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+22 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+23 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+24 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+25 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+26 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+27 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+28 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+29 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+30 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+31 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+32 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+33 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+34 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+35 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+36 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+37 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+38 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+39 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+40 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+41 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+42 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+43 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+44 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+45 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+46 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+47 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+48 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+49 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+50 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+51 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+52 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+53 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+54 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+55 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+56 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+57 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+58 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+59 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+60 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+61 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+62 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+63 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+64 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+65 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+66 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+67 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+68 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+69 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+70 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+71 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+72 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+73 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+74 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+75 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+76 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+77 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+78 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+79 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+80 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+81 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+82 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+83 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+84 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+85 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+86 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+87 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+88 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+89 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+90 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+91 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+92 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+93 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+94 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+95 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+96 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+97 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+98 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+99 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+100 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+101 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+102 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+103 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+104 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+105 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+106 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+107 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+108 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+109 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+110 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+111 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+112 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+113 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+114 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+115 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+116 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+117 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+118 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+119 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+120 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+121 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+122 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+123 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+124 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+125 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+126 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+127 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+128 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+129 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+130 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+131 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+132 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+133 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+134 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+135 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+136 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+137 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+138 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+139 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+140 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+141 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+142 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+143 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+144 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+145 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+146 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+147 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+148 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+149 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+150 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+151 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+152 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+153 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+154 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+155 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+156 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+157 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+158 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+159 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+160 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+161 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+162 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+163 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+164 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+165 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+166 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+167 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+168 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+169 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+170 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+171 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+172 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+173 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+174 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+175 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+176 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+177 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+178 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+179 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+180 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+181 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+182 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+183 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+184 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+185 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+186 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+187 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+188 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+189 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+190 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+191 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+192 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+193 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+194 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+195 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+196 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+197 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+198 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+199 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+200 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+201 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+202 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+203 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+204 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+205 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+206 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+207 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+208 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+209 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+210 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+211 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+212 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+213 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+214 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+215 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+216 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+217 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+218 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+219 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+220 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+221 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+222 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+223 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+224 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+225 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+226 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+227 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+228 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+229 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+230 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+231 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+232 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+233 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+234 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+235 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+236 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+237 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+238 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+239 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+240 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+241 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+242 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+243 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+244 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+245 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+246 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+247 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+248 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+249 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+250 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+251 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+252 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+253 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+254 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+255 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+256 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+257 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+258 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+259 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+260 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+261 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+262 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+263 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+264 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+265 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+266 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+267 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+268 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+269 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+270 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+271 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+272 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+273 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+274 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+275 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+276 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+277 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+278 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+279 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+280 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+281 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+282 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+283 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+284 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+285 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+286 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+287 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+288 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+289 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+290 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+291 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+292 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+293 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+294 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+295 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+296 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+297 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+298 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+299 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+300 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+301 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+302 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+303 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+304 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+305 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+306 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+307 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+308 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+309 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+310 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+311 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+312 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+313 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+314 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+315 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+316 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+317 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+318 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+319 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+320 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+321 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+322 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+323 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+324 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+325 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+326 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+327 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+328 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+329 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+330 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+331 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+332 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+333 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+334 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+335 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+336 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+337 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+338 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+339 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+340 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+341 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+342 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+343 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+344 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+345 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+346 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+347 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+348 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+349 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+350 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+351 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+352 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+353 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+354 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+355 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+356 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+357 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+358 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+359 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+360 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+361 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+362 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+363 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+364 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+365 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+366 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+367 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+368 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+369 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+370 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+371 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+372 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+373 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+374 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+375 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+376 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+377 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+378 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+379 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+380 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+381 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+382 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+383 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+384 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+385 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+386 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+387 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+388 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+389 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+390 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+391 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+392 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+393 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+394 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+395 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+396 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+397 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+398 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+399 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+400 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+401 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+402 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+403 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+404 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+405 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+406 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+407 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+408 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+409 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+410 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+411 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+412 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+413 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+414 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+415 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+416 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+417 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+418 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+419 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+420 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+421 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+422 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+423 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+424 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+425 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+426 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+427 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+428 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+429 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+430 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+431 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+432 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+433 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+434 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+435 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+436 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+437 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+438 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+439 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+440 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+441 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+442 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+443 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+444 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+445 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+446 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+447 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+448 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+449 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+450 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+451 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+452 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+453 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+454 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+455 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+456 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+457 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+458 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+459 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+460 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+461 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+462 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+463 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+464 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+465 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+466 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+467 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+468 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+469 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+470 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+471 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+472 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+473 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+474 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+475 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+476 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+477 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+478 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+479 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+480 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+481 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+482 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+483 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+484 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+485 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+486 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+487 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+488 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+489 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+490 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+491 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+492 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+493 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+494 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+495 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+496 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+497 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+498 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+499 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+500 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+501 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+502 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+503 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+504 APPPATH\Models\KostumModel.php(482): CodeIgniter\Model->update('1', [...])
+505 APPPATH\Controllers\Admin\Kostum.php(256): App\Models\KostumModel->toggleFeatured('1')
+506 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->toggleFeatured('1')
+507 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+508 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+509 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+510 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+511 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+512 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:56:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:57:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 08:57:17 --> Error: Xdebug has detected a possible infinite loop, and aborted your script with a stack depth of '512' frames
+[Method: GET, Route: admin/kostum/toggle-status/1]
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 370.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(370): mysqli->real_escape_string('2025-12-11 08:57:17')
+ 2 SYSTEMPATH\Database\BaseConnection.php(1412): CodeIgniter\Database\MySQLi\Connection->_escapeString('2025-12-11 08:57:17')
+ 3 SYSTEMPATH\Database\BaseConnection.php(1376): CodeIgniter\Database\BaseConnection->escapeString('2025-12-11 08:57:17')
+ 4 SYSTEMPATH\Database\Query.php(327): CodeIgniter\Database\BaseConnection->escape('2025-12-11 08:57:17')
+ 5 SYSTEMPATH\Database\Query.php(314): CodeIgniter\Database\Query->matchNamedBinds('UPDATE `kostum` SET `stok_tersedia` = :stok_tersedia:, `updated_at` = :updated_at:
+WHERE `kostum`.`id` IN :kostum.id:', [...])
+ 6 SYSTEMPATH\Database\Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 7 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\Query->getQuery()
+ 8 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `kostum` SET `stok_tersedia` = :stok_tersedia:, `updated_at` = :updated_at:
+WHERE `kostum`.`id` IN :kostum.id:', [...], false)
+ 9 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+10 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+11 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+12 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+13 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+14 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+15 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+16 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+17 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+18 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+19 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+20 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+21 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+22 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+23 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+24 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+25 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+26 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+27 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+28 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+29 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+30 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+31 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+32 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+33 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+34 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+35 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+36 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+37 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+38 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+39 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+40 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+41 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+42 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+43 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+44 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+45 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+46 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+47 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+48 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+49 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+50 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+51 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+52 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+53 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+54 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+55 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+56 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+57 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+58 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+59 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+60 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+61 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+62 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+63 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+64 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+65 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+66 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+67 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+68 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+69 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+70 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+71 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+72 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+73 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+74 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+75 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+76 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+77 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+78 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+79 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+80 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+81 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+82 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+83 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+84 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+85 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+86 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+87 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+88 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+89 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+90 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+91 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+92 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+93 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+94 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+95 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+96 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+97 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+98 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+99 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+100 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+101 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+102 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+103 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+104 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+105 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+106 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+107 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+108 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+109 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+110 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+111 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+112 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+113 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+114 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+115 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+116 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+117 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+118 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+119 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+120 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+121 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+122 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+123 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+124 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+125 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+126 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+127 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+128 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+129 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+130 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+131 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+132 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+133 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+134 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+135 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+136 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+137 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+138 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+139 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+140 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+141 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+142 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+143 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+144 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+145 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+146 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+147 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+148 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+149 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+150 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+151 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+152 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+153 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+154 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+155 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+156 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+157 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+158 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+159 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+160 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+161 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+162 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+163 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+164 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+165 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+166 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+167 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+168 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+169 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+170 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+171 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+172 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+173 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+174 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+175 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+176 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+177 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+178 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+179 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+180 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+181 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+182 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+183 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+184 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+185 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+186 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+187 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+188 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+189 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+190 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+191 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+192 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+193 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+194 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+195 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+196 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+197 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+198 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+199 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+200 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+201 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+202 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+203 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+204 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+205 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+206 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+207 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+208 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+209 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+210 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+211 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+212 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+213 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+214 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+215 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+216 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+217 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+218 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+219 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+220 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+221 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+222 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+223 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+224 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+225 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+226 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+227 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+228 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+229 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+230 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+231 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+232 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+233 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+234 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+235 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+236 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+237 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+238 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+239 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+240 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+241 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+242 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+243 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+244 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+245 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+246 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+247 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+248 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+249 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+250 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+251 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+252 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+253 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+254 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+255 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+256 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+257 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+258 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+259 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+260 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+261 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+262 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+263 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+264 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+265 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+266 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+267 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+268 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+269 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+270 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+271 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+272 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+273 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+274 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+275 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+276 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+277 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+278 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+279 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+280 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+281 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+282 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+283 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+284 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+285 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+286 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+287 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+288 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+289 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+290 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+291 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+292 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+293 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+294 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+295 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+296 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+297 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+298 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+299 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+300 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+301 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+302 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+303 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+304 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+305 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+306 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+307 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+308 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+309 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+310 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+311 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+312 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+313 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+314 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+315 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+316 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+317 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+318 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+319 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+320 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+321 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+322 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+323 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+324 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+325 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+326 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+327 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+328 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+329 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+330 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+331 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+332 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+333 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+334 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+335 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+336 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+337 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+338 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+339 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+340 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+341 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+342 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+343 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+344 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+345 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+346 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+347 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+348 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+349 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+350 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+351 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+352 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+353 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+354 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+355 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+356 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+357 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+358 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+359 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+360 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+361 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+362 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+363 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+364 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+365 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+366 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+367 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+368 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+369 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+370 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+371 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+372 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+373 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+374 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+375 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+376 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+377 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+378 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+379 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+380 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+381 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+382 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+383 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+384 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+385 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+386 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+387 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+388 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+389 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+390 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+391 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+392 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+393 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+394 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+395 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+396 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+397 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+398 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+399 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+400 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+401 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+402 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+403 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+404 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+405 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+406 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+407 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+408 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+409 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+410 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+411 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+412 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+413 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+414 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+415 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+416 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+417 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+418 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+419 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+420 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+421 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+422 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+423 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+424 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+425 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+426 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+427 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+428 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+429 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+430 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+431 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+432 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+433 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+434 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+435 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+436 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+437 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+438 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+439 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+440 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+441 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+442 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+443 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+444 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+445 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+446 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+447 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+448 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+449 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+450 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+451 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+452 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+453 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+454 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+455 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+456 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+457 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+458 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+459 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+460 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+461 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+462 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+463 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+464 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+465 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+466 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+467 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+468 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+469 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+470 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+471 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+472 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+473 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+474 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+475 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+476 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+477 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+478 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+479 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+480 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+481 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+482 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+483 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+484 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+485 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+486 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+487 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+488 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+489 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+490 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+491 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+492 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+493 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+494 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+495 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+496 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+497 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+498 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+499 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+500 APPPATH\Models\KostumModel.php(220): CodeIgniter\Model->update('1', [...])
+501 SYSTEMPATH\BaseModel.php(1691): App\Models\KostumModel->updateStokTersedia([...])
+502 SYSTEMPATH\BaseModel.php(1029): CodeIgniter\BaseModel->trigger('afterUpdate', [...])
+503 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+504 APPPATH\Models\KostumModel.php(467): CodeIgniter\Model->update('1', [...])
+505 APPPATH\Controllers\Admin\Kostum.php(247): App\Models\KostumModel->toggleStatus('1')
+506 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->toggleStatus('1')
+507 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+508 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+509 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+510 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+511 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+512 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 08:58:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:58:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:59:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:59:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:59:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 08:59:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:00:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 09:07:08 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\KostumModel::getAvailable
+[Method: GET, Route: sewa-kostum]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Home.php(62): CodeIgniter\Model->__call('getAvailable', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sewaKostum()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 09:16:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:16:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:16:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:16:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:21:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:28:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:28:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 09:28:53 --> Error saving kostum: Array to string conversion
+DEBUG - 2025-12-11 09:28:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:29:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:29:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 09:29:11 --> ErrorException: Undefined variable $loop
+[Method: GET, Route: admin/pengaturan]
+in APPPATH\Views\admin\pengaturan\index.php on line 226.
+ 1 APPPATH\Views\admin\pengaturan\index.php(226): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $loop', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php', 226)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pengaturan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pengaturan.php(30): view('admin/pengaturan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pengaturan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 09:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:40:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:40:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:41:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 09:41:26 --> Error saving kostum: Array to string conversion
+DEBUG - 2025-12-11 09:41:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:41:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-11 09:41:44 --> Error saving kostum: Array to string conversion
+DEBUG - 2025-12-11 09:41:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:41:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:41:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:42:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:42:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 09:44:22 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: admin/kostum/simpan]
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+DEBUG - 2025-12-11 09:44:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:44:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:44:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 09:44:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

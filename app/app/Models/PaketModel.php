@@ -23,8 +23,6 @@ class PaketModel extends Model
         'features',
         'urutan',
         'is_active',
-        'meta_keywords',
-        'meta_description',
         'created_at',
         'updated_at'
     ];
@@ -37,7 +35,6 @@ class PaketModel extends Model
     // Validation
     protected $validationRules = [
         'nama_paket' => 'required|min_length[3]|max_length[100]',
-        'slug' => 'required|is_unique[paket_makeup.slug,id,{id}]',
         'harga' => 'required|numeric',
         'durasi' => 'permit_empty|max_length[50]'
     ];
@@ -47,10 +44,6 @@ class PaketModel extends Model
             'required' => 'Nama paket wajib diisi',
             'min_length' => 'Nama paket minimal 3 karakter',
             'max_length' => 'Nama paket maksimal 100 karakter'
-        ],
-        'slug' => [
-            'required' => 'Slug wajib diisi',
-            'is_unique' => 'Slug sudah digunakan'
         ],
         'harga' => [
             'required' => 'Harga wajib diisi',
@@ -63,16 +56,30 @@ class PaketModel extends Model
     
     // Callbacks
     protected $allowCallbacks = true;
-    protected $beforeInsert = ['generateSlug', 'formatFeatures'];
-    protected $beforeUpdate = ['generateSlug', 'formatFeatures'];
+    protected $beforeInsert = ['generateSlug', 'formatFeatures', 'setTimestamps'];
+    protected $beforeUpdate = ['generateSlug', 'formatFeatures', 'setTimestamps'];
     
     /**
      * Generate slug dari nama paket
      */
     protected function generateSlug(array $data)
     {
-        if (isset($data['data']['nama_paket']) && !isset($data['data']['slug'])) {
-            $data['data']['slug'] = url_title($data['data']['nama_paket'], '-', true);
+        if (isset($data['data']['nama_paket']) && (!isset($data['data']['slug']) || empty($data['data']['slug']))) {
+            helper('text');
+            $slug = url_title($data['data']['nama_paket'], '-', true);
+            
+            // Cek jika slug sudah ada, tambahkan angka unik
+            $count = $this->where('slug', $slug);
+            if (isset($data['id'])) {
+                $count->where('id !=', $data['id']);
+            }
+            $count = $count->countAllResults();
+            
+            if ($count > 0) {
+                $slug .= '-' . ($count + 1);
+            }
+            
+            $data['data']['slug'] = $slug;
         }
         return $data;
     }
@@ -86,10 +93,35 @@ class PaketModel extends Model
             if (is_string($data['data']['features'])) {
                 $featuresArray = explode("\n", $data['data']['features']);
                 $featuresArray = array_map('trim', $featuresArray);
-                $featuresArray = array_filter($featuresArray); // Hapus empty lines
-                $data['data']['features'] = json_encode($featuresArray);
+                $featuresArray = array_filter($featuresArray, function($item) {
+                    return !empty($item);
+                });
+                
+                if (!empty($featuresArray)) {
+                    $data['data']['features'] = json_encode($featuresArray);
+                } else {
+                    $data['data']['features'] = '[]';
+                }
             }
+        } else {
+            $data['data']['features'] = '[]';
         }
+        return $data;
+    }
+    
+    /**
+     * Set timestamps
+     */
+    protected function setTimestamps(array $data)
+    {
+        $currentTime = date('Y-m-d H:i:s');
+        
+        if (!isset($data['data']['created_at'])) {
+            $data['data']['created_at'] = $currentTime;
+        }
+        
+        $data['data']['updated_at'] = $currentTime;
+        
         return $data;
     }
     
@@ -157,12 +189,16 @@ class PaketModel extends Model
      */
     public function getStatistics()
     {
+        $builder = $this->selectAvg('harga')->where('is_active', 1);
+        $avgResult = $builder->get()->getRow();
+        $averagePrice = $avgResult ? $avgResult->harga : 0;
+        
         return [
             'total' => $this->countAll(),
             'active' => $this->where('is_active', 1)->countAllResults(),
             'inactive' => $this->where('is_active', 0)->countAllResults(),
             'featured' => $this->where('is_featured', 1)->countAllResults(),
-            'average_price' => $this->selectAvg('harga')->where('is_active', 1)->get()->getRow()->harga ?? 0
+            'average_price' => $averagePrice
         ];
     }
     
@@ -213,5 +249,29 @@ class PaketModel extends Model
         }
         
         return false;
+    }
+    
+    /**
+     * Custom save method dengan debugging
+     */
+    public function save($data): bool
+    {
+        try {
+            // Debug data
+            log_message('info', 'Data to save: ' . print_r($data, true));
+            
+            // Pastikan features adalah JSON jika array
+            if (isset($data['features']) && is_array($data['features'])) {
+                $data['features'] = json_encode($data['features']);
+            }
+            
+            // Panggil parent save method
+            return parent::save($data);
+            
+        } catch (\Exception $e) {
+            log_message('error', 'Error saving package: ' . $e->getMessage());
+            log_message('error', 'Stack trace: ' . $e->getTraceAsString());
+            return false;
+        }
     }
 }
