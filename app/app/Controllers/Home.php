@@ -8,11 +8,14 @@ class Home extends BaseController
     {
         $paketModel = new \App\Models\PaketModel();
         $kostumModel = new \App\Models\KostumModel();
-
+        $paket_makeup = $paketModel->where('is_active', 1)->findAll();
+        $kostum = $kostumModel->where('is_active', 1)->findAll();
+        var_dump($paket_makeup); 
+        die();
         $data = [
             'title' => 'Maulia - Professional Wedding Make Up Artist & Kostum Sewa - Grobogan',
-            'paket_makeup' => $paketModel->where('is_active', 1)->findAll(),
-            'kostum' => $kostumModel->where('is_active', 1)->findAll(),
+            // 'paket_makeup' => $paketModel->where('is_active', 1)->findAll(),
+            // 'kostum' => $kostumModel->where('is_active', 1)->findAll(),
             'hero_active' => true
         ];
 
