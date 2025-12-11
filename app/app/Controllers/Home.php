@@ -72,27 +72,30 @@ class Home extends BaseController
     }
 
     public function detailKostum($slug)
-    {
-        $kostumModel = new \App\Models\KostumModel();
-        $pengaturanModel = new \App\Models\PengaturanModel();
+{
+    $kostumModel = new \App\Models\KostumModel();
+    $pengaturanModel = new \App\Models\PengaturanModel();
 
-        $kostum = $kostumModel->getBySlug($slug);
+    $kostum = $kostumModel->getBySlug($slug);
 
-        if (!$kostum) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-        }
-
-        $data = [
-            'title' => $kostum['nama_kostum'] . ' - Sewa Kostum',
-            'kostum' => $kostum,
-            'related_kostum' => $kostumModel->getRelated($kostum['id'], 4),
-            'pengaturan' => $pengaturanModel->getContactInfo(),
-            'meta_description' => $this->character_limiter($kostum['deskripsi'], 160),
-            'meta_keywords' => $kostum['nama_kostum'] . ', sewa kostum, ' . $kostum['kategori']
-        ];
-
-        return view('detail_kostum', $data);
+    if (!$kostum) {
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
     }
+
+    // Get related kostum
+    $related_kostum = $kostumModel->getRelated($kostum['id'], $kostum['kategori'], 4);
+
+    $data = [
+        'title' => $kostum['nama_kostum'] . ' - Sewa Kostum',
+        'kostum' => $kostum,
+        'related_kostum' => $related_kostum,
+        'pengaturan' => $pengaturanModel->getContactInfo(),
+        'meta_description' => $this->character_limiter($kostum['deskripsi'], 160),
+        'meta_keywords' => $kostum['nama_kostum'] . ', sewa kostum, ' . $kostum['kategori']
+    ];
+
+    return view('detail_kostum', $data);
+}
 public function lokasi()
 {
     $pengaturanModel = new \App\Models\PengaturanModel();

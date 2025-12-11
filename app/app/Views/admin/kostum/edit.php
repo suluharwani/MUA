@@ -72,13 +72,31 @@
                                               rows="5"><?= old('deskripsi', esc($kostum['deskripsi'])) ?></textarea>
                                     <small class="text-muted">Deskripsikan detail kostum, bahan, ukuran, dll.</small>
                                 </div>
-                                <div class="mb-3">
+                            <div class="mb-3">
     <label for="spesifikasi" class="form-label">Spesifikasi</label>
     <textarea class="form-control" 
               id="spesifikasi" 
               name="spesifikasi" 
-              rows="4"><?= old('spesifikasi', $kostum['spesifikasi_text'] ?? '') ?></textarea>
+              rows="4"
+              placeholder="Masukkan spesifikasi, satu per baris"><?= old('spesifikasi', $kostum['spesifikasi_text'] ?? '') ?></textarea>
     <small class="text-muted">Masukkan spesifikasi, satu per baris</small>
+</div>
+
+<!-- Tambahkan kondisi -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="mb-3">
+            <label for="kondisi" class="form-label">Kondisi</label>
+            <select class="form-select" id="kondisi" name="kondisi">
+                <?php foreach ($kondisi_options as $value => $label): ?>
+                    <option value="<?= $value ?>" 
+                        <?= old('kondisi', $kostum['kondisi'] ?? 'baik') == $value ? 'selected' : '' ?>>
+                        <?= $label ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
 </div>
 
 <!-- Tambahkan di bagian additional fields -->

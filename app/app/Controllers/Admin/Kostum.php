@@ -67,88 +67,100 @@ class Kostum extends BaseController
     }
 
     public function simpan()
-    {
-        // Validation rules
-        $rules = [
-            'nama_kostum' => 'required|min_length[3]|max_length[100]',
-            'kategori' => 'required',
-            'harga_sewa' => 'required|numeric',
-            'stok' => 'required|integer'
+{
+    // Validation rules - HAPUS validasi gambar wajib untuk tambah
+    $rules = [
+        'nama_kostum' => 'required|min_length[3]|max_length[100]',
+        'kategori' => 'required',
+        'harga_sewa' => 'required|numeric',
+        'stok' => 'required|integer',
+        'gambar' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png,image/webp]'
+    ];
+
+    if (!$this->validate($rules)) {
+        return redirect()->back()
+            ->withInput()
+            ->with('errors', $this->validator->getErrors());
+    }
+
+    try {
+        // Handle file upload - gambar tidak wajib
+        $gambarName = null;
+        $gambarFile = $this->request->getFile('gambar');
+        
+        if ($gambarFile && $gambarFile->isValid() && !$gambarFile->hasMoved()) {
+            $gambarName = $gambarFile->getRandomName();
+            $gambarFile->move(ROOTPATH . 'public/uploads/kostum', $gambarName);
+        }
+
+        // Format harga dengan benar
+        $hargaSewa = $this->request->getPost('harga_sewa');
+        $hargaSewa = str_replace(['.', ','], '', $hargaSewa);
+        $hargaSewa = (float) $hargaSewa;
+
+        // Format spesifikasi dengan benar (pastikan JSON string)
+        $spesifikasi = $this->request->getPost('spesifikasi');
+        $spesifikasiJson = null;
+        
+        if (!empty($spesifikasi)) {
+            // Split by new line and trim
+            $lines = explode("\n", $spesifikasi);
+            $cleanedLines = array_filter(array_map('trim', $lines));
+            
+            // Convert to JSON string
+            if (!empty($cleanedLines)) {
+                $spesifikasiJson = json_encode($cleanedLines, JSON_UNESCAPED_UNICODE);
+            }
+        }
+
+        // Prepare data - SEMUA dalam format string/numeric
+        $data = [
+            'kategori' => $this->request->getPost('kategori'),
+            'nama_kostum' => $this->request->getPost('nama_kostum'),
+            'deskripsi' => $this->request->getPost('deskripsi') ?: '',
+            'harga_sewa' => $hargaSewa,
+            'durasi_sewa' => $this->request->getPost('durasi_sewa') ?: '3 hari',
+            'spesifikasi' => $spesifikasiJson, // JSON string atau null
+            'gambar' => $gambarName,
+            'ukuran' => $this->request->getPost('ukuran') ?: '',
+            'warna' => $this->request->getPost('warna') ?: '',
+            'bahan' => $this->request->getPost('bahan') ?: '',
+            'kondisi' => $this->request->getPost('kondisi') ?: 'baik',
+            'stok' => (int) $this->request->getPost('stok'),
+            'stok_tersedia' => (int) ($this->request->getPost('stok_tersedia') ?: $this->request->getPost('stok')),
+            'is_active' => $this->request->getPost('is_active') ? 1 : 0,
+            'is_featured' => $this->request->getPost('is_featured') ? 1 : 0,
+            'urutan' => (int) ($this->request->getPost('urutan') ?: 0)
         ];
 
-        if (!$this->validate($rules)) {
-            return redirect()->back()
-                ->withInput()
-                ->with('errors', $this->validator->getErrors());
+        // Handle custom duration
+        if ($this->request->getPost('durasi_sewa') === 'Kustom' && $this->request->getPost('durasi_kustom')) {
+            $data['durasi_sewa'] = $this->request->getPost('durasi_kustom');
         }
 
-        try {
-            // Handle file upload
-            $gambarName = null;
-            $gambarFile = $this->request->getFile('gambar');
-            
-            if ($gambarFile && $gambarFile->isValid() && !$gambarFile->hasMoved()) {
-                // Validasi ukuran file (maksimal 2MB)
-                if ($gambarFile->getSize() > 2097152) {
-                    return redirect()->back()
-                        ->withInput()
-                        ->with('error', 'Ukuran gambar maksimal 2MB');
-                }
-                
-                // Validasi tipe file
-                $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
-                if (!in_array($gambarFile->getMimeType(), $allowedTypes)) {
-                    return redirect()->back()
-                        ->withInput()
-                        ->with('error', 'Format gambar tidak didukung. Gunakan JPG, PNG, atau WebP');
-                }
-                
-                $gambarName = $gambarFile->getRandomName();
-                $gambarFile->move(ROOTPATH . 'public/uploads/kostum', $gambarName);
-            }
+        // Debug data sebelum save
+        // var_dump($data); exit;
 
-            // Prepare data
-            $data = [
-                'kategori' => $this->request->getPost('kategori'),
-                'nama_kostum' => $this->request->getPost('nama_kostum'),
-                'deskripsi' => $this->request->getPost('deskripsi'),
-                'harga_sewa' => $this->request->getPost('harga_sewa'),
-                'durasi_sewa' => $this->request->getPost('durasi_sewa') ?: '3 hari',
-                'spesifikasi' => $this->request->getPost('spesifikasi'),
-                'gambar' => $gambarName,
-                'ukuran' => $this->request->getPost('ukuran'),
-                'warna' => $this->request->getPost('warna'),
-                'bahan' => $this->request->getPost('bahan'),
-                'kondisi' => $this->request->getPost('kondisi') ?: 'baik',
-                'stok' => $this->request->getPost('stok'),
-                'stok_tersedia' => $this->request->getPost('stok_tersedia') ?: $this->request->getPost('stok'),
-                'is_active' => $this->request->getPost('is_active') ? 1 : 0,
-                'is_featured' => $this->request->getPost('is_featured') ? 1 : 0,
-                'urutan' => $this->request->getPost('urutan') ?: 0,
-                'meta_keywords' => $this->request->getPost('meta_keywords'),
-                'meta_description' => $this->request->getPost('meta_description')
-            ];
-
-            // Handle custom duration
-            if ($this->request->getPost('durasi_sewa') === 'Kustom' && $this->request->getPost('durasi_kustom')) {
-                $data['durasi_sewa'] = $this->request->getPost('durasi_kustom');
-            }
-
-            // Save using the model
-            if ($this->kostumModel->saveKostum($data)) {
-                return redirect()->to(base_url('admin/kostum'))
-                    ->with('success', 'Kostum berhasil ditambahkan');
-            } else {
-                return redirect()->back()
-                    ->withInput()
-                    ->with('error', 'Gagal menambahkan kostum');
-            }
-        } catch (\Exception $e) {
+        // Save using the model
+        if ($this->kostumModel->insert($data)) {
+            return redirect()->to(base_url('admin/kostum'))
+                ->with('success', 'Kostum berhasil ditambahkan');
+        } else {
             return redirect()->back()
                 ->withInput()
-                ->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+                ->with('error', 'Gagal menambahkan kostum');
         }
+    } catch (\Exception $e) {
+        // Delete uploaded file if error
+        if (isset($gambarName) && file_exists(ROOTPATH . 'public/uploads/kostum/' . $gambarName)) {
+            unlink(ROOTPATH . 'public/uploads/kostum/' . $gambarName);
+        }
+        
+        return redirect()->back()
+            ->withInput()
+            ->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
     }
+}
 
     public function view($id)
     {
@@ -190,140 +202,151 @@ class Kostum extends BaseController
     }
 
     public function update($id)
-    {
-        // Check if kostum exists
-        $existing = $this->kostumModel->find($id);
-        if (!$existing) {
-            return redirect()->to(base_url('admin/kostum'))
-                ->with('error', 'Kostum tidak ditemukan');
+{
+    // Check if kostum exists
+    $existing = $this->kostumModel->find($id);
+    if (!$existing) {
+        return redirect()->to(base_url('admin/kostum'))
+            ->with('error', 'Kostum tidak ditemukan');
+    }
+
+    // Validation rules - gambar tidak wajib
+    $rules = [
+        'nama_kostum' => 'required|min_length[3]|max_length[100]',
+        'kategori' => 'required',
+        'harga_sewa' => 'required|numeric',
+        'stok' => 'required|integer',
+        'gambar' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png,image/webp]'
+    ];
+
+    if (!$this->validate($rules)) {
+        return redirect()->back()
+            ->withInput()
+            ->with('errors', $this->validator->getErrors());
+    }
+
+    try {
+        // Handle file upload
+        $gambarName = $existing['gambar'];
+        $gambarFile = $this->request->getFile('gambar');
+        
+        // Check if delete existing image
+        $hapusGambar = $this->request->getPost('hapus_gambar');
+        
+        if ($hapusGambar && $gambarName) {
+            // Delete existing image
+            if (file_exists(ROOTPATH . 'public/uploads/kostum/' . $gambarName)) {
+                unlink(ROOTPATH . 'public/uploads/kostum/' . $gambarName);
+            }
+            $gambarName = null;
+        } elseif ($gambarFile && $gambarFile->isValid() && !$gambarFile->hasMoved()) {
+            // Upload new image
+            $newGambarName = $gambarFile->getRandomName();
+            $gambarFile->move(ROOTPATH . 'public/uploads/kostum', $newGambarName);
+            
+            // Delete old image if exists
+            if ($gambarName && file_exists(ROOTPATH . 'public/uploads/kostum/' . $gambarName)) {
+                unlink(ROOTPATH . 'public/uploads/kostum/' . $gambarName);
+            }
+            
+            $gambarName = $newGambarName;
         }
 
-        // Validation rules
-        $rules = [
-            'nama_kostum' => 'required|min_length[3]|max_length[100]',
-            'kategori' => 'required',
-            'harga_sewa' => 'required|numeric',
-            'stok' => 'required|integer'
+        // Format harga dengan benar
+        $hargaSewa = $this->request->getPost('harga_sewa');
+        $hargaSewa = str_replace(['.', ','], '', $hargaSewa);
+        $hargaSewa = (float) $hargaSewa;
+
+        // Format spesifikasi dengan benar (pastikan JSON string)
+        $spesifikasi = $this->request->getPost('spesifikasi');
+        $spesifikasiJson = null;
+        
+        if (!empty($spesifikasi)) {
+            // Split by new line and trim
+            $lines = explode("\n", $spesifikasi);
+            $cleanedLines = array_filter(array_map('trim', $lines));
+            
+            // Convert to JSON string
+            if (!empty($cleanedLines)) {
+                $spesifikasiJson = json_encode($cleanedLines, JSON_UNESCAPED_UNICODE);
+            }
+        } elseif (isset($existing['spesifikasi'])) {
+            // Keep existing spesifikasi if not changed
+            $spesifikasiJson = $existing['spesifikasi'];
+        }
+
+        // Prepare data - SEMUA dalam format string/numeric
+        $data = [
+            'kategori' => $this->request->getPost('kategori'),
+            'nama_kostum' => $this->request->getPost('nama_kostum'),
+            'deskripsi' => $this->request->getPost('deskripsi') ?: '',
+            'harga_sewa' => $hargaSewa,
+            'durasi_sewa' => $this->request->getPost('durasi_sewa') ?: '3 hari',
+            'spesifikasi' => $spesifikasiJson, // JSON string atau null
+            'gambar' => $gambarName,
+            'ukuran' => $this->request->getPost('ukuran') ?: '',
+            'warna' => $this->request->getPost('warna') ?: '',
+            'bahan' => $this->request->getPost('bahan') ?: '',
+            'kondisi' => $this->request->getPost('kondisi') ?: 'baik',
+            'stok' => (int) $this->request->getPost('stok'),
+            'stok_tersedia' => (int) ($this->request->getPost('stok_tersedia') ?: $this->request->getPost('stok')),
+            'is_active' => $this->request->getPost('is_active') ? 1 : 0,
+            'is_featured' => $this->request->getPost('is_featured') ? 1 : 0,
+            'urutan' => (int) ($this->request->getPost('urutan') ?: 0)
         ];
 
-        if (!$this->validate($rules)) {
-            return redirect()->back()
-                ->withInput()
-                ->with('errors', $this->validator->getErrors());
+        // Handle custom duration
+        if ($this->request->getPost('durasi_sewa') === 'Kustom' && $this->request->getPost('durasi_kustom')) {
+            $data['durasi_sewa'] = $this->request->getPost('durasi_kustom');
         }
 
-        try {
-            // Handle file upload
-            $gambarName = $existing['gambar'];
-            $gambarFile = $this->request->getFile('gambar');
-            
-            // Check if delete existing image
-            $hapusGambar = $this->request->getPost('hapus_gambar');
-            
-            if ($hapusGambar) {
-                // Delete existing image
-                if ($existing['gambar'] && file_exists(ROOTPATH . 'public/uploads/kostum/' . $existing['gambar'])) {
-                    unlink(ROOTPATH . 'public/uploads/kostum/' . $existing['gambar']);
-                }
-                $gambarName = null;
-            } elseif ($gambarFile && $gambarFile->isValid() && !$gambarFile->hasMoved()) {
-                // Validasi ukuran file (maksimal 2MB)
-                if ($gambarFile->getSize() > 2097152) {
-                    return redirect()->back()
-                        ->withInput()
-                        ->with('error', 'Ukuran gambar maksimal 2MB');
-                }
-                
-                // Validasi tipe file
-                $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
-                if (!in_array($gambarFile->getMimeType(), $allowedTypes)) {
-                    return redirect()->back()
-                        ->withInput()
-                        ->with('error', 'Format gambar tidak didukung. Gunakan JPG, PNG, atau WebP');
-                }
-                
-                // Upload new image
-                $gambarName = $gambarFile->getRandomName();
-                $gambarFile->move(ROOTPATH . 'public/uploads/kostum', $gambarName);
-                
-                // Delete old image if exists
-                if ($existing['gambar'] && file_exists(ROOTPATH . 'public/uploads/kostum/' . $existing['gambar'])) {
-                    unlink(ROOTPATH . 'public/uploads/kostum/' . $existing['gambar']);
-                }
-            }
+        // Debug data sebelum update
+        // var_dump($data); exit;
 
-            // Prepare data
-            $data = [
-                'id' => $id,
-                'kategori' => $this->request->getPost('kategori'),
-                'nama_kostum' => $this->request->getPost('nama_kostum'),
-                'deskripsi' => $this->request->getPost('deskripsi'),
-                'harga_sewa' => $this->request->getPost('harga_sewa'),
-                'durasi_sewa' => $this->request->getPost('durasi_sewa') ?: '3 hari',
-                'spesifikasi' => $this->request->getPost('spesifikasi'),
-                'gambar' => $gambarName,
-                'ukuran' => $this->request->getPost('ukuran'),
-                'warna' => $this->request->getPost('warna'),
-                'bahan' => $this->request->getPost('bahan'),
-                'kondisi' => $this->request->getPost('kondisi') ?: 'baik',
-                'stok' => $this->request->getPost('stok'),
-                'stok_tersedia' => $this->request->getPost('stok_tersedia') ?: $this->request->getPost('stok'),
-                'is_active' => $this->request->getPost('is_active') ? 1 : 0,
-                'is_featured' => $this->request->getPost('is_featured') ? 1 : 0,
-                'urutan' => $this->request->getPost('urutan') ?: 0,
-                'meta_keywords' => $this->request->getPost('meta_keywords'),
-                'meta_description' => $this->request->getPost('meta_description')
-            ];
-
-            // Handle custom duration
-            if ($this->request->getPost('durasi_sewa') === 'Kustom' && $this->request->getPost('durasi_kustom')) {
-                $data['durasi_sewa'] = $this->request->getPost('durasi_kustom');
-            }
-
-            // Update using the model
-            if ($this->kostumModel->saveKostum($data, $id)) {
-                return redirect()->to(base_url('admin/kostum'))
-                    ->with('success', 'Kostum berhasil diperbarui');
-            } else {
-                return redirect()->back()
-                    ->withInput()
-                    ->with('error', 'Gagal memperbarui kostum');
-            }
-        } catch (\Exception $e) {
+        // Update using the model
+        if ($this->kostumModel->update($id, $data)) {
+            return redirect()->to(base_url('admin/kostum'))
+                ->with('success', 'Kostum berhasil diperbarui');
+        } else {
             return redirect()->back()
                 ->withInput()
-                ->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+                ->with('error', 'Gagal memperbarui kostum');
         }
+    } catch (\Exception $e) {
+        return redirect()->back()
+            ->withInput()
+            ->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
     }
+}
 
     public function hapus($id)
     {
         // Get existing data to delete images
         $existing = $this->kostumModel->find($id);
         
-        if ($existing) {
-            try {
-                // Delete main image if exists
-                if (!empty($existing['gambar']) && file_exists(ROOTPATH . 'public/uploads/kostum/' . $existing['gambar'])) {
-                    unlink(ROOTPATH . 'public/uploads/kostum/' . $existing['gambar']);
-                }
-                
-                // Delete from database
-                if ($this->kostumModel->delete($id)) {
-                    return redirect()->to(base_url('admin/kostum'))
-                        ->with('success', 'Kostum berhasil dihapus');
-                }
-            } catch (\Exception $e) {
-                // Continue with deletion even if image deletion fails
-                if ($this->kostumModel->delete($id)) {
-                    return redirect()->to(base_url('admin/kostum'))
-                        ->with('warning', 'Kostum berhasil dihapus (gambar mungkin masih ada)');
-                }
-            }
+        if (!$existing) {
+            return redirect()->to(base_url('admin/kostum'))
+                ->with('error', 'Kostum tidak ditemukan');
         }
-        
-        return redirect()->to(base_url('admin/kostum'))
-            ->with('error', 'Gagal menghapus kostum');
+
+        try {
+            // Delete images if exists
+            if (!empty($existing['gambar'])) {
+                $this->deleteImageFiles($existing['gambar']);
+            }
+            
+            // Delete from database
+            if ($this->kostumModel->delete($id)) {
+                return redirect()->to(base_url('admin/kostum'))
+                    ->with('success', 'Kostum berhasil dihapus');
+            } else {
+                return redirect()->to(base_url('admin/kostum'))
+                    ->with('error', 'Gagal menghapus kostum dari database');
+            }
+        } catch (\Exception $e) {
+            return redirect()->to(base_url('admin/kostum'))
+                ->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
     }
 
     public function toggleStatus($id)
@@ -493,6 +516,49 @@ class Kostum extends BaseController
         } catch (\Exception $e) {
             return redirect()->back()
                 ->with('error', 'Terjadi kesalahan saat import: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Create thumbnail for uploaded image
+     */
+    private function createThumbnail($filename)
+    {
+        $imagePath = ROOTPATH . 'public/uploads/kostum/' . $filename;
+        $thumbPath = ROOTPATH . 'public/uploads/kostum/thumb/' . $filename;
+        
+        if (!file_exists($imagePath)) {
+            return false;
+        }
+        
+        // Create thumb directory if not exists
+        if (!is_dir(dirname($thumbPath))) {
+            mkdir(dirname($thumbPath), 0777, true);
+        }
+        
+        // Use CodeIgniter's image manipulation class
+        $image = \Config\Services::image()
+            ->withFile($imagePath)
+            ->fit(300, 300, 'center')
+            ->save($thumbPath);
+            
+        return $image;
+    }
+
+    /**
+     * Delete image files (original and thumbnail)
+     */
+    private function deleteImageFiles($filename)
+    {
+        $originalPath = ROOTPATH . 'public/uploads/kostum/' . $filename;
+        $thumbPath = ROOTPATH . 'public/uploads/kostum/thumb/' . $filename;
+        
+        if (file_exists($originalPath)) {
+            unlink($originalPath);
+        }
+        
+        if (file_exists($thumbPath)) {
+            unlink($thumbPath);
         }
     }
 }

@@ -7,6 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Di header template admin -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script> -->
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -72,7 +79,7 @@
                         <a class="nav-link <?= strpos(uri_string(), 'admin/paket') !== false ? 'active' : '' ?>" href="<?= base_url('admin/paket') ?>">
                             <i class="bi bi-palette me-2"></i> Paket Makeup
                         </a>
-                        <a class="nav-link <?= strpos(uri_string(), 'admin/kostum') !== false ? 'active' : '' ?>" href="<?= base_url('admin/kostum') ?>">
+                        <a class="nav-link <?= strpos(uri_string(), 'admin/kostum-ajax') !== false ? 'active' : '' ?>" href="<?= base_url('admin/kostum-ajax') ?>">
                             <i class="bi bi-person-badge me-2"></i> Kostum
                         </a>
                         <a class="nav-link <?= strpos(uri_string(), 'admin/pesanan') !== false ? 'active' : '' ?>" href="<?= base_url('admin/pesanan') ?>">

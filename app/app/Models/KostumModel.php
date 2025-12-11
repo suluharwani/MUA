@@ -81,85 +81,113 @@ class KostumModel extends Model
     
     // Callbacks
     protected $allowCallbacks = true;
-    protected $beforeInsert = ['generateSlug', 'setDefaultValues'];
-    protected $beforeUpdate = ['generateSlug'];
+    protected $beforeInsert = [];
+    protected $beforeUpdate = [];
     
-    /**
-     * Generate slug dari nama kostum
-     */
-    protected function generateSlug(array $data)
-    {
-        if (isset($data['data']['nama_kostum']) && !isset($data['data']['slug'])) {
-            $slug = url_title($data['data']['nama_kostum'], '-', true);
+protected function generateSlug(array $data)
+{
+    // Debug: Cek struktur data
+    // log_message('debug', 'generateSlug data: ' . print_r($data, true));
+    
+    // Perbaikan: Cek struktur $data
+    if (isset($data['data']['nama_kostum']) && !isset($data['data']['slug'])) {
+        $slug = url_title($data['data']['nama_kostum'], '-', true);
+        
+        // Make slug unique
+        $originalSlug = $slug;
+        $counter = 1;
+        
+        // Check if we're updating
+        $id = $data['id'][0] ?? $data['id'] ?? null;
+        
+        if ($id) {
+            $where = "slug = '{$slug}' AND id != {$id}";
+        } else {
+            $where = "slug = '{$slug}'";
+        }
+        
+        while ($this->where($where)->countAllResults() > 0) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+        
+        $data['data']['slug'] = $slug;
+    }
+    
+    return $data;
+}
+protected function setDefaultValues(array $data)
+{
+    // Pastikan $data['data'] ada
+    if (!isset($data['data'])) {
+        return $data;
+    }
+    
+    // Set durasi sewa default jika kosong
+    if (!isset($data['data']['durasi_sewa']) || empty($data['data']['durasi_sewa'])) {
+        $data['data']['durasi_sewa'] = '3 hari';
+    }
+    
+    // Set stok tersedia sama dengan stok untuk insert baru
+    if (!isset($data['data']['stok_tersedia']) || empty($data['data']['stok_tersedia'])) {
+        $data['data']['stok_tersedia'] = $data['data']['stok'] ?? 1;
+    }
+    
+    // Set kondisi default jika kosong
+    if (!isset($data['data']['kondisi']) || empty($data['data']['kondisi'])) {
+        $data['data']['kondisi'] = 'baik';
+    }
+    
+    // Set is_active default
+    if (!isset($data['data']['is_active'])) {
+        $data['data']['is_active'] = 1;
+    }
+    
+    // Set is_featured default
+    if (!isset($data['data']['is_featured'])) {
+        $data['data']['is_featured'] = 0;
+    }
+    
+    // Format spesifikasi dari array ke JSON
+    if (isset($data['data']['spesifikasi']) && is_array($data['data']['spesifikasi'])) {
+        $data['data']['spesifikasi'] = json_encode($data['data']['spesifikasi'], JSON_UNESCAPED_UNICODE);
+    }
+    
+    return $data;
+}
+public function simpleSave($data, $id = null)
+{
+    try {
+        // Pastikan spesifikasi adalah JSON string
+        if (isset($data['spesifikasi']) && is_array($data['spesifikasi'])) {
+            $data['spesifikasi'] = json_encode($data['spesifikasi'], JSON_UNESCAPED_UNICODE);
+        }
+        
+        // Generate slug jika belum ada
+        if (empty($data['slug']) && !empty($data['nama_kostum'])) {
+            $slug = url_title($data['nama_kostum'], '-', true);
             
-            // Make slug unique
+            // Make unique
             $originalSlug = $slug;
             $counter = 1;
-            
-            // Check if we're updating
-            if (isset($data['id'])) {
-                $where = "slug = '{$slug}' AND id != {$data['id']}";
-            } else {
-                $where = "slug = '{$slug}'";
-            }
-            
-            while ($this->where($where)->countAllResults() > 0) {
+            while ($this->where('slug', $slug)->where('id !=', $id ?? 0)->countAllResults() > 0) {
                 $slug = $originalSlug . '-' . $counter;
                 $counter++;
             }
             
-            $data['data']['slug'] = $slug;
+            $data['slug'] = $slug;
         }
         
-        return $data;
+        if ($id) {
+            return $this->update($id, $data);
+        } else {
+            return $this->insert($data);
+        }
+    } catch (\Exception $e) {
+        log_message('error', 'Error saving kostum: ' . $e->getMessage());
+        return false;
     }
-    
-    /**
-     * Set nilai default
-     */
-    protected function setDefaultValues(array $data)
-    {
-        // Set durasi sewa default jika kosong
-        if (!isset($data['data']['durasi_sewa']) || empty($data['data']['durasi_sewa'])) {
-            $data['data']['durasi_sewa'] = '3 hari';
-        }
-        
-        // Set stok tersedia sama dengan stok untuk insert baru
-        if (!isset($data['data']['stok_tersedia']) || empty($data['data']['stok_tersedia'])) {
-            $data['data']['stok_tersedia'] = $data['data']['stok'] ?? 1;
-        }
-        
-        // Set kondisi default jika kosong
-        if (!isset($data['data']['kondisi']) || empty($data['data']['kondisi'])) {
-            $data['data']['kondisi'] = 'baik';
-        }
-        
-        // Set is_active default
-        if (!isset($data['data']['is_active'])) {
-            $data['data']['is_active'] = 1;
-        }
-        
-        // Set is_featured default
-        if (!isset($data['data']['is_featured'])) {
-            $data['data']['is_featured'] = 0;
-        }
-        
-        // Format spesifikasi dari array ke JSON
-        if (isset($data['data']['spesifikasi']) && is_array($data['data']['spesifikasi'])) {
-            $data['data']['spesifikasi'] = json_encode($data['data']['spesifikasi']);
-        } elseif (isset($data['data']['spesifikasi']) && is_string($data['data']['spesifikasi'])) {
-            // Jika spesifikasi adalah string, konversi ke array lalu ke JSON
-            $lines = array_filter(array_map('trim', explode("\n", $data['data']['spesifikasi'])));
-            $data['data']['spesifikasi'] = json_encode($lines);
-        }
-        
-        // Format gambar tambahan dari array ke JSON
-        if (isset($data['data']['gambar_tambahan']) && is_array($data['data']['gambar_tambahan'])) {
-            $data['data']['gambar_tambahan'] = json_encode($data['data']['gambar_tambahan']);
-        }
-        
-        return $data;
-    }
+}
     
     // =============================================================
     // METODE BARU UNTUK FIX CRUD ISSUES
@@ -215,31 +243,31 @@ class KostumModel extends Model
     /**
      * Get kostum by ID dengan data yang sudah diformat
      */
-    public function getKostumById($id)
-    {
-        $kostum = $this->find($id);
-        
-        if ($kostum) {
-            // Decode JSON fields
-            if (!empty($kostum['spesifikasi'])) {
-                $spesifikasi = json_decode($kostum['spesifikasi'], true);
-                $kostum['spesifikasi'] = is_array($spesifikasi) ? $spesifikasi : [];
-                $kostum['spesifikasi_text'] = is_array($spesifikasi) ? implode("\n", $spesifikasi) : '';
-            } else {
-                $kostum['spesifikasi'] = [];
-                $kostum['spesifikasi_text'] = '';
-            }
-            
-            if (!empty($kostum['gambar_tambahan'])) {
-                $gambarTambahan = json_decode($kostum['gambar_tambahan'], true);
-                $kostum['gambar_tambahan'] = is_array($gambarTambahan) ? $gambarTambahan : [];
-            } else {
-                $kostum['gambar_tambahan'] = [];
-            }
+public function getKostumById($id)
+{
+    $kostum = $this->find($id);
+    
+    if ($kostum) {
+        // Decode JSON fields
+        if (!empty($kostum['spesifikasi'])) {
+            $spesifikasi = json_decode($kostum['spesifikasi'], true);
+            $kostum['spesifikasi'] = is_array($spesifikasi) ? $spesifikasi : [];
+            $kostum['spesifikasi_text'] = is_array($spesifikasi) ? implode("\n", $spesifikasi) : '';
+        } else {
+            $kostum['spesifikasi'] = [];
+            $kostum['spesifikasi_text'] = '';
         }
         
-        return $kostum;
+        if (!empty($kostum['gambar_tambahan'])) {
+            $gambarTambahan = json_decode($kostum['gambar_tambahan'], true);
+            $kostum['gambar_tambahan'] = is_array($gambarTambahan) ? $gambarTambahan : [];
+        } else {
+            $kostum['gambar_tambahan'] = [];
+        }
     }
+    
+    return $kostum;
+}
     
     /**
      * Import kostum dari CSV yang sederhana
@@ -345,32 +373,17 @@ class KostumModel extends Model
     /**
      * Get related kostum (kostum dengan kategori yang sama, kecuali yang sedang dilihat)
      */
-    public function getRelated($kategori, $excludeId, $limit = 4)
-    {
-        $builder = $this->builder();
-        $builder->where('kategori', $kategori);
-        $builder->where('id !=', $excludeId);
-        $builder->where('is_active', 1);
-        $builder->where('stok_tersedia >', 0);
-        $builder->orderBy('is_featured', 'DESC');
-        $builder->orderBy('urutan', 'ASC');
-        $builder->orderBy('created_at', 'DESC');
-        $builder->limit($limit);
-        
-        $query = $builder->get();
-        $kostum = $query->getResultArray();
-        
-        // Decode spesifikasi untuk setiap kostum
-        foreach ($kostum as &$item) {
-            if (!empty($item['spesifikasi'])) {
-                $item['spesifikasi'] = json_decode($item['spesifikasi'], true);
-            } else {
-                $item['spesifikasi'] = [];
-            }
-        }
-        
-        return $kostum;
-    }
+public function getRelated($currentKostumId, $kategori, $limit = 4)
+{
+    return $this->where('id !=', $currentKostumId)
+                ->where('kategori', $kategori)
+                ->where('is_active', 1)
+                ->where('stok_tersedia >', 0)
+                ->orderBy('is_featured', 'DESC')
+                ->orderBy('created_at', 'DESC')
+                ->limit($limit)
+                ->findAll();
+}
     
     /**
      * Get popular kostum (berdasarkan yang sering disewa)
@@ -650,20 +663,20 @@ class KostumModel extends Model
         return $result;
     }
     
-    public function getBySlug($slug)
-    {
-        $kostum = $this->where('slug', $slug)
-                       ->where('is_active', 1)
-                       ->first();
-        
-        if ($kostum) {
-            // Decode spesifikasi dan gambar tambahan
-            $kostum['spesifikasi'] = json_decode($kostum['spesifikasi'] ?? '[]', true);
-            $kostum['gambar_tambahan'] = json_decode($kostum['gambar_tambahan'] ?? '[]', true);
-        }
-        
-        return $kostum;
+public function getBySlug($slug)
+{
+    $kostum = $this->where('slug', $slug)
+                   ->where('is_active', 1)
+                   ->first();
+    
+    if ($kostum) {
+        // Decode spesifikasi dan gambar tambahan
+        $kostum['spesifikasi'] = json_decode($kostum['spesifikasi'] ?? '[]', true);
+        $kostum['gambar_tambahan'] = json_decode($kostum['gambar_tambahan'] ?? '[]', true);
     }
+    
+    return $kostum;
+}
     
     public function getByKategori($kategori, $limit = null, $featuredOnly = false)
     {
@@ -830,4 +843,10 @@ class KostumModel extends Model
             'perlu_perawatan' => 'Perlu Perawatan'
         ];
     }
+
+
+/**
+ * Get kostum by slug
+ */
+
 }

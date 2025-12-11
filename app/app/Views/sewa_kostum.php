@@ -30,7 +30,7 @@
                     <?php
                     $kategori_options = [
                         'pengantin_wanita' => ['icon' => 'bi-person-hearts', 'label' => 'Pengantin Wanita', 'count' => 0],
-                        'pengantin_pria' => ['icon' => 'bi-person-standing-dress', 'label' => 'Pengantin Pria', 'count' => 0],
+                        'pengantin_pria' => ['icon' => 'bi-person', 'label' => 'Pengantin Pria', 'count' => 0],
                         'keluarga' => ['icon' => 'bi-people-fill', 'label' => 'Keluarga', 'count' => 0],
                         'lainnya' => ['icon' => 'bi-tags-fill', 'label' => 'Lainnya', 'count' => 0]
                     ];

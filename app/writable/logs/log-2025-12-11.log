@@ -1903,3 +1903,696 @@ in APPPATH\Views\admin\pesanan\index.php on line 134.
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+ERROR - 2025-12-11 14:27:45 --> Error connecting to the database: mysqli_sql_exception: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Controllers\Home.php(14): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\Suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\Suluh\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Controllers\Home.php(14): CodeIgniter\BaseModel->findAll()
+#6 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#7 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\Suluh\\...')
+#13 {main}
+CRITICAL - 2025-12-11 14:27:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: The server requested authentication method unknown to the client [auth_gssapi_client]
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `paket_makeup`
+WHERE `is_active` = :is_active:', [...], false)
+ 3 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Home.php(14): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+ERROR - 2025-12-11 17:50:21 --> Error connecting to the database: mysqli_sql_exception: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Controllers\Home.php(14): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\Suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\Suluh\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Controllers\Home.php(14): CodeIgniter\BaseModel->findAll()
+#6 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#7 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\Suluh\\...')
+#13 {main}
+CRITICAL - 2025-12-11 17:50:21 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: The server requested authentication method unknown to the client [auth_gssapi_client]
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `paket_makeup`
+WHERE `is_active` = :is_active:', [...], false)
+ 3 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Home.php(14): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+ERROR - 2025-12-11 18:05:07 --> Error connecting to the database: mysqli_sql_exception: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'u589050364_mua', Object(SensitiveParameterValue), 'u589050364_mua', 3306, '', 0)
+#1 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Controllers\Home.php(14): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\Suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\Suluh\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Controllers\Home.php(14): CodeIgniter\BaseModel->findAll()
+#6 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#7 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\Suluh\\...')
+#13 {main}
+CRITICAL - 2025-12-11 18:05:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: The server requested authentication method unknown to the client [auth_gssapi_client]
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `paket_makeup`
+WHERE `is_active` = :is_active:', [...], false)
+ 3 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Home.php(14): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+ERROR - 2025-12-11 18:19:25 --> Error saving kostum: Array to string conversion
+DEBUG - 2025-12-11 18:42:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:42:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:43:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:43:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:47:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:47:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:47:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:47:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:47:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:47:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 18:47:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:10:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:10:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 19:10:43 --> ErrorException: Undefined variable $kondisi_options
+[Method: GET, Route: admin/kostum]
+in APPPATH\Views\admin\kostum\index.php on line 233.
+ 1 APPPATH\Views\admin\kostum\index.php(233): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kondisi_options', 'C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\kostum\\index.php', 233)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\kostum\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/kostum/index', [], true)
+ 5 APPPATH\Controllers\Admin\Kostum.php(54): view('admin/kostum/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 19:12:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 19:12:22 --> ErrorException: Undefined variable $kondisi_options
+[Method: GET, Route: admin/kostum]
+in APPPATH\Views\admin\kostum\index.php on line 233.
+ 1 APPPATH\Views\admin\kostum\index.php(233): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kondisi_options', 'C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\kostum\\index.php', 233)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\kostum\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/kostum/index', [], true)
+ 5 APPPATH\Controllers\Admin\Kostum.php(54): view('admin/kostum/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 19:14:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-11 19:14:07 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/kostum/ajax_index.php"
+[Method: GET, Route: admin/kostum-ajax]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/kostum/ajax_index.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/kostum/ajax_index', [], true)
+ 3 APPPATH\Controllers\Admin\KostumAjax.php(34): view('admin/kostum/ajax_index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\KostumAjax->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\KostumAjax))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-11 19:14:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:14:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:16:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:16:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:16:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:16:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:16:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:16:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:17:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:17:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:17:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:17:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:17:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:18:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:18:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:18:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:18:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:18:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:18:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:18:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:19:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:20:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:23:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:23:03 --> POST Data: Array
+(
+    [csrf_test_name] => 706366b05f4614fabdbb5d4df47fde3b
+    [id] => 1
+    [nama_kostum] => Gaun Pengantin
+    [deskripsi] => Koleksi gaun pengantin berbagai model, dari modern sampai tradisional
+    [spesifikasi] => Gaun putih modern
+Gaun tradisional Jawa
+Gaun evening reception
+Kebaya pengantin
+    [kategori] => pengantin_wanita
+    [durasi_sewa] => 3 hari
+    [durasi_kustom] => 
+    [harga_sewa] => 6000000.00
+    [stok] => 1
+    [stok_tersedia] => 1
+    [ukuran] => 
+    [warna] => 
+    [bahan] => 
+    [kondisi] => baik
+    [urutan] => 0
+    [is_active] => on
+    [is_featured] => on
+)
+
+DEBUG - 2025-12-11 19:23:03 --> FILES Data: Array
+(
+    [gambar] => CodeIgniter\HTTP\Files\UploadedFile Object
+        (
+            [size:protected] => 1206333
+            [originalMimeType:protected] => image/png
+            [path:protected] => C:\Users\Suluh\AppData\Local\Temp\phpA53C.tmp
+            [clientPath:protected] => Screenshot 2025-09-18 200252.png
+            [originalName:protected] => Screenshot 2025-09-18 200252.png
+            [name:protected] => Screenshot 2025-09-18 200252.png
+            [error:protected] => 0
+            [hasMoved:protected] => 
+            [pathName:SplFileInfo:private] => C:\Users\Suluh\AppData\Local\Temp\phpA53C.tmp
+            [fileName:SplFileInfo:private] => phpA53C.tmp
+        )
+
+)
+
+DEBUG - 2025-12-11 19:23:03 --> Spesifikasi JSON: ["Gaun putih modern","Gaun tradisional Jawa","Gaun evening reception","Kebaya pengantin"]
+DEBUG - 2025-12-11 19:23:03 --> Data to update: Array
+(
+    [kategori] => pengantin_wanita
+    [nama_kostum] => Gaun Pengantin
+    [deskripsi] => Koleksi gaun pengantin berbagai model, dari modern sampai tradisional
+    [harga_sewa] => 600000000
+    [durasi_sewa] => 3 hari
+    [spesifikasi] => ["Gaun putih modern","Gaun tradisional Jawa","Gaun evening reception","Kebaya pengantin"]
+    [gambar] => 1765480983_0d15124777dd7657f590.png
+    [ukuran] => 
+    [warna] => 
+    [bahan] => 
+    [kondisi] => baik
+    [stok] => 1
+    [stok_tersedia] => 1
+    [is_active] => 1
+    [is_featured] => 1
+    [urutan] => 0
+)
+
+ERROR - 2025-12-11 19:23:03 --> Update exception: Array to string conversion
+ERROR - 2025-12-11 19:23:03 --> Trace: #0 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Models\KostumModel.php(101): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string...', 'C:\\Users\\Suluh\\...', 101)
+#1 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1691): App\Models\KostumModel->generateSlug(Array)
+#2 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1019): CodeIgniter\BaseModel->trigger('beforeUpdate', Array)
+#3 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#4 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\KostumAjax.php(462): CodeIgniter\Model->update('1', Array)
+#5 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\KostumAjax->update('1')
+#6 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\KostumAjax))
+#7 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\Users\Suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\Suluh\\...')
+#12 {main}
+DEBUG - 2025-12-11 19:23:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:23:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:23:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:23:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:23:15 --> POST Data: Array
+(
+    [csrf_test_name] => 706366b05f4614fabdbb5d4df47fde3b
+    [id] => 1
+    [nama_kostum] => Gaun Pengantin
+    [deskripsi] => Koleksi gaun pengantin berbagai model, dari modern sampai tradisional
+    [spesifikasi] => Gaun putih modern
+Gaun tradisional Jawa
+Gaun evening reception
+Kebaya pengantin
+    [kategori] => pengantin_wanita
+    [durasi_sewa] => 3 hari
+    [durasi_kustom] => 
+    [harga_sewa] => 6000000.00
+    [stok] => 1
+    [stok_tersedia] => 1
+    [ukuran] => 
+    [warna] => 
+    [bahan] => 
+    [kondisi] => baik
+    [urutan] => 0
+    [is_active] => on
+    [is_featured] => on
+)
+
+DEBUG - 2025-12-11 19:23:15 --> FILES Data: Array
+(
+    [gambar] => CodeIgniter\HTTP\Files\UploadedFile Object
+        (
+            [size:protected] => 1206333
+            [originalMimeType:protected] => image/png
+            [path:protected] => C:\Users\Suluh\AppData\Local\Temp\phpD1DB.tmp
+            [clientPath:protected] => Screenshot 2025-09-18 200252.png
+            [originalName:protected] => Screenshot 2025-09-18 200252.png
+            [name:protected] => Screenshot 2025-09-18 200252.png
+            [error:protected] => 0
+            [hasMoved:protected] => 
+            [pathName:SplFileInfo:private] => C:\Users\Suluh\AppData\Local\Temp\phpD1DB.tmp
+            [fileName:SplFileInfo:private] => phpD1DB.tmp
+        )
+
+)
+
+DEBUG - 2025-12-11 19:23:15 --> Spesifikasi JSON: ["Gaun putih modern","Gaun tradisional Jawa","Gaun evening reception","Kebaya pengantin"]
+DEBUG - 2025-12-11 19:23:15 --> Data to update: Array
+(
+    [kategori] => pengantin_wanita
+    [nama_kostum] => Gaun Pengantin
+    [deskripsi] => Koleksi gaun pengantin berbagai model, dari modern sampai tradisional
+    [harga_sewa] => 600000000
+    [durasi_sewa] => 3 hari
+    [spesifikasi] => ["Gaun putih modern","Gaun tradisional Jawa","Gaun evening reception","Kebaya pengantin"]
+    [gambar] => 1765480995_75175c2bb6b64e54c670.png
+    [ukuran] => 
+    [warna] => 
+    [bahan] => 
+    [kondisi] => baik
+    [stok] => 1
+    [stok_tersedia] => 1
+    [is_active] => 1
+    [is_featured] => 1
+    [urutan] => 0
+)
+
+ERROR - 2025-12-11 19:23:15 --> Update exception: Array to string conversion
+ERROR - 2025-12-11 19:23:15 --> Trace: #0 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Models\KostumModel.php(101): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string...', 'C:\\Users\\Suluh\\...', 101)
+#1 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1691): App\Models\KostumModel->generateSlug(Array)
+#2 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1019): CodeIgniter\BaseModel->trigger('beforeUpdate', Array)
+#3 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#4 C:\Users\Suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\KostumAjax.php(462): CodeIgniter\Model->update('1', Array)
+#5 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\KostumAjax->update('1')
+#6 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\KostumAjax))
+#7 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\Users\Suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\Users\Suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\Suluh\\...')
+#12 {main}
+DEBUG - 2025-12-11 19:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:28:15 --> POST Data: Array
+(
+    [csrf_test_name] => 706366b05f4614fabdbb5d4df47fde3b
+    [id] => 1
+    [nama_kostum] => Gaun Pengantin
+    [deskripsi] => Koleksi gaun pengantin berbagai model, dari modern sampai tradisional
+    [spesifikasi] => Gaun putih modern
+Gaun tradisional Jawa
+Gaun evening reception
+Kebaya pengantin
+    [kategori] => pengantin_wanita
+    [durasi_sewa] => 3 hari
+    [durasi_kustom] => 
+    [harga_sewa] => 6000000.00
+    [stok] => 1
+    [stok_tersedia] => 1
+    [ukuran] => 
+    [warna] => 
+    [bahan] => 
+    [kondisi] => baik
+    [urutan] => 0
+    [is_active] => on
+    [is_featured] => on
+)
+
+DEBUG - 2025-12-11 19:28:15 --> FILES Data: Array
+(
+    [gambar] => CodeIgniter\HTTP\Files\UploadedFile Object
+        (
+            [size:protected] => 1206333
+            [originalMimeType:protected] => image/png
+            [path:protected] => C:\Users\Suluh\AppData\Local\Temp\php680D.tmp
+            [clientPath:protected] => Screenshot 2025-09-18 200252.png
+            [originalName:protected] => Screenshot 2025-09-18 200252.png
+            [name:protected] => Screenshot 2025-09-18 200252.png
+            [error:protected] => 0
+            [hasMoved:protected] => 
+            [pathName:SplFileInfo:private] => C:\Users\Suluh\AppData\Local\Temp\php680D.tmp
+            [fileName:SplFileInfo:private] => php680D.tmp
+        )
+
+)
+
+DEBUG - 2025-12-11 19:28:15 --> Spesifikasi JSON: ["Gaun putih modern","Gaun tradisional Jawa","Gaun evening reception","Kebaya pengantin"]
+DEBUG - 2025-12-11 19:28:15 --> Data to update: Array
+(
+    [kategori] => pengantin_wanita
+    [nama_kostum] => Gaun Pengantin
+    [deskripsi] => Koleksi gaun pengantin berbagai model, dari modern sampai tradisional
+    [harga_sewa] => 600000000
+    [durasi_sewa] => 3 hari
+    [spesifikasi] => ["Gaun putih modern","Gaun tradisional Jawa","Gaun evening reception","Kebaya pengantin"]
+    [gambar] => 1765481295_2ef29c705966e725b4ae.png
+    [ukuran] => 
+    [warna] => 
+    [bahan] => 
+    [kondisi] => baik
+    [stok] => 1
+    [stok_tersedia] => 1
+    [is_active] => 1
+    [is_featured] => 1
+    [urutan] => 0
+)
+
+DEBUG - 2025-12-11 19:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:28:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:28:26 --> POST Data: Array
+(
+    [csrf_test_name] => 706366b05f4614fabdbb5d4df47fde3b
+    [id] => 2
+    [nama_kostum] => Setelan Pengantin
+    [deskripsi] => Setelan jas dan baju tradisional untuk pengantin pria
+    [spesifikasi] => Jas formal hitam/navy
+Batik pengantin pria
+Beskap tradisional
+Aksesoris lengkap
+    [kategori] => pengantin_pria
+    [durasi_sewa] => 3 hari
+    [durasi_kustom] => 
+    [harga_sewa] => 500000.00
+    [stok] => 1
+    [stok_tersedia] => 1
+    [ukuran] => 
+    [warna] => 
+    [bahan] => 
+    [kondisi] => baik
+    [urutan] => 0
+    [is_active] => on
+)
+
+DEBUG - 2025-12-11 19:28:26 --> FILES Data: Array
+(
+    [gambar] => CodeIgniter\HTTP\Files\UploadedFile Object
+        (
+            [size:protected] => 1473403
+            [originalMimeType:protected] => image/png
+            [path:protected] => C:\Users\Suluh\AppData\Local\Temp\php92C8.tmp
+            [clientPath:protected] => Screenshot 2025-09-18 200853.png
+            [originalName:protected] => Screenshot 2025-09-18 200853.png
+            [name:protected] => Screenshot 2025-09-18 200853.png
+            [error:protected] => 0
+            [hasMoved:protected] => 
+            [pathName:SplFileInfo:private] => C:\Users\Suluh\AppData\Local\Temp\php92C8.tmp
+            [fileName:SplFileInfo:private] => php92C8.tmp
+        )
+
+)
+
+DEBUG - 2025-12-11 19:28:26 --> Spesifikasi JSON: ["Jas formal hitam\/navy","Batik pengantin pria","Beskap tradisional","Aksesoris lengkap"]
+DEBUG - 2025-12-11 19:28:26 --> Data to update: Array
+(
+    [kategori] => pengantin_pria
+    [nama_kostum] => Setelan Pengantin
+    [deskripsi] => Setelan jas dan baju tradisional untuk pengantin pria
+    [harga_sewa] => 50000000
+    [durasi_sewa] => 3 hari
+    [spesifikasi] => ["Jas formal hitam\/navy","Batik pengantin pria","Beskap tradisional","Aksesoris lengkap"]
+    [gambar] => 1765481306_60567e64942ba95969cb.png
+    [ukuran] => 
+    [warna] => 
+    [bahan] => 
+    [kondisi] => baik
+    [stok] => 1
+    [stok_tersedia] => 1
+    [is_active] => 1
+    [is_featured] => 0
+    [urutan] => 0
+)
+
+DEBUG - 2025-12-11 19:28:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:29:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:32:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:32:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:32:56 --> POST Data: Array
+(
+    [csrf_test_name] => 706366b05f4614fabdbb5d4df47fde3b
+    [id] => 1
+    [nama_kostum] => Gaun Pengantin
+    [deskripsi] => Koleksi gaun pengantin berbagai model, dari modern sampai tradisional
+    [spesifikasi] => Gaun putih modern
+Gaun tradisional Jawa
+Gaun evening reception
+Kebaya pengantin
+    [kategori] => pengantin_wanita
+    [durasi_sewa] => 3 hari
+    [durasi_kustom] => 
+    [harga_sewa] => 2000000
+    [stok] => 1
+    [stok_tersedia] => 1
+    [ukuran] => L
+    [warna] => MERAH
+    [bahan] => LI
+    [kondisi] => baik
+    [urutan] => 0
+    [is_active] => on
+    [is_featured] => on
+)
+
+DEBUG - 2025-12-11 19:32:56 --> FILES Data: Array
+(
+    [gambar] => CodeIgniter\HTTP\Files\UploadedFile Object
+        (
+            [size:protected] => 0
+            [originalMimeType:protected] => 
+            [path:protected] => 
+            [clientPath:protected] => 
+            [originalName:protected] => 
+            [name:protected] => 
+            [error:protected] => 4
+            [hasMoved:protected] => 
+            [pathName:SplFileInfo:private] => 
+            [fileName:SplFileInfo:private] => 
+        )
+
+)
+
+DEBUG - 2025-12-11 19:32:56 --> Spesifikasi JSON: ["Gaun putih modern","Gaun tradisional Jawa","Gaun evening reception","Kebaya pengantin"]
+DEBUG - 2025-12-11 19:32:56 --> Data to update: Array
+(
+    [kategori] => pengantin_wanita
+    [nama_kostum] => Gaun Pengantin
+    [deskripsi] => Koleksi gaun pengantin berbagai model, dari modern sampai tradisional
+    [harga_sewa] => 2000000
+    [durasi_sewa] => 3 hari
+    [spesifikasi] => ["Gaun putih modern","Gaun tradisional Jawa","Gaun evening reception","Kebaya pengantin"]
+    [gambar] => 1765481295_2ef29c705966e725b4ae.png
+    [ukuran] => L
+    [warna] => MERAH
+    [bahan] => LI
+    [kondisi] => baik
+    [stok] => 1
+    [stok_tersedia] => 1
+    [is_active] => 1
+    [is_featured] => 1
+    [urutan] => 0
+)
+
+DEBUG - 2025-12-11 19:32:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:32:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:33:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:33:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-11 19:33:29 --> POST Data: Array
+(
+    [csrf_test_name] => 706366b05f4614fabdbb5d4df47fde3b
+    [id] => 2
+    [nama_kostum] => Setelan Pengantin
+    [deskripsi] => Setelan jas dan baju tradisional untuk pengantin pria
+    [spesifikasi] => Jas formal hitam/navy
+Batik pengantin pria
+Beskap tradisional
+Aksesoris lengkap
+    [kategori] => pengantin_pria
+    [durasi_sewa] => 3 hari
+    [durasi_kustom] => 
+    [harga_sewa] => 2500000
+    [stok] => 4
+    [stok_tersedia] => 4
+    [ukuran] => L
+    [warna] => MERAH
+    [bahan] => LI
+    [kondisi] => baik
+    [urutan] => 1
+    [is_active] => on
+    [is_featured] => on
+)
+
+DEBUG - 2025-12-11 19:33:29 --> FILES Data: Array
+(
+    [gambar] => CodeIgniter\HTTP\Files\UploadedFile Object
+        (
+            [size:protected] => 0
+            [originalMimeType:protected] => 
+            [path:protected] => 
+            [clientPath:protected] => 
+            [originalName:protected] => 
+            [name:protected] => 
+            [error:protected] => 4
+            [hasMoved:protected] => 
+            [pathName:SplFileInfo:private] => 
+            [fileName:SplFileInfo:private] => 
+        )
+
+)
+
+DEBUG - 2025-12-11 19:33:29 --> Spesifikasi JSON: ["Jas formal hitam\/navy","Batik pengantin pria","Beskap tradisional","Aksesoris lengkap"]
+DEBUG - 2025-12-11 19:33:29 --> Data to update: Array
+(
+    [kategori] => pengantin_pria
+    [nama_kostum] => Setelan Pengantin
+    [deskripsi] => Setelan jas dan baju tradisional untuk pengantin pria
+    [harga_sewa] => 2500000
+    [durasi_sewa] => 3 hari
+    [spesifikasi] => ["Jas formal hitam\/navy","Batik pengantin pria","Beskap tradisional","Aksesoris lengkap"]
+    [gambar] => 1765481306_60567e64942ba95969cb.png
+    [ukuran] => L
+    [warna] => MERAH
+    [bahan] => LI
+    [kondisi] => baik
+    [stok] => 4
+    [stok_tersedia] => 4
+    [is_active] => 1
+    [is_featured] => 1
+    [urutan] => 1
+)
+
+DEBUG - 2025-12-11 19:33:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

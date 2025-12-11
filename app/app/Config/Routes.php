@@ -61,7 +61,15 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('kostum/import', 'Admin\Kostum::import');
     $routes->post('kostum/process-import', 'Admin\Kostum::processImport');
 
-
+    $routes->get('kostum-ajax', 'Admin\KostumAjax::index');
+    $routes->post('kostum-ajax/getKostum', 'Admin\KostumAjax::getKostum');
+    $routes->get('kostum-ajax/getKostumDetail/(:num)', 'Admin\KostumAjax::getKostumDetail/$1');
+    $routes->post('kostum-ajax/save', 'Admin\KostumAjax::save');
+    $routes->post('kostum-ajax/update/(:num)', 'Admin\KostumAjax::update/$1');
+    $routes->post('kostum-ajax/delete/(:num)', 'Admin\KostumAjax::delete/$1');
+    $routes->post('kostum-ajax/toggleStatus/(:num)', 'Admin\KostumAjax::toggleStatus/$1');
+    $routes->post('kostum-ajax/toggleFeatured/(:num)', 'Admin\KostumAjax::toggleFeatured/$1');
+    $routes->post('kostum-ajax/bulkAction', 'Admin\KostumAjax::bulkAction');
     
     $routes->get('pesanan', 'Admin\Pesanan::index');
     $routes->get('pesanan/detail/(:num)', 'Admin\Pesanan::detail/$1');
