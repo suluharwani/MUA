@@ -8,7 +8,7 @@
             <a href="<?= base_url('admin/pesanan/create') ?>" class="btn btn-primary me-2" id="btn-create">
                 <i class="bi bi-plus-circle"></i> Buat Pesanan
             </a>
-            <a href="<?= base_url('admin/pesanan/calendar') ?>" class="btn btn-outline-primary me-2">
+            <a href="<?= base_url('admin/calendar') ?>" class="btn btn-outline-primary me-2">
                 <i class="bi bi-calendar-week"></i> Kalendar
             </a>
             <button type="button" class="btn btn-success" onclick="exportExcel()">

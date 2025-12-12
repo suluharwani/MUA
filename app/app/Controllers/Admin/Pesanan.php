@@ -539,12 +539,7 @@ public function generateKode()
     // Ajax: Update status
     public function updateStatus()
     {
-        if (!$this->request->isAJAX()) {
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Invalid request'
-            ]);
-        }
+
         
         $id = $this->request->getPost('pesanan_id');
         $status = $this->request->getPost('status');
@@ -561,25 +556,17 @@ public function generateKode()
         
         try {
             if ($this->pesananModel->updateStatus($id, $status, $catatan)) {
-                return $this->response->setJSON([
-                    'success' => true,
-                    'message' => 'Status pesanan berhasil diperbarui.'
-                ]);
+                return redirect()->back();
             }
             
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Gagal memperbarui status pesanan.'
-            ]);
+            return redirect()->back();
             
         } catch (\Exception $e) {
             log_message('error', 'Error in Pesanan::updateStatus: ' . $e->getMessage());
             
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Terjadi kesalahan saat mengubah status'
-            ]);
+            return redirect()->back();
         }
+        return redirect()->back();
     }
     
     // Ajax: Delete pesanan

@@ -17,7 +17,7 @@ class KostumAjax extends BaseController
         $this->kostumModel = new KostumModel();
         $this->kategoriOptions = $this->kostumModel->getKategoriOptions();
         $this->kondisiOptions = $this->kostumModel->getKondisiOptions();
-        helper(['form', 'url', 'text','image']);
+        helper(['form', 'url', 'text', 'image']);
     }
 
     /**
@@ -146,7 +146,7 @@ class KostumAjax extends BaseController
             $data[] = [
                 'checkbox' => '<input type="checkbox" class="row-checkbox" value="' . $row['id'] . '">',
                 'gambar' => $image,
-                'nama_kostum' => '<strong>' . $row['nama_kostum'] . '</strong><br><small class="text-muted">' . character_limiter($row['deskripsi'], 50) . '</small>',
+                'nama_kostum' => '<strong>' . $row['nama_kostum'] . '</strong><br><small class="text-muted">' . $row['deskripsi'] . '</small>',
                 'kategori' => '<span class="badge bg-light text-dark">' . ($this->kategoriOptions[$row['kategori']] ?? $row['kategori']) . '</span>',
                 'harga_sewa' => 'Rp ' . number_format($row['harga_sewa'], 0, ',', '.') . '<br><small class="text-muted">' . $row['durasi_sewa'] . '</small>',
                 'stok' => $stockBadge,

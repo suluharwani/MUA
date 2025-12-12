@@ -97,10 +97,27 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('pesanan/generatePdf/(:num)', 'Admin\Pesanan::generatePdf/$1');
     $routes->get('pesanan/detail/(:num)', 'Admin\Pesanan::detail/$1');
     
+     $routes->get('kalender', 'Admin\Calendar::index');
+    $routes->get('calendar', 'Admin\Calendar::index'); // alias
+    $routes->match(['get', 'post'], 'calendar/changeMonth', 'Admin\Calendar::changeMonth');
+    $routes->get('calendar/getEvents', 'Admin\Calendar::getEvents');
+    $routes->get('calendar/getEventsByDate/(:any)', 'Admin\Calendar::getEventsByDate/$1');
+    $routes->get('calendar/getEventsByDate', 'Admin\Calendar::getEventsByDate');
+    $routes->get('calendar/getMonthlySummary/(:num)/(:num)', 'Admin\Calendar::getMonthlySummary/$1/$2');
 
-    $routes->get('pengaturan', 'Admin\Pengaturan::index');
-    $routes->post('pengaturan/simpan', 'Admin\Pengaturan::simpan');
-    
+    $routes->get('pengaturan-ajax', 'Admin\PengaturanAjax::index');
+    $routes->get('pengaturan-ajax/getSettings', 'Admin\PengaturanAjax::getSettings');
+    $routes->get('pengaturan-ajax/getSettingDetail/(:num)', 'Admin\PengaturanAjax::getSettingDetail/$1');
+    $routes->post('pengaturan-ajax/save', 'Admin\PengaturanAjax::save');
+    $routes->post('pengaturan-ajax/delete/(:num)', 'Admin\PengaturanAjax::delete/$1');
+    $routes->post('pengaturan-ajax/toggleStatus/(:num)', 'Admin\PengaturanAjax::toggleStatus/$1');
+    $routes->post('pengaturan-ajax/updateMultiple', 'Admin\PengaturanAjax::updateMultiple');
+    $routes->get('pengaturan-ajax/backup', 'Admin\PengaturanAjax::backup');
+    $routes->post('pengaturan-ajax/restore', 'Admin\PengaturanAjax::restore');
+    $routes->post('pengaturan-ajax/initialize', 'Admin\PengaturanAjax::initialize');
+    $routes->get('pengaturan-ajax/getCategories', 'Admin\PengaturanAjax::getCategories');
+    $routes->get('pengaturan-ajax/getFieldTypes', 'Admin\PengaturanAjax::getFieldTypes');
+
     $routes->get('area', 'Admin\Area::index');
     $routes->get('area/tambah', 'Admin\Area::tambah');
     $routes->post('area/simpan', 'Admin\Area::simpan');
