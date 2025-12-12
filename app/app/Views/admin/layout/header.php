@@ -107,7 +107,7 @@
                                 <span>Kalender</span>
                             </a>
                         </li>
-                        <a class="nav-link <?= strpos(uri_string(), 'admin/pengaturan-ajax') !== false ? 'active' : '' ?>" href="<?= base_url('admin/pengaturan') ?>">
+                        <a class="nav-link <?= strpos(uri_string(), 'admin/pengaturan-ajax') !== false ? 'active' : '' ?>" href="<?= base_url('admin/pengaturan-ajax') ?>">
                             <i class="bi bi-gear me-2"></i> Pengaturan
                         </a>
                         <a class="nav-link" href="<?= base_url('logout') ?>">
