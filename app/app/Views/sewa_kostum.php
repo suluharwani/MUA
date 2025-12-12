@@ -102,7 +102,11 @@
                         </div>
                         
                         <h4 class="mb-3"><?= $item['nama_kostum'] ?></h4>
-                        <p class="text-muted mb-3"><?= character_limiter($item['deskripsi'], 100) ?></p>
+                        <?php if (!empty($item['deskripsi'])): ?>
+    <?= character_limiter($item['deskripsi'], 100) ?>
+<?php else: ?>
+    <span class="text-muted">Tidak ada deskripsi</span>
+<?php endif; ?>
                         
                         <?php if (!empty($item['spesifikasi']) && is_array($item['spesifikasi'])): ?>
                             <ul class="mb-3">
