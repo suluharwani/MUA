@@ -72,9 +72,32 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->post('kostum-ajax/bulkAction', 'Admin\KostumAjax::bulkAction');
     
     $routes->get('pesanan', 'Admin\Pesanan::index');
+    $routes->get('pesanan/create', 'Admin\Pesanan::create');
+    $routes->post('pesanan/store', 'Admin\Pesanan::store');
+    $routes->post('pesanan/update/(:num)', 'Admin\Pesanan::update/$1');
+    $routes->post('pesanan/getData', 'Admin\Pesanan::getData');
+    $routes->post('pesanan/getStats', 'Admin\Pesanan::getStats');
+    $routes->get('pesanan/getDetail/(:num)', 'Admin\Pesanan::detail/$1');
+    $routes->get('pesanan/getOrderForEdit/(:num)', 'Admin\Pesanan::getOrderForEdit/$1');
+    $routes->get('pesanan/getPaketDetail/(:num)', 'Admin\Pesanan::getPaketDetail/$1');
+    $routes->get('pesanan/getKostumDetail/(:num)', 'Admin\Pesanan::getKostumDetail/$1');
+    $routes->get('pesanan/getAreaDetail/(:num)', 'Admin\Pesanan::getAreaDetail/$1');
+    $routes->post('pesanan/calculatePrice', 'Admin\Pesanan::calculatePrice');
+    $routes->post('pesanan/updateStatus', 'Admin\Pesanan::updateStatus');
+    $routes->post('pesanan/update-pembayaran/(:num)', 'Admin\Pesanan::updatePembayaran/$1');
+    $routes->post('pesanan/tambah-catatan/(:num)', 'Admin\Pesanan::tambahCatatan/$1');
+    $routes->post('pesanan/delete/(:num)', 'Admin\Pesanan::delete/$1');
+    $routes->get('pesanan/export/(:any)', 'Admin\Pesanan::export/$1');
+    $routes->get('pesanan/calendar', 'Admin\Pesanan::calendar');
+    $routes->get('pesanan/generateKode', 'Admin\Pesanan::generateKode');
+    $routes->post('pesanan/addPayment/(:num)', 'Admin\Pesanan::addPayment/$1');
+    $routes->post('pesanan/verifyPayment/(:num)', 'Admin\Pesanan::verifyPayment/$1');
+    $routes->get('pesanan/getPaymentHistory/(:num)', 'Admin\Pesanan::getPaymentHistory/$1');
+    $routes->get('pesanan/printInvoice/(:num)', 'Admin\Pesanan::printInvoice/$1');
+    $routes->get('pesanan/generatePdf/(:num)', 'Admin\Pesanan::generatePdf/$1');
     $routes->get('pesanan/detail/(:num)', 'Admin\Pesanan::detail/$1');
-    $routes->get('pesanan/ubah-status/(:num)/(:any)', 'Admin\Pesanan::ubahStatus/$1/$2');
     
+
     $routes->get('pengaturan', 'Admin\Pengaturan::index');
     $routes->post('pengaturan/simpan', 'Admin\Pengaturan::simpan');
     

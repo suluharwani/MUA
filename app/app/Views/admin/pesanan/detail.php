@@ -1,4 +1,3 @@
-<?= $this->extend('admin/layout/header') ?>
 
 <?= $this->section('content') ?>
 <div class="container-fluid">

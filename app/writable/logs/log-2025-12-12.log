@@ -1,0 +1,1939 @@
+DEBUG - 2025-12-12 00:42:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:42:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:43:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:43:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:52:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 00:52:18 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: admin/pesanan]
+in APPPATH\Views\admin\pesanan\index.php on line 134.
+ 1 APPPATH\Views\admin\pesanan\index.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php', 134)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(36): view('admin/pesanan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 00:52:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 00:52:30 --> ErrorException: Undefined variable $loop
+[Method: GET, Route: admin/pengaturan]
+in APPPATH\Views\admin\pengaturan\index.php on line 226.
+ 1 APPPATH\Views\admin\pengaturan\index.php(226): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $loop', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php', 226)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pengaturan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pengaturan.php(30): view('admin/pengaturan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pengaturan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 00:52:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:52:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:53:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 00:53:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/kostum/index.php"
+[Method: GET, Route: admin/kostum]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/kostum/index.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/kostum/index', [], true)
+ 3 APPPATH\Controllers\Admin\Kostum.php(54): view('admin/kostum/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Kostum->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Kostum))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 00:53:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:53:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:53:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:53:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 00:53:32 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: admin/pesanan]
+in APPPATH\Views\admin\pesanan\index.php on line 134.
+ 1 APPPATH\Views\admin\pesanan\index.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$request', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php', 134)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(36): view('admin/pesanan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 00:53:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:53:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:53:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:53:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:53:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:57:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:58:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 00:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:01:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:05:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:22:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:22:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:22:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:23:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:23:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:23:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:23:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 01:23:34 --> ErrorException: Undefined variable $loop
+[Method: GET, Route: admin/pengaturan]
+in APPPATH\Views\admin\pengaturan\index.php on line 226.
+ 1 APPPATH\Views\admin\pengaturan\index.php(226): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $loop', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php', 226)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pengaturan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pengaturan.php(30): view('admin/pengaturan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pengaturan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 01:23:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:23:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:23:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 01:23:50 --> ErrorException: Undefined variable $loop
+[Method: GET, Route: admin/pengaturan]
+in APPPATH\Views\admin\pengaturan\index.php on line 226.
+ 1 APPPATH\Views\admin\pengaturan\index.php(226): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $loop', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php', 226)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pengaturan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pengaturan.php(30): view('admin/pengaturan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pengaturan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 01:23:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:24:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:24:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:26:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:26:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 01:26:03 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: admin/pesanan/getData]
+in APPPATH\Controllers\Admin\Pesanan.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 01:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 01:26:07 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: admin/pesanan/getData]
+in APPPATH\Controllers\Admin\Pesanan.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 01:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:26:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:26:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 01:26:16 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: admin/pesanan/getData]
+in APPPATH\Controllers\Admin\Pesanan.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 01:26:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 01:26:31 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: admin/pesanan/getData]
+in APPPATH\Controllers\Admin\Pesanan.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 01:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 01:29:18 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: admin/pesanan/getData]
+in APPPATH\Controllers\Admin\Pesanan.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 01:29:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:29:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:30:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:30:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:30:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:30:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 01:30:22 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: admin/pesanan/getData]
+in APPPATH\Controllers\Admin\Pesanan.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 01:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 01:49:53 --> mysqli_sql_exception: Unknown column 'p.area_id' in 'ON' in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\PesananModel.php(88): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(79): App\Models\PesananModel->getDataTables(0, 10, '', '', '', '', '')
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+ERROR - 2025-12-12 01:49:53 --> Error in Pesanan::getData: Unknown column 'p.area_id' in 'ON'
+DEBUG - 2025-12-12 01:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:49:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:49:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 01:49:59 --> mysqli_sql_exception: Unknown column 'p.area_id' in 'ON' in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\PesananModel.php(88): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(79): App\Models\PesananModel->getDataTables(0, 10, '', '', '', '', '')
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+ERROR - 2025-12-12 01:49:59 --> Error in Pesanan::getData: Unknown column 'p.area_id' in 'ON'
+DEBUG - 2025-12-12 01:49:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:50:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:50:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 01:50:07 --> mysqli_sql_exception: Unknown column 'p.area_id' in 'ON' in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\PesananModel.php(88): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(79): App\Models\PesananModel->getDataTables(0, 10, '', '', '', '', '')
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+ERROR - 2025-12-12 01:50:07 --> Error in Pesanan::getData: Unknown column 'p.area_id' in 'ON'
+DEBUG - 2025-12-12 01:50:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:50:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:50:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 01:50:25 --> mysqli_sql_exception: Unknown column 'p.area_id' in 'ON' in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\PesananModel.php(88): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(79): App\Models\PesananModel->getDataTables(0, 10, '', '', '', '', '')
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+ERROR - 2025-12-12 01:50:25 --> Error in Pesanan::getData: Unknown column 'p.area_id' in 'ON'
+DEBUG - 2025-12-12 01:50:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:50:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:50:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 01:50:42 --> mysqli_sql_exception: Unknown column 'p.area_id' in 'ON' in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\PesananModel.php(88): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(79): App\Models\PesananModel->getDataTables(0, 10, '', '', '', '', '')
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+ERROR - 2025-12-12 01:50:42 --> Error in Pesanan::getData: Unknown column 'p.area_id' in 'ON'
+DEBUG - 2025-12-12 01:50:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:52:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:52:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:52:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:52:43 --> DataTables request received: Array
+(
+    [search] => 
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+ERROR - 2025-12-12 01:52:43 --> mysqli_sql_exception: Unknown column 'p.area_id' in 'ON' in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\PesananModel.php(88): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(91): App\Models\PesananModel->getDataTables(0, 10, '', '', '', '')
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+ERROR - 2025-12-12 01:52:43 --> Error in Pesanan::getData: Unknown column 'p.area_id' in 'ON'
+ERROR - 2025-12-12 01:52:43 --> Stack trace: #0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\PesananModel.php(88): CodeIgniter\Database\BaseBuilder->get()
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(91): App\Models\PesananModel->getDataTables(0, 10, '', '', '', '')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#10 {main}
+DEBUG - 2025-12-12 01:52:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:53:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:53:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:54:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:55:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:56:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:56:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:56:33 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+ERROR - 2025-12-12 01:56:33 --> mysqli_sql_exception: Unknown column 'p.total_akhir' in 'SELECT' in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id`...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id`...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id`...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id`...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\PesananModel.php(97): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(91): App\Models\PesananModel->getDataTables(0, 10, '', '', '', '')
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+ERROR - 2025-12-12 01:56:33 --> Error in Pesanan::getData: Unknown column 'p.total_akhir' in 'SELECT'
+ERROR - 2025-12-12 01:56:33 --> Stack trace: #0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id`...', Array, false)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\app\Models\PesananModel.php(97): CodeIgniter\Database\BaseBuilder->get()
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(91): App\Models\PesananModel->getDataTables(0, 10, '', '', '', '')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->getData()
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#10 {main}
+DEBUG - 2025-12-12 01:56:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:57:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:57:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:57:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:57:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:57:37 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 01:57:37 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 01:57:37 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 01:57:37 --> Sending DataTables response
+DEBUG - 2025-12-12 01:57:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:57:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 01:57:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/pesanan/create_modal.php"
+[Method: GET, Route: admin/pesanan/create]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/pesanan/create_modal.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/create_modal', [], true)
+ 3 APPPATH\Controllers\Admin\Pesanan.php(49): view('admin/pesanan/create_modal', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->create()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 01:58:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:58:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:59:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 01:59:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:00:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:00:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:01:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:02:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:02:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:03:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:03:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:04:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:04:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:04:02 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:04:04 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 02:04:04 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 02:04:04 --> Sending DataTables response
+DEBUG - 2025-12-12 02:04:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:04:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 02:04:05 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/pesanan/create_modal.php"
+[Method: GET, Route: admin/pesanan/create]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/pesanan/create_modal.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/create_modal', [], true)
+ 3 APPPATH\Controllers\Admin\Pesanan.php(49): view('admin/pesanan/create_modal', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->create()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 02:04:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 02:04:06 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/pesanan/create_modal.php"
+[Method: GET, Route: admin/pesanan/create]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/pesanan/create_modal.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/create_modal', [], true)
+ 3 APPPATH\Controllers\Admin\Pesanan.php(49): view('admin/pesanan/create_modal', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->create()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 02:04:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:04:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:04:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:04:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:04:59 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:04:59 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 02:04:59 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 02:04:59 --> Sending DataTables response
+DEBUG - 2025-12-12 02:04:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:05:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:05:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:05:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:05:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:06:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:06:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:07:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:08:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:09:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:10:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:10:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:10:27 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:10:27 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 02:10:27 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 02:10:27 --> Sending DataTables response
+DEBUG - 2025-12-12 02:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:10:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:10:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:11:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:11:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:11:26 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:11:26 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 02:11:26 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 02:11:26 --> Sending DataTables response
+DEBUG - 2025-12-12 02:11:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:11:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:11:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:11:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:11:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:11:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:11:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:12:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:12:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:12:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:12:28 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:12:28 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 02:12:29 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 02:12:29 --> Sending DataTables response
+DEBUG - 2025-12-12 02:12:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:12:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:12:34 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:12:34 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 02:12:34 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 02:12:34 --> Sending DataTables response
+DEBUG - 2025-12-12 02:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:12:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:12:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:13:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:13:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:13:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:13:08 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:13:08 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 02:13:09 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 02:13:09 --> Sending DataTables response
+DEBUG - 2025-12-12 02:13:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:13:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:13:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:13:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:14:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:14:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:15:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:15:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:16:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:17:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:18:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:19:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:20:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:21:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:22:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:23:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:23:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:23:23 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:23:23 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 02:23:23 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 02:23:23 --> Sending DataTables response
+DEBUG - 2025-12-12 02:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:23:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 02:23:24 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/layout/modal_layout.php"
+[Method: GET, Route: admin/pesanan/create]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/modal_layout.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('admin/layout/modal_layout', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/create_modal', [], true)
+ 4 APPPATH\Controllers\Admin\Pesanan.php(49): view('admin/pesanan/create_modal', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 02:23:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 02:23:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/layout/modal_layout.php"
+[Method: GET, Route: admin/pesanan/create]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/modal_layout.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('admin/layout/modal_layout', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/create_modal', [], true)
+ 4 APPPATH\Controllers\Admin\Pesanan.php(49): view('admin/pesanan/create_modal', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 02:23:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 02:23:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/layout/modal_layout.php"
+[Method: GET, Route: admin/pesanan/create]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/modal_layout.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('admin/layout/modal_layout', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/create_modal', [], true)
+ 4 APPPATH\Controllers\Admin\Pesanan.php(49): view('admin/pesanan/create_modal', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 02:23:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 02:23:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/layout/modal_layout.php"
+[Method: GET, Route: admin/pesanan/create]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/modal_layout.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('admin/layout/modal_layout', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/create_modal', [], true)
+ 4 APPPATH\Controllers\Admin\Pesanan.php(49): view('admin/pesanan/create_modal', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 02:23:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:24:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:24:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:25:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:25:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:25:08 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:25:08 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:25:08 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:25:08 --> Sending DataTables response
+DEBUG - 2025-12-12 02:25:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:25:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:25:18 --> Error in Pesanan::getDetail: Undefined array key "paket_nama"
+DEBUG - 2025-12-12 02:25:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:25:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:25:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:25:32 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`)) in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `pesanan...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `pesanan...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `pesanan...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `pesanan...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(985): CodeIgniter\Model->update('1', Array)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->update('1')
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#15 {main}
+ERROR - 2025-12-12 02:25:32 --> Error in update: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`))
+DEBUG - 2025-12-12 02:25:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:25:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:25:54 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`)) in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `pesanan...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `pesanan...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `pesanan...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `pesanan...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(985): CodeIgniter\Model->update('1', Array)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->update('1')
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#15 {main}
+ERROR - 2025-12-12 02:25:54 --> Error in update: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`))
+DEBUG - 2025-12-12 02:26:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:26:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:27:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:28:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:28:14 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `pesanan...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `pesanan...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `pesanan...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `pesanan...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(985): CodeIgniter\Model->update('1', Array)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->update('1')
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#15 {main}
+ERROR - 2025-12-12 02:28:14 --> Error in update: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+DEBUG - 2025-12-12 02:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:29:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:29:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:30:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:31:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:31:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:31:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:31:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:31:48 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:31:48 --> Data retrieved: 0 records
+DEBUG - 2025-12-12 02:31:48 --> DataTables response prepared: 0 items
+DEBUG - 2025-12-12 02:31:48 --> Sending DataTables response
+DEBUG - 2025-12-12 02:31:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:31:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:32:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:32:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:32:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:32:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:32:27 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:32:29 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:32:29 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:32:29 --> Sending DataTables response
+DEBUG - 2025-12-12 02:32:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:32:37 --> Error in Pesanan::getDetail: Undefined array key "paket_nama"
+DEBUG - 2025-12-12 02:32:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:32:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:32:47 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `pesanan...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `pesanan...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `pesanan...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `pesanan...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(985): CodeIgniter\Model->update('2', Array)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->update('2')
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#15 {main}
+ERROR - 2025-12-12 02:32:47 --> Error in update: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+DEBUG - 2025-12-12 02:32:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:33:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:33:15 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `pesanan...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `pesanan...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `pesanan...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `pesanan...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(985): CodeIgniter\Model->update('2', Array)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->update('2')
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#15 {main}
+ERROR - 2025-12-12 02:33:15 --> Error in update: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+DEBUG - 2025-12-12 02:33:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:33:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:33:29 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `pesanan...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `pesanan...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `pesanan...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `pesanan...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(985): CodeIgniter\Model->update('2', Array)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->update('2')
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#15 {main}
+ERROR - 2025-12-12 02:33:29 --> Error in update: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+DEBUG - 2025-12-12 02:33:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:34:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:34:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:34:38 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `pesanan...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `pesanan...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `pesanan...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `pesanan...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(985): CodeIgniter\Model->update('2', Array)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->update('2')
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#15 {main}
+ERROR - 2025-12-12 02:34:38 --> Error in update: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+DEBUG - 2025-12-12 02:34:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:34:49 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `pesanan...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `pesanan...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `pesanan...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `pesanan...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(985): CodeIgniter\Model->update('2', Array)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->update('2')
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#15 {main}
+ERROR - 2025-12-12 02:34:49 --> Error in update: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+DEBUG - 2025-12-12 02:34:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:36 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:35:36 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:35:36 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:35:36 --> Sending DataTables response
+DEBUG - 2025-12-12 02:35:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:35:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:35:55 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) in C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `pesanan...', 0)
+#1 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `pesanan...')
+#2 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `pesanan...')
+#3 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `pesanan...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\suluh\Documents\GitHub\MUA\app\app\Controllers\Admin\Pesanan.php(985): CodeIgniter\Model->update('2', Array)
+#8 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->update('2')
+#9 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+#10 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\suluh\Documents\GitHub\MUA\app\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\suluh\Documents\GitHub\MUA\app\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#15 {main}
+ERROR - 2025-12-12 02:35:55 --> Error in update: Cannot add or update a child row: a foreign key constraint fails (`u589050364_mua`.`pesanan`, CONSTRAINT `fk_pesanan_kostum` FOREIGN KEY (`kostum_id`) REFERENCES `kostum` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)
+DEBUG - 2025-12-12 02:36:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:13 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:36:13 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:36:13 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:36:13 --> Sending DataTables response
+DEBUG - 2025-12-12 02:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:36:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:36:44 --> Error in Pesanan::getDetail: Undefined array key "paket_nama"
+DEBUG - 2025-12-12 02:37:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:37:12 --> Error in Pesanan::calendar: Invalid file: "admin/pesanan/calendar.php"
+DEBUG - 2025-12-12 02:37:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:37:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:37:12 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:37:13 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:37:13 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:37:13 --> Sending DataTables response
+DEBUG - 2025-12-12 02:37:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:37:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:37:16 --> Error in Pesanan::calendar: Invalid file: "admin/pesanan/calendar.php"
+DEBUG - 2025-12-12 02:37:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:37:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:37:17 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:37:17 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:37:17 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:37:17 --> Sending DataTables response
+DEBUG - 2025-12-12 02:37:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:37:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:37:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:37:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:37:43 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:37:43 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:37:43 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:37:43 --> Sending DataTables response
+DEBUG - 2025-12-12 02:37:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:38:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:38:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:39:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:39:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:40:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:41:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:41:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:42:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:42:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:42:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:42:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 02:42:55 --> ErrorException: Undefined variable $loop
+[Method: GET, Route: admin/pengaturan]
+in APPPATH\Views\admin\pengaturan\index.php on line 226.
+ 1 APPPATH\Views\admin\pengaturan\index.php(226): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $loop', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php', 226)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pengaturan\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pengaturan/index', [], true)
+ 5 APPPATH\Controllers\Admin\Pengaturan.php(30): view('admin/pengaturan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pengaturan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pengaturan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 02:42:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:42:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:42:58 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:42:58 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:42:58 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:42:58 --> Sending DataTables response
+DEBUG - 2025-12-12 02:42:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:43:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:44:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:44:04 --> Error in Pesanan::getDetail: Undefined array key "paket_nama"
+DEBUG - 2025-12-12 02:44:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 02:44:18 --> Error in Pesanan::getDetail: Undefined array key "paket_nama"
+DEBUG - 2025-12-12 02:44:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:44:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:45:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:45:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:46:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:47:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:47:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:48:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:49:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:49:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:49:42 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:49:43 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:49:43 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:49:43 --> Sending DataTables response
+DEBUG - 2025-12-12 02:49:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:50:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:50:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:51:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:51:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:52:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:52:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:53:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:54:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:55:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:56:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:57:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:58:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:59:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:59:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:59:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:59:58 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 02:59:58 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 02:59:58 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 02:59:58 --> Sending DataTables response
+DEBUG - 2025-12-12 02:59:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 02:59:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 03:00:00 --> Error in Pesanan::getDetail: Undefined array key "kode_pesaran"
+DEBUG - 2025-12-12 03:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 03:00:10 --> Error in Pesanan::getDetail: Undefined array key "kode_pesaran"
+DEBUG - 2025-12-12 03:00:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 03:00:19 --> Error in Pesanan::getDetail: Undefined array key "kode_pesaran"
+DEBUG - 2025-12-12 03:00:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:00:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:01:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:01:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:01:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:01:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:02:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:02:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:03:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:05:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:06:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:06:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:06:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:07:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 03:07:46 --> ErrorException: Undefined array key "paket_nama"
+[Method: GET, Route: admin/pesanan/getDetail/2]
+in APPPATH\Views\admin\pesanan\detail_full.php on line 131.
+ 1 APPPATH\Views\admin\pesanan\detail_full.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paket_nama"', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php', 131)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/detail_full', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(1026): view('admin/pesanan/detail_full', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->detail('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 03:07:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:07:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:07:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:07:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:07:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:07:56 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:07:56 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:07:56 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:07:56 --> Sending DataTables response
+DEBUG - 2025-12-12 03:07:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:07:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 03:07:58 --> ErrorException: Undefined array key "paket_nama"
+[Method: GET, Route: admin/pesanan/getDetail/2]
+in APPPATH\Views\admin\pesanan\detail_full.php on line 131.
+ 1 APPPATH\Views\admin\pesanan\detail_full.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paket_nama"', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php', 131)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/detail_full', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(1026): view('admin/pesanan/detail_full', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->detail('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 03:08:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 03:08:02 --> ErrorException: Undefined array key "paket_nama"
+[Method: GET, Route: admin/pesanan/getDetail/2]
+in APPPATH\Views\admin\pesanan\detail_full.php on line 131.
+ 1 APPPATH\Views\admin\pesanan\detail_full.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paket_nama"', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php', 131)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/detail_full', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(1026): view('admin/pesanan/detail_full', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->detail('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 03:08:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:08:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:08:04 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:08:04 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:08:04 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:08:04 --> Sending DataTables response
+DEBUG - 2025-12-12 03:08:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:08:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 03:08:09 --> ErrorException: Undefined array key "paket_nama"
+[Method: GET, Route: admin/pesanan/getDetail/2]
+in APPPATH\Views\admin\pesanan\detail_full.php on line 131.
+ 1 APPPATH\Views\admin\pesanan\detail_full.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paket_nama"', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php', 131)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/detail_full', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(1026): view('admin/pesanan/detail_full', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->detail('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 03:08:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:08:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 03:08:49 --> ErrorException: Undefined array key "paket_nama"
+[Method: GET, Route: admin/pesanan/getDetail/2]
+in APPPATH\Views\admin\pesanan\detail_full.php on line 131.
+ 1 APPPATH\Views\admin\pesanan\detail_full.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paket_nama"', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php', 131)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/detail_full', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(1026): view('admin/pesanan/detail_full', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->detail('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 03:08:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 03:08:53 --> ErrorException: Undefined array key "paket_nama"
+[Method: GET, Route: admin/pesanan/getDetail/2]
+in APPPATH\Views\admin\pesanan\detail_full.php on line 131.
+ 1 APPPATH\Views\admin\pesanan\detail_full.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paket_nama"', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php', 131)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/detail_full', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(1026): view('admin/pesanan/detail_full', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->detail('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 03:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:10:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:10:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:10:27 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:10:27 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:10:27 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:10:27 --> Sending DataTables response
+DEBUG - 2025-12-12 03:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:10:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 03:10:29 --> ErrorException: Undefined array key "paket_nama"
+[Method: GET, Route: admin/pesanan/getDetail/2]
+in APPPATH\Views\admin\pesanan\detail_full.php on line 131.
+ 1 APPPATH\Views\admin\pesanan\detail_full.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paket_nama"', 'C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php', 131)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\app\\Views\\admin\\pesanan\\detail_full.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/pesanan/detail_full', [], true)
+ 5 APPPATH\Controllers\Admin\Pesanan.php(1026): view('admin/pesanan/detail_full', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Pesanan->detail('2')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Pesanan))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 03:10:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:11:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:11:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:12:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:12:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:13:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:14:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:14:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:14:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:15:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:17:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:17:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:17:58 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:17:58 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:17:58 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:17:58 --> Sending DataTables response
+DEBUG - 2025-12-12 03:17:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:17:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:18:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:18:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:18:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:19:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:19:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:19:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:19:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-12 03:19:54 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\PesananModel::getMonthlyCount
+[Method: GET, Route: admin]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Admin\Dashboard.php(30): CodeIgniter\Model->__call('getMonthlyCount', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Dashboard->index()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Dashboard))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\MUA\\app\\public\\index.php')
+DEBUG - 2025-12-12 03:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:19:56 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:19:57 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:19:57 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:19:57 --> Sending DataTables response
+DEBUG - 2025-12-12 03:19:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:19:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:20:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:20:54 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:20:54 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:20:54 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:20:54 --> Sending DataTables response
+DEBUG - 2025-12-12 03:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:20:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:21:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:21:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:21:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:21:04 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:21:04 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:21:04 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:21:04 --> Sending DataTables response
+DEBUG - 2025-12-12 03:21:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:21:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:21:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:01 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:22:02 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:22:02 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:22:02 --> Sending DataTables response
+DEBUG - 2025-12-12 03:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:12 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:22:12 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:22:12 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:22:12 --> Sending DataTables response
+DEBUG - 2025-12-12 03:22:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:22:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:23:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:23:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 03:23:03 --> Error in Pesanan::getDetail: Undefined array key "kode_pesaran"
+DEBUG - 2025-12-12 03:23:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 03:23:05 --> Error in Pesanan::getDetail: Undefined array key "kode_pesaran"
+DEBUG - 2025-12-12 03:23:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:23:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:23:08 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:23:08 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:23:08 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:23:08 --> Sending DataTables response
+DEBUG - 2025-12-12 03:23:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:23:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 03:23:09 --> Error in Pesanan::getDetail: Undefined array key "kode_pesaran"
+DEBUG - 2025-12-12 03:23:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:23:18 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:23:18 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:23:18 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:23:18 --> Sending DataTables response
+DEBUG - 2025-12-12 03:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:23:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:23:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:24:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:24:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:24:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:24:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:25:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:26:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:26:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:26:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:26:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:27:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:28:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:28:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:21 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:29:21 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:29:21 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:29:21 --> Sending DataTables response
+DEBUG - 2025-12-12 03:29:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:45 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:29:46 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:29:46 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:29:46 --> Sending DataTables response
+DEBUG - 2025-12-12 03:29:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:17 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:30:17 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:30:17 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:30:17 --> Sending DataTables response
+DEBUG - 2025-12-12 03:30:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:39 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:30:39 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:30:39 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:30:39 --> Sending DataTables response
+DEBUG - 2025-12-12 03:30:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:30:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:31:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:31:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:31:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:31:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:31:48 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:31:49 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:31:49 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:31:49 --> Sending DataTables response
+DEBUG - 2025-12-12 03:31:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:31:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-12 03:32:09 --> Error in Pesanan::calendar: Invalid file: "admin/pesanan/calendar.php"
+DEBUG - 2025-12-12 03:32:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:09 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:32:09 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:32:09 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:32:09 --> Sending DataTables response
+DEBUG - 2025-12-12 03:32:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:44 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:32:45 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:32:45 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:32:45 --> Sending DataTables response
+DEBUG - 2025-12-12 03:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:32:59 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:33:00 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:33:00 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:33:00 --> Sending DataTables response
+DEBUG - 2025-12-12 03:33:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:33:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:33:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:33:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:34:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:34:13 --> DataTables request received: Array
+(
+    [draw] => 1
+    [start] => 0
+    [length] => 10
+    [search] => Array
+        (
+            [value] => 
+        )
+
+    [status] => 
+    [date] => 
+    [layanan] => 
+)
+
+DEBUG - 2025-12-12 03:34:13 --> Data retrieved: 1 records
+DEBUG - 2025-12-12 03:34:14 --> DataTables response prepared: 1 items
+DEBUG - 2025-12-12 03:34:14 --> Sending DataTables response
+DEBUG - 2025-12-12 03:34:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:34:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-12 03:34:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
