@@ -24,7 +24,7 @@
         <div class="row g-4">
             <?php foreach ($featured_gallery as $item): ?>
             <div class="col-lg-3 col-md-6">
-                <a href="#gallery<?= $item['id'] ?>" class="gallery-featured-card text-decoration-none" data-bs-toggle="modal">
+                <a href="<?= base_url('gallery/' . $item['id']) ?>" class="gallery-featured-card text-decoration-none">
                     <div class="position-relative overflow-hidden rounded" style="height: 250px;">
                         <img src="<?= base_url('uploads/gallery/' . $item['gambar']) ?>" 
                              alt="<?= $item['judul'] ?>" 
@@ -82,20 +82,20 @@
                 
                 <!-- Style Filters (for makeup) -->
                 <div class="mt-4">
-    <h6 class="mb-3">Filter Style Makeup:</h6>
-    <div class="d-flex flex-wrap gap-2">
-        <a href="<?= base_url('gallery') . ($kategori_aktif ? '?kategori=' . $kategori_aktif : '') ?>" 
-           class="btn btn-sm btn-outline-secondary rounded-pill <?= !$style_aktif ? 'active' : '' ?>">
-            Semua Style
-        </a>
-        <?php foreach ($style_options as $value => $label): ?>
-        <a href="<?= base_url('gallery?style=' . $value) . ($kategori_aktif ? '&kategori=' . $kategori_aktif : '') ?>" 
-           class="btn btn-sm btn-outline-secondary rounded-pill <?= ($style_aktif == $value) ? 'active' : '' ?>">
-            <?= $label ?>
-        </a>
-        <?php endforeach; ?>
-    </div>
-</div
+                    <h6 class="mb-3">Filter Style Makeup:</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="<?= base_url('gallery') . ($kategori_aktif ? '?kategori=' . $kategori_aktif : '') ?>" 
+                           class="btn btn-sm btn-outline-secondary rounded-pill <?= !$style_aktif ? 'active' : '' ?>">
+                            Semua Style
+                        </a>
+                        <?php foreach ($style_options as $value => $label): ?>
+                        <a href="<?= base_url('gallery?style=' . $value) . ($kategori_aktif ? '&kategori=' . $kategori_aktif : '') ?>" 
+                           class="btn btn-sm btn-outline-secondary rounded-pill <?= ($style_aktif == $value) ? 'active' : '' ?>">
+                            <?= $label ?>
+                        </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -126,14 +126,14 @@
                 <?php foreach ($gallery as $item): ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="gallery-card">
-                        <div class="gallery-image" style="height: 300px; overflow: hidden; border-radius: 10px;">
-                            <img src="<?= base_url('uploads/gallery/' . $item['gambar']) ?>" 
-                                 alt="<?= $item['judul'] ?>" 
-                                 class="img-fluid w-100 h-100" 
-                                 style="object-fit: cover;"
-                                 data-bs-toggle="modal" 
-                                 data-bs-target="#galleryModal<?= $item['id'] ?>">
-                        </div>
+                        <a href="<?= base_url('gallery/' . $item['id']) ?>">
+                            <div class="gallery-image" style="height: 300px; overflow: hidden; border-radius: 10px;">
+                                <img src="<?= base_url('uploads/gallery/' . $item['gambar']) ?>" 
+                                     alt="<?= $item['judul'] ?>" 
+                                     class="img-fluid w-100 h-100" 
+                                     style="object-fit: cover;">
+                            </div>
+                        </a>
                         
                         <div class="gallery-content mt-3">
                             <div class="d-flex justify-content-between align-items-start mb-2">
@@ -165,12 +165,10 @@
                                     <i class="bi bi-calendar me-1"></i>
                                     <?= date('d M Y', strtotime($item['created_at'])) ?>
                                 </small>
-                                <button type="button" 
-                                        class="btn btn-sm btn-outline-primary" 
-                                        data-bs-toggle="modal" 
-                                        data-bs-target="#galleryModal<?= $item['id'] ?>">
+                                <a href="<?= base_url('gallery/' . $item['id']) ?>" 
+                                   class="btn btn-sm btn-outline-primary">
                                     <i class="bi bi-zoom-in me-1"></i> Lihat Detail
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -259,91 +257,6 @@
     </div>
 </section>
 
-<!-- Gallery Modals -->
-<?php foreach ($gallery as $item): ?>
-<div class="modal fade" id="galleryModal<?= $item['id'] ?>" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title"><?= $item['judul'] ?></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <img src="<?= base_url('uploads/gallery/' . $item['gambar']) ?>" 
-                             alt="<?= $item['judul'] ?>" 
-                             class="img-fluid rounded">
-                        
-                        <?php if (!empty($item['gambar_tambahan']) && is_array($item['gambar_tambahan'])): ?>
-                        <div class="row g-2 mt-3">
-                            <?php foreach ($item['gambar_tambahan'] as $image): ?>
-                            <div class="col-3">
-                                <img src="<?= base_url('uploads/gallery/tambahan/' . $image) ?>" 
-                                     alt="<?= $item['judul'] ?>" 
-                                     class="img-fluid rounded cursor-pointer"
-                                     style="height: 80px; object-fit: cover;"
-                                     onclick="this.closest('.modal-body').querySelector('img.img-fluid').src = this.src">
-                            </div>
-                            <?php endforeach; ?>
-                        </div>
-                        <?php endif; ?>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="mb-3">
-                            <span class="badge bg-light text-dark">
-                                <?= $kategori_options[$item['kategori']] ?? ucfirst($item['kategori']) ?>
-                            </span>
-                            <?php if (!empty($item['style'])): ?>
-                                <span class="badge bg-light text-dark ms-1">
-                                    <?= $style_options[$item['style']] ?? $item['style'] ?>
-                                </span>
-                            <?php endif; ?>
-                        </div>
-                        
-                        <?php if (!empty($item['deskripsi'])): ?>
-                        <div class="mb-4">
-                            <h6>Deskripsi:</h6>
-                            <p><?= nl2br($item['deskripsi']) ?></p>
-                        </div>
-                        <?php endif; ?>
-                        
-                        <?php if (!empty($item['tema_warna'])): ?>
-                        <div class="mb-3">
-                            <h6>Tema Warna:</h6>
-                            <p class="mb-0"><?= $item['tema_warna'] ?></p>
-                        </div>
-                        <?php endif; ?>
-                        
-                        <?php if (!empty($item['produk_digunakan'])): ?>
-                        <div class="mb-3">
-                            <h6>Produk Digunakan:</h6>
-                            <p class="mb-0"><?= $item['produk_digunakan'] ?></p>
-                        </div>
-                        <?php endif; ?>
-                        
-                        <?php if (!empty($item['makeup_artist'])): ?>
-                        <div class="mb-3">
-                            <h6>Makeup Artist:</h6>
-                            <p class="mb-0"><?= $item['makeup_artist'] ?></p>
-                        </div>
-                        <?php endif; ?>
-                        
-                        <div class="mt-4">
-                            <a href="https://wa.me/<?= $pengaturan['whatsapp'] ?? '6287731310979' ?>?text=Halo%20Maulia,%20saya%20tertarik%20dengan%20gallery%20<?= urlencode($item['judul']) ?>%20dan%20ingin%20konsultasi%20lebih%20lanjut." 
-                               class="btn btn-success w-100" 
-                               target="_blank">
-                                <i class="bi bi-whatsapp me-2"></i>Konsultasi Style Ini
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php endforeach; ?>
-
 <!-- Additional CSS -->
 <style>
 .gallery-card {
@@ -391,45 +304,11 @@
     cursor: pointer;
 }
 
-.modal-content {
-    border-radius: 15px;
-    overflow: hidden;
-}
-
 /* Style guide cards */
 .card:hover {
     transform: translateY(-5px);
     transition: transform 0.3s ease;
 }
 </style>
-
-<!-- Additional Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize gallery lightbox functionality
-    const galleryImages = document.querySelectorAll('.gallery-image img');
-    
-    galleryImages.forEach(img => {
-        img.addEventListener('click', function() {
-            const modalId = this.getAttribute('data-bs-target');
-            if (modalId) {
-                const modal = new bootstrap.Modal(document.querySelector(modalId));
-                modal.show();
-            }
-        });
-    });
-    
-    // Filter gallery by style (for makeup category)
-    const styleButtons = document.querySelectorAll('[data-style-filter]');
-styleButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const style = this.getAttribute('data-style-filter');
-        window.location.href = `<?= base_url('gallery') ?>?style=${style}<?= $kategori_aktif ? '&kategori=' . $kategori_aktif : '' ?>`;
-    });
-});
-});
-
-</script>
 
 <?= $this->include('template/footer') ?>

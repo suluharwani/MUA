@@ -192,16 +192,27 @@ public function mitra()
     $mitraModel = new \App\Models\MitraModel();
     $pengaturanModel = new \App\Models\PengaturanModel();
     
-    // Get kategori filter jika ada
+    // Get filter parameters
     $kategori = $this->request->getGet('kategori');
     $search = $this->request->getGet('search');
+    $spesialisasi = $this->request->getGet('spesialisasi');
+    
+    // Gunakan parameter array
+    $filterParams = [
+        'status' => 'active',
+        'search' => $search,
+        'spesialisasi' => $spesialisasi,
+        'kategori' => $kategori // jika ingin filter kategori juga
+    ];
     
     $data = [
         'title' => 'Mitra Pernikahan - ' . ($pengaturanModel->getByKey('nama_toko') ?? 'Maulia Wedding'),
-        'mitra' => $mitraModel->getAllWithFilter($kategori, 'active', $search),
+        'mitra' => $mitraModel->getAllWithFilter($filterParams),
         'kategori_options' => $mitraModel->getKategoriOptions(),
+        'spesialisasi_options' => $mitraModel->getSpesialisasiOptions(),
         'kategori_aktif' => $kategori,
         'search_term' => $search,
+        'spesialisasi_aktif' => $spesialisasi,
         'pengaturan' => $pengaturanModel->getContactInfo(),
         'meta_description' => 'Temukan mitra pernikahan terpercaya di Grobogan. Fotografer, WO, catering, percetakan undangan, dekorasi, dan berbagai vendor pernikahan lainnya.',
         'meta_keywords' => 'mitra pernikahan, fotografer wedding grobogan, catering pernikahan, wo wedding, cetak undangan, dekorasi pernikahan'

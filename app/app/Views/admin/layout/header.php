@@ -101,12 +101,16 @@
                         <a class="nav-link <?= strpos(uri_string(), 'admin/pesanan') !== false ? 'active' : '' ?>" href="<?= base_url('admin/pesanan') ?>">
                             <i class="bi bi-cart-check me-2"></i> Pesanan
                         </a>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('admin/kalender') ?>">
-                                <i class="bi bi-calendar-week"></i>
-                                <span>Kalender</span>
-                            </a>
-                        </li>
+                        <a class="nav-link" href="<?= base_url('admin/kalender') ?>">
+                            <i class="bi bi-calendar-week"></i>
+                            <span>Kalender</span>
+                        </a>
+                        <a class="nav-link <?= strpos(uri_string(), 'admin/gallery') !== false ? 'active' : '' ?>" href="<?= base_url('admin/gallery') ?>">
+                            <i class="bi bi-images me-2"></i> Gallery
+                        </a>
+                        <a class="nav-link <?= strpos(uri_string(), 'admin/mitra') !== false ? 'active' : '' ?>" href="<?= base_url('admin/mitra') ?>">
+                            <i class="bi bi-people me-2"></i> Mitra
+                        </a>
                         <a class="nav-link <?= strpos(uri_string(), 'admin/pengaturan-ajax') !== false ? 'active' : '' ?>" href="<?= base_url('admin/pengaturan-ajax') ?>">
                             <i class="bi bi-gear me-2"></i> Pengaturan
                         </a>

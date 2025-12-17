@@ -422,5 +422,30 @@ class GalleryModel extends Model
         
         return $gallery;
     }
-    
+    // Tambahkan method ini ke GalleryModel
+
+/**
+ * Get categories from database
+ */
+public function getCategoriesFromDB()
+{
+    $builder = $this->db->table('gallery_categories');
+    $builder->select('slug as value, name as label, color, icon');
+    $builder->where('is_active', 1);
+    $builder->orderBy('name', 'ASC');
+    $query = $builder->get();
+    return $query->getResultArray();
+}
+
+/**
+ * Get category by slug
+ */
+public function getCategoryBySlug($slug)
+{
+    $builder = $this->db->table('gallery_categories');
+    $builder->where('slug', $slug);
+    $builder->where('is_active', 1);
+    $query = $builder->get();
+    return $query->getRowArray();
+}
 }

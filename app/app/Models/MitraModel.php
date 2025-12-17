@@ -17,6 +17,7 @@ class MitraModel extends Model
         'nama_mitra',
         'slug',
         'kategori',
+        'spesialisasi',
         'deskripsi',
         'alamat',
         'whatsapp',
@@ -28,9 +29,13 @@ class MitraModel extends Model
         'tiktok',
         'gambar',
         'gambar_tambahan',
+        'foto',
         'layanan',
         'harga_mulai',
+        'tarif',
         'pengalaman',
+        'portofolio',
+        'keahlian',
         'rating',
         'rekomendasi',
         'is_active',
@@ -49,17 +54,20 @@ class MitraModel extends Model
     
     // Validation
     protected $validationRules = [
-        'nama_mitra' => 'required|min_length[3]|max_length[100]',
+        'id' => 'permit_empty|integer',
+        'nama_mitra' => 'required|min_length[3]|max_length[200]',
         'slug' => 'required|is_unique[mitra.slug,id,{id}]',
         'kategori' => 'required',
-        'whatsapp' => 'required|min_length[10]|max_length[20]'
+        'whatsapp' => 'required|min_length[10]|max_length[20]',
+        'email' => 'valid_email',
+        'telepon' => 'max_length[20]'
     ];
     
     protected $validationMessages = [
         'nama_mitra' => [
             'required' => 'Nama mitra wajib diisi',
             'min_length' => 'Nama mitra minimal 3 karakter',
-            'max_length' => 'Nama mitra maksimal 100 karakter'
+            'max_length' => 'Nama mitra maksimal 200 karakter'
         ],
         'slug' => [
             'required' => 'Slug wajib diisi',
@@ -69,6 +77,9 @@ class MitraModel extends Model
             'required' => 'Nomor WhatsApp wajib diisi',
             'min_length' => 'Nomor WhatsApp minimal 10 digit',
             'max_length' => 'Nomor WhatsApp maksimal 20 digit'
+        ],
+        'email' => [
+            'valid_email' => 'Format email tidak valid'
         ]
     ];
     
@@ -85,8 +96,24 @@ class MitraModel extends Model
      */
     protected function generateSlug(array $data)
     {
-        if (isset($data['data']['nama_mitra']) && !isset($data['data']['slug'])) {
-            $data['data']['slug'] = url_title($data['data']['nama_mitra'], '-', true);
+        if (isset($data['data']['nama_mitra'])) {
+            if (!isset($data['data']['slug']) || empty($data['data']['slug'])) {
+                $slug = url_title($data['data']['nama_mitra'], '-', true);
+                
+                // Check if slug exists
+                $builder = $this->db->table($this->table);
+                $builder->where('slug', $slug);
+                if (isset($data['id'])) {
+                    $builder->where('id !=', $data['id']);
+                }
+                $result = $builder->get()->getRowArray();
+                
+                if ($result) {
+                    $slug .= '-' . time();
+                }
+                
+                $data['data']['slug'] = $slug;
+            }
         }
         return $data;
     }
@@ -121,60 +148,117 @@ class MitraModel extends Model
             $data['data']['gambar_tambahan'] = json_encode($data['data']['gambar_tambahan']);
         }
         
+        // Format spesialisasi dari array ke string
+        if (isset($data['data']['spesialisasi']) && is_array($data['data']['spesialisasi'])) {
+            $data['data']['spesialisasi'] = implode(', ', $data['data']['spesialisasi']);
+        }
+        
+        // Format keahlian dari array ke string
+        if (isset($data['data']['keahlian']) && is_array($data['data']['keahlian'])) {
+            $data['data']['keahlian'] = implode(', ', $data['data']['keahlian']);
+        }
+        
+        // Set gambar default jika tidak ada foto
+        if (!isset($data['data']['gambar']) && isset($data['data']['foto'])) {
+            $data['data']['gambar'] = $data['data']['foto'];
+        }
+        
+        // Set tarif default jika tidak ada harga_mulai
+        if (!isset($data['data']['harga_mulai']) && isset($data['data']['tarif'])) {
+            $data['data']['harga_mulai'] = $data['data']['tarif'];
+        }
+        
         return $data;
     }
     
     /**
      * Get all mitra dengan filter
      */
-    public function getAllWithFilter($kategori = null, $status = 'active', $search = null, $featured = null, $limit = null, $offset = 0)
-    {
-        $builder = $this->db->table($this->table);
-        $builder->select('*');
-        
-        if ($kategori) {
-            $builder->where('kategori', $kategori);
-        }
-        
-        if ($status === 'active') {
-            $builder->where('is_active', 1);
-        } elseif ($status === 'inactive') {
-            $builder->where('is_active', 0);
-        }
-        
-        if ($featured === 'yes') {
-            $builder->where('is_featured', 1);
-        } elseif ($featured === 'no') {
-            $builder->where('is_featured', 0);
-        }
-        
-        if ($search) {
-            $builder->groupStart();
-            $builder->like('nama_mitra', $search);
-            $builder->orLike('deskripsi', $search);
-            $builder->orLike('alamat', $search);
-            $builder->orLike('layanan', $search);
-            $builder->groupEnd();
-        }
-        
-        $builder->orderBy('is_featured', 'DESC');
-        $builder->orderBy('urutan', 'ASC');
-        $builder->orderBy('nama_mitra', 'ASC');
-        
-        if ($limit) {
-            $builder->limit($limit, $offset);
-        }
-        
-        $query = $builder->get();
-        $mitra = $query->getResultArray();
-        
-        // Decode layanan untuk setiap mitra
-        foreach ($mitra as &$item) {
+    /**
+ * Get all mitra dengan filter
+ */
+public function getAllWithFilter($params = [])
+{
+    // Set default values
+    $defaultParams = [
+        'status' => 'active',
+        'search' => null,
+        'spesialisasi' => null,
+        'kategori' => null,
+        'featured' => null,
+        'limit' => null,
+        'offset' => 0
+    ];
+    
+    // Merge with provided params
+    $params = array_merge($defaultParams, $params);
+    
+    $builder = $this->db->table($this->table);
+    $builder->select('*');
+    
+    // Filter kategori
+    if (!empty($params['kategori'])) {
+        $builder->where('kategori', $params['kategori']);
+    }
+    
+    // Filter status
+    if ($params['status'] === 'active') {
+        $builder->where('is_active', 1);
+    } elseif ($params['status'] === 'inactive') {
+        $builder->where('is_active', 0);
+    } elseif ($params['status'] === 'all') {
+        // Show all, no filter
+    }
+    
+    // Filter featured
+    if ($params['featured'] === 'yes') {
+        $builder->where('is_featured', 1);
+    } elseif ($params['featured'] === 'no') {
+        $builder->where('is_featured', 0);
+    }
+    
+    // Filter spesialisasi
+    if (!empty($params['spesialisasi'])) {
+        $builder->like('spesialisasi', $params['spesialisasi']);
+    }
+    
+    // Filter search
+    if (!empty($params['search'])) {
+        $builder->groupStart();
+        $builder->like('nama_mitra', $params['search']);
+        $builder->orLike('deskripsi', $params['search']);
+        $builder->orLike('alamat', $params['search']);
+        $builder->orLike('layanan', $params['search']);
+        $builder->orLike('spesialisasi', $params['search']);
+        $builder->orLike('keahlian', $params['search']);
+        $builder->groupEnd();
+    }
+    
+    // Ordering
+    $builder->orderBy('is_featured', 'DESC');
+    $builder->orderBy('urutan', 'ASC');
+    $builder->orderBy('nama_mitra', 'ASC');
+    
+    // Limit and offset
+    if (!empty($params['limit'])) {
+        $builder->limit($params['limit'], $params['offset']);
+    }
+    
+    $query = $builder->get();
+    $mitra = $query->getResultArray();
+    
+    // Decode JSON fields untuk setiap mitra
+    foreach ($mitra as &$item) {
+        if (isset($item['layanan'])) {
             $item['layanan'] = json_decode($item['layanan'] ?? '[]', true);
         }
-        
-        return $mitra;
+        if (isset($item['gambar_tambahan'])) {
+            $item['gambar_tambahan'] = json_decode($item['gambar_tambahan'] ?? '[]', true);
+        }
     }
+    
+    return $mitra;
+}
     
     /**
      * Get mitra by slug
@@ -224,6 +308,22 @@ class MitraModel extends Model
     }
     
     /**
+     * Get mitra by spesialisasi
+     */
+    public function getBySpesialisasi($spesialisasi, $limit = null)
+    {
+        $builder = $this->like('spesialisasi', $spesialisasi)
+                        ->where('is_active', 1)
+                        ->orderBy('urutan', 'ASC');
+        
+        if ($limit) {
+            $builder->limit($limit);
+        }
+        
+        return $builder->findAll();
+    }
+    
+    /**
      * Get featured mitra
      */
     public function getFeatured($limit = 6)
@@ -264,6 +364,35 @@ class MitraModel extends Model
     }
     
     /**
+     * Get spesialisasi options
+     */
+    public function getSpesialisasiOptions()
+    {
+        $builder = $this->db->table($this->table);
+        $builder->select('spesialisasi');
+        $builder->distinct();
+        $builder->where('spesialisasi !=', '');
+        $builder->where('is_active', 1);
+        $builder->orderBy('spesialisasi', 'ASC');
+        $query = $builder->get();
+        $result = $query->getResultArray();
+        
+        $options = [];
+        foreach ($result as $row) {
+            $specs = explode(',', $row['spesialisasi']);
+            foreach ($specs as $spec) {
+                $spec = trim($spec);
+                if ($spec && !in_array($spec, $options)) {
+                    $options[] = $spec;
+                }
+            }
+        }
+        
+        sort($options);
+        return $options;
+    }
+    
+    /**
      * Get related mitra
      */
     public function getRelated($mitraId, $limit = 4)
@@ -294,11 +423,12 @@ class MitraModel extends Model
      */
     public function getStatistics()
     {
-        return [
+        $stats = [
             'total' => $this->countAll(),
             'active' => $this->where('is_active', 1)->countAllResults(),
             'featured' => $this->where('is_featured', 1)->countAllResults(),
-            'by_kategori' => []
+            'by_kategori' => [],
+            'by_spesialisasi' => []
         ];
         
         // Hitung per kategori
@@ -313,13 +443,25 @@ class MitraModel extends Model
             $stats['by_kategori'][$row['kategori']] = $row['total'];
         }
         
+        // Hitung per spesialisasi
+        $builder = $this->db->table($this->table);
+        $builder->select('spesialisasi, COUNT(*) as total');
+        $builder->where('is_active', 1);
+        $builder->groupBy('spesialisasi');
+        $builder->orderBy('total', 'DESC');
+        $result = $builder->get()->getResultArray();
+        
+        foreach ($result as $row) {
+            $stats['by_spesialisasi'][$row['spesialisasi']] = $row['total'];
+        }
+        
         return $stats;
     }
     
     /**
      * Search mitra with pagination
      */
-    public function searchWithPagination($keyword, $kategori = null, $perPage = 12, $page = 1)
+    public function searchWithPagination($keyword, $kategori = null, $spesialisasi = null, $perPage = 12, $page = 1)
     {
         $offset = ($page - 1) * $perPage;
         
@@ -331,12 +473,18 @@ class MitraModel extends Model
             $builder->where('kategori', $kategori);
         }
         
+        if ($spesialisasi) {
+            $builder->like('spesialisasi', $spesialisasi);
+        }
+        
         if ($keyword) {
             $builder->groupStart();
             $builder->like('nama_mitra', $keyword);
             $builder->orLike('deskripsi', $keyword);
             $builder->orLike('alamat', $keyword);
             $builder->orLike('layanan', $keyword);
+            $builder->orLike('spesialisasi', $keyword);
+            $builder->orLike('keahlian', $keyword);
             $builder->groupEnd();
         }
         
@@ -414,5 +562,24 @@ class MitraModel extends Model
         }
         
         return false;
+    }
+    
+    /**
+     * Generate slug dari nama mitra (public method)
+     */
+    public function generateSlugPublic($nama)
+    {
+        $slug = url_title($nama, '-', true);
+        
+        // Check if slug exists
+        $builder = $this->db->table($this->table);
+        $builder->where('slug', $slug);
+        $result = $builder->get()->getRowArray();
+        
+        if ($result) {
+            $slug .= '-' . time();
+        }
+        
+        return $slug;
     }
 }

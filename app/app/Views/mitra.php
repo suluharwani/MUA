@@ -107,8 +107,8 @@
                         <?php endif; ?>
                         
                         <div class="mitra-image mb-4" style="height: 200px; overflow: hidden; border-radius: 8px;">
-                            <?php if (!empty($item['gambar'])): ?>
-                                <img src="<?= base_url('uploads/mitra/' . $item['gambar']) ?>" 
+                            <?php if (!empty($item['foto'])): ?>
+                                <img src="<?= base_url('uploads/mitra/' . $item['foto']) ?>" 
                                      alt="<?= $item['nama_mitra'] ?>" 
                                      class="img-fluid w-100 h-100" 
                                      style="object-fit: cover;">

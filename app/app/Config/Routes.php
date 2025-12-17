@@ -143,6 +143,28 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('gallery/hapus/(:num)', 'Admin\Gallery::hapus/$1');
     $routes->get('gallery/toggle-status/(:num)', 'Admin\Gallery::toggleStatus/$1');
     $routes->get('gallery/toggle-featured/(:num)', 'Admin\Gallery::toggleFeatured/$1');
+    $routes->post('gallery/bulk-action', 'Admin\Gallery::bulkAction');
+    
+     // Gallery Categories AJAX Routes
+    $routes->get('gallery/categories', 'Admin\Gallery::categories');
+    $routes->post('gallery/check-category', 'Admin\Gallery::checkCategory');
+    $routes->post('gallery/add-category', 'Admin\Gallery::addCategory');
+    $routes->post('gallery/edit-category', 'Admin\Gallery::editCategory');
+    $routes->post('gallery/delete-category', 'Admin\Gallery::deleteCategory');
+
+    $routes->get('gallery/preview/(:num)', 'Admin\Gallery::preview/$1');
+    $routes->post('gallery/upload-temp', 'Admin\Gallery::uploadTemp');
+    $routes->post('gallery/reorder', 'Admin\Gallery::reorder');
+
+    $routes->get('mitra', 'Admin\Mitra::index');
+    $routes->get('mitra/tambah', 'Admin\Mitra::tambah');
+    $routes->post('mitra/simpan', 'Admin\Mitra::simpan');
+    $routes->get('mitra/edit/(:num)', 'Admin\Mitra::edit/$1');
+    $routes->post('mitra/update/(:num)', 'Admin\Mitra::update/$1');
+    $routes->get('mitra/hapus/(:num)', 'Admin\Mitra::hapus/$1');
+    $routes->get('mitra/toggle-status/(:num)', 'Admin\Mitra::toggleStatus/$1');
+    $routes->get('mitra/toggle-featured/(:num)', 'Admin\Mitra::toggleFeatured/$1');
+    $routes->post('mitra/bulk-action', 'Admin\Mitra::bulkAction');
 });
 
 // Auth Routes

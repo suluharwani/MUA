@@ -21,8 +21,8 @@
             <!-- Mitra Images -->
             <div class="col-lg-5 mb-5 mb-lg-0">
                 <div class="mb-4">
-                    <?php if (!empty($mitra['gambar'])): ?>
-                        <img src="<?= base_url('uploads/mitra/' . $mitra['gambar']) ?>" 
+                    <?php if (!empty($mitra['foto'])): ?>
+                        <img src="<?= base_url('uploads/mitra/' . $mitra['foto']) ?>" 
                              alt="<?= $mitra['nama_mitra'] ?>" 
                              class="img-fluid rounded shadow-lg" 
                              id="mainMitraImage">
