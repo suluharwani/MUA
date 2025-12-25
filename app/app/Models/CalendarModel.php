@@ -54,9 +54,27 @@ class CalendarModel extends Model
     
     // Get events by date range
     public function getEventsByDateRange($startDate, $endDate)
-    {
-        return $this->getCalendarEvents($startDate, $endDate);
-    }
+{
+    $builder = $this->db->table('pesanan p');
+    $builder->select('p.*, pm.nama_paket, k.nama_kostum');
+    $builder->join('paket_makeup pm', 'pm.id = p.paket_id', 'left');
+    $builder->join('kostum k', 'k.id = p.kostum_id', 'left');
+    
+    // Perbaiki filter tanggal - pastikan menggunakan DATE()
+    $builder->where("DATE(p.tanggal_acara) >=", $startDate);
+    $builder->where("DATE(p.tanggal_acara) <=", $endDate);
+    
+    // Tampilkan semua status atau filter tertentu
+    // $builder->whereIn('p.status', ['dikonfirmasi', 'diproses', 'selesai', 'pending']);
+    
+    $builder->orderBy('p.tanggal_acara', 'ASC');
+    
+    $results = $builder->get()->getResultArray();
+    
+    log_message('debug', "CalendarModel - getEventsByDateRange: " . count($results) . " events found");
+    
+    return $results;
+}
     
     // Get events for specific date
     public function getEventsByDate($date)
@@ -74,30 +92,35 @@ class CalendarModel extends Model
     
     // Get monthly summary
     public function getMonthlySummary($year, $month)
-    {
-        $startDate = date("{$year}-{$month}-01");
-        $endDate = date("{$year}-{$month}-t", strtotime($startDate));
-        
-        $builder = $this->db->table('pesanan');
-        $builder->select("DATE(tanggal_acara) as date, 
-                         COUNT(*) as total_events,
-                         SUM(CASE WHEN status = 'dikonfirmasi' THEN 1 ELSE 0 END) as confirmed,
-                         SUM(CASE WHEN status = 'diproses' THEN 1 ELSE 0 END) as processed,
-                         SUM(CASE WHEN status = 'selesai' THEN 1 ELSE 0 END) as completed");
-        $builder->where("DATE(tanggal_acara) >=", $startDate);
-        $builder->where("DATE(tanggal_acara) <=", $endDate);
-        $builder->whereIn('status', ['dikonfirmasi', 'diproses', 'selesai']);
-        $builder->groupBy("DATE(tanggal_acara)");
-        
-        $results = $builder->get()->getResultArray();
-        
-        $summary = [];
-        foreach ($results as $row) {
-            $summary[$row['date']] = $row;
-        }
-        
-        return $summary;
+{
+    $startDate = date("{$year}-{$month}-01");
+    $endDate = date("{$year}-{$month}-t", strtotime($startDate));
+    
+    log_message('debug', "CalendarModel - getMonthlySummary for: {$year}-{$month}, Start: {$startDate}, End: {$endDate}");
+    
+    $builder = $this->db->table('pesanan');
+    $builder->select("DATE(tanggal_acara) as date, 
+                     COUNT(*) as total_events,
+                     SUM(CASE WHEN status = 'dikonfirmasi' THEN 1 ELSE 0 END) as confirmed,
+                     SUM(CASE WHEN status = 'diproses' THEN 1 ELSE 0 END) as processed,
+                     SUM(CASE WHEN status = 'selesai' THEN 1 ELSE 0 END) as completed");
+    $builder->where("DATE(tanggal_acara) >=", $startDate);
+    $builder->where("DATE(tanggal_acara) <=", $endDate);
+    // Pastikan filter status sama dengan getEventsByDateRange
+    // $builder->whereIn('status', ['dikonfirmasi', 'diproses', 'selesai', 'pending']);
+    $builder->groupBy("DATE(tanggal_acara)");
+    
+    $results = $builder->get()->getResultArray();
+    
+    log_message('debug', "CalendarModel - Monthly summary results: " . json_encode($results));
+    
+    $summary = [];
+    foreach ($results as $row) {
+        $summary[$row['date']] = $row;
     }
+    
+    return $summary;
+}
     
     // Format event untuk fullCalendar
     private function formatEventForCalendar($event)

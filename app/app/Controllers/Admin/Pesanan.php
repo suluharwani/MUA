@@ -603,33 +603,33 @@ public function generateKode()
     }
     
     // Export Excel
-    public function export($type = 'excel')
-    {
-        $search = $this->request->getGet('search');
-        $status = $this->request->getGet('status');
-        $date = $this->request->getGet('date');
-        $layanan = $this->request->getGet('layanan');
-        
-        try {
-            $pesanan = $this->pesananModel->getForReport($search, $status, $date, $layanan);
-            
-            if ($type == 'excel') {
-                return $this->exportExcel($pesanan);
-            }
-            
-            return redirect()->back();
-            
-        } catch (\Exception $e) {
-            log_message('error', 'Error in Pesanan::export: ' . $e->getMessage());
-            
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat mengexport data');
-        }
-    }
+   // Export Excel
+public function export($type = 'excel')
+{
+    $search = $this->request->getGet('search');
+    $status = $this->request->getGet('status');
+    $date = $this->request->getGet('date');
+    $layanan = $this->request->getGet('layanan');
     
-    private function exportExcel($data)
-    {
-        // ... implementasi export Excel ...
+    try {
+        // Get data dari model
+        $pesanan = $this->pesananModel->getForReport($search, $status, $date, $layanan);
+        
+        if ($type == 'excel') {
+            return $this->exportExcel($pesanan);
+        }
+        
+        // Untuk tipe lain (PDF, CSV) bisa ditambahkan di sini
+        return redirect()->back()->with('error', 'Format export tidak didukung');
+        
+    } catch (\Exception $e) {
+        log_message('error', 'Error in Pesanan::export: ' . $e->getMessage());
+        
+        return redirect()->back()->with('error', 'Terjadi kesalahan saat mengexport data: ' . $e->getMessage());
     }
+}
+    
+
     
     // Calendar View
     public function calendar()
@@ -856,22 +856,43 @@ public function store()
             'total_harga' => $this->request->getPost('total_akhir') ? (float)$this->request->getPost('total_akhir') : 0
         ];
 
-        // Optional fields
-        $optionalFields = [
-            'paket_id', 'kostum_id', 'area_id', 'biaya_transport',
-            'diskon_persen', 'pajak_persen', 'lama_sewa'
+        // Handle foreign key fields - convert empty strings to null
+        $foreignKeyFields = ['paket_id', 'kostum_id', 'area_id'];
+        
+        foreach ($foreignKeyFields as $field) {
+            $value = $this->request->getPost($field);
+            if ($value === '' || $value === null) {
+                $data[$field] = null; // Set ke null jika kosong
+            } elseif (is_numeric($value)) {
+                $data[$field] = (int)$value; // Convert ke integer
+            } else {
+                $data[$field] = $value;
+            }
+        }
+
+        // Handle numeric optional fields
+        $numericOptionalFields = [
+            'biaya_transport' => 0,
+            'diskon_persen' => 0,
+            'pajak_persen' => 0,
+            'lama_sewa' => 1
         ];
 
-        foreach ($optionalFields as $field) {
+        foreach ($numericOptionalFields as $field => $default) {
             $value = $this->request->getPost($field);
-            if ($value !== null && $value !== '') {
-                $data[$field] = $value;
+            if ($value === '' || $value === null) {
+                $data[$field] = $default;
+            } else {
+                $data[$field] = is_numeric($value) ? (float)$value : $default;
             }
         }
 
         // Set created_by
         $session = \Config\Services::session();
         $data['created_by'] = $session->get('id') ?? 1;
+
+        // Debug data sebelum insert
+        log_message('debug', 'Store data: ' . print_r($data, true));
 
         // Save to database
         if ($this->pesananModel->insert($data)) {
@@ -958,18 +979,39 @@ public function update($id)
             'total_harga' => $this->request->getPost('total_akhir') ? (float)$this->request->getPost('total_akhir') : 0
         ];
 
-        // Optional fields
-        $optionalFields = [
-            'paket_id', 'kostum_id', 'area_id', 'biaya_transport',
-            'diskon_persen', 'pajak_persen', 'lama_sewa'
-        ];
-
-        foreach ($optionalFields as $field) {
+        // Handle foreign key fields - convert empty strings to null
+        $foreignKeyFields = ['paket_id', 'kostum_id', 'area_id'];
+        
+        foreach ($foreignKeyFields as $field) {
             $value = $this->request->getPost($field);
-            if ($value !== null) {
+            if ($value === '' || $value === null) {
+                $data[$field] = null; // Set ke null jika kosong
+            } elseif (is_numeric($value)) {
+                $data[$field] = (int)$value; // Convert ke integer
+            } else {
                 $data[$field] = $value;
             }
         }
+
+        // Handle numeric optional fields
+        $numericOptionalFields = [
+            'biaya_transport' => 0,
+            'diskon_persen' => 0,
+            'pajak_persen' => 0,
+            'lama_sewa' => 1
+        ];
+
+        foreach ($numericOptionalFields as $field => $default) {
+            $value = $this->request->getPost($field);
+            if ($value === '' || $value === null) {
+                $data[$field] = $default;
+            } else {
+                $data[$field] = is_numeric($value) ? (float)$value : $default;
+            }
+        }
+
+        // Debug data sebelum update
+        log_message('debug', 'Update data: ' . print_r($data, true));
 
         // Update data
         if ($this->pesananModel->update($id, $data)) {
@@ -1164,4 +1206,171 @@ public function update($id)
         
         $this->pesananModel->update($pesanan_id, $data);
     }
+    // Dalam class PesananModel, tambahkan method ini
+public function safeUpdate($id, $data)
+{
+    // Bersihkan data dari nilai yang tidak valid untuk foreign keys
+    $foreignKeys = ['paket_id', 'kostum_id', 'area_id'];
+    
+    foreach ($foreignKeys as $key) {
+        if (isset($data[$key]) && ($data[$key] === '' || $data[$key] <= 0)) {
+            $data[$key] = null;
+        }
+    }
+    
+    return $this->update($id, $data);
+}
+private function exportExcel($data)
+{
+    if (empty($data)) {
+        return redirect()->back()->with('error', 'Tidak ada data untuk diexport');
+    }
+    
+    // Buat instance Spreadsheet
+    $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+    
+    // Set judul file
+    $sheet->setTitle('Data Pesanan');
+    
+    // Header kolom
+    $headers = [
+        'A' => 'No',
+        'B' => 'Kode Pesanan',
+        'C' => 'Nama Lengkap',
+        'D' => 'No WhatsApp',
+        'E' => 'Email',
+        'F' => 'Jenis Layanan',
+        'G' => 'Tanggal Acara',
+        'H' => 'Lokasi Acara',
+        'I' => 'Paket Makeup',
+        'J' => 'Kostum',
+        'K' => 'Area Layanan',
+        'L' => 'Subtotal',
+        'M' => 'Diskon',
+        'N' => 'Pajak',
+        'O' => 'Total Akhir',
+        'P' => 'DP Dibayar',
+        'Q' => 'Status',
+        'R' => 'Metode Pembayaran',
+        'S' => 'Tanggal Pesan',
+        'T' => 'Catatan Admin'
+    ];
+    
+    // Tulis header
+    foreach ($headers as $col => $header) {
+        $sheet->setCellValue($col . '1', $header);
+        $sheet->getStyle($col . '1')->getFont()->setBold(true);
+    }
+    
+    // Tulis data
+    $row = 2;
+    $no = 1;
+    
+    foreach ($data as $pesanan) {
+        // Pastikan $pesanan adalah array
+        if (!is_array($pesanan)) {
+            continue;
+        }
+        
+        // Get nama paket dan kostum
+        $paketNama = '';
+        if (!empty($pesanan['paket_id'])) {
+            $paket = $this->paketModel->find($pesanan['paket_id']);
+            $paketNama = $paket ? $paket['nama_paket'] : '';
+        }
+        
+        $kostumNama = '';
+        if (!empty($pesanan['kostum_id'])) {
+            $kostum = $this->kostumModel->find($pesanan['kostum_id']);
+            $kostumNama = $kostum ? $kostum['nama_kostum'] : '';
+        }
+        
+        $areaNama = '';
+        if (!empty($pesanan['area_id'])) {
+            $area = $this->areaModel->find($pesanan['area_id']);
+            $areaNama = $area ? $area['nama_area'] : '';
+        }
+        
+        // Isi data ke sel
+        $sheet->setCellValue('A' . $row, $no);
+        $sheet->setCellValue('B' . $row, $pesanan['kode_pesanan'] ?? '');
+        $sheet->setCellValue('C' . $row, $pesanan['nama_lengkap'] ?? '');
+        $sheet->setCellValue('D' . $row, $pesanan['no_whatsapp'] ?? '');
+        $sheet->setCellValue('E' . $row, $pesanan['email'] ?? '');
+        $sheet->setCellValue('F' . $row, ucfirst($pesanan['jenis_layanan'] ?? ''));
+        
+        // Format tanggal acara
+        $tanggalAcara = '';
+        if (!empty($pesanan['tanggal_acara'])) {
+            try {
+                $dateObj = new \DateTime($pesanan['tanggal_acara']);
+                $tanggalAcara = $dateObj->format('d/m/Y');
+            } catch (\Exception $e) {
+                $tanggalAcara = $pesanan['tanggal_acara'];
+            }
+        }
+        $sheet->setCellValue('G' . $row, $tanggalAcara);
+        
+        $sheet->setCellValue('H' . $row, $pesanan['lokasi_acara'] ?? '');
+        $sheet->setCellValue('I' . $row, $paketNama);
+        $sheet->setCellValue('J' . $row, $kostumNama);
+        $sheet->setCellValue('K' . $row, $areaNama);
+        $sheet->setCellValue('L' . $row, $pesanan['subtotal'] ?? 0);
+        $sheet->setCellValue('M' . $row, $pesanan['diskon_nominal'] ?? 0);
+        $sheet->setCellValue('N' . $row, $pesanan['pajak_nominal'] ?? 0);
+        $sheet->setCellValue('O' . $row, $pesanan['total_akhir'] ?? $pesanan['total_harga'] ?? 0);
+        $sheet->setCellValue('P' . $row, $pesanan['dp_dibayar'] ?? 0);
+        $sheet->setCellValue('Q' . $row, ucfirst($pesanan['status'] ?? ''));
+        $sheet->setCellValue('R' . $row, $pesanan['metode_pembayaran'] ?? '');
+        
+        // Format tanggal pesan
+        $tanggalPesan = '';
+        if (!empty($pesanan['created_at'])) {
+            try {
+                $dateObj = new \DateTime($pesanan['created_at']);
+                $tanggalPesan = $dateObj->format('d/m/Y H:i');
+            } catch (\Exception $e) {
+                $tanggalPesan = $pesanan['created_at'];
+            }
+        }
+        $sheet->setCellValue('S' . $row, $tanggalPesan);
+        
+        $sheet->setCellValue('T' . $row, $pesanan['catatan_admin'] ?? '');
+        
+        $row++;
+        $no++;
+    }
+    
+    // Auto size columns
+    foreach (range('A', 'T') as $columnID) {
+        $sheet->getColumnDimension($columnID)->setAutoSize(true);
+    }
+    
+    // Set style untuk angka
+    $lastRow = $row - 1;
+    $sheet->getStyle('L2:O' . $lastRow)
+          ->getNumberFormat()
+          ->setFormatCode('#,##0');
+    
+    // Set style untuk kolom DP
+    $sheet->getStyle('P2:P' . $lastRow)
+          ->getNumberFormat()
+          ->setFormatCode('#,##0');
+    
+    // Buat nama file
+    $filename = 'Data_Pesanan_' . date('Ymd_His') . '.xlsx';
+    
+    // Set header untuk download
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="' . $filename . '"');
+    header('Cache-Control: max-age=0');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    
+    // Buat writer dan output
+    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+    $writer->save('php://output');
+    exit;
+}
 }

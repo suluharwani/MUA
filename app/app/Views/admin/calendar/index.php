@@ -126,7 +126,24 @@
                         Periode: <strong><?= $months[$selectedMonth] ?> <?= $selectedYear ?></strong>
                     </h6>
                     <small class="text-muted">
-                        <?= count($events) ?> acara ditemukan
+                        <?php 
+                        // Hitung event yang benar-benar di bulan ini
+                        $actualEventsCount = 0;
+                        if (!empty($events)) {
+                            foreach ($events as $event) {
+                                if (isset($event['tanggal_acara'])) {
+                                    $eventDate = strtotime($event['tanggal_acara']);
+                                    $eventMonth = date('n', $eventDate); // 'n' untuk bulan tanpa leading zero (1-12)
+                                    $eventYear = date('Y', $eventDate);
+                                    
+                                    if ($eventMonth == $selectedMonth && $eventYear == $selectedYear) {
+                                        $actualEventsCount++;
+                                    }
+                                }
+                            }
+                        }
+                        ?>
+                        <?= $actualEventsCount ?> acara ditemukan
                     </small>
                 </div>
                 <div>
@@ -188,102 +205,118 @@
                     </div>
                     
                     <!-- List View Container (hidden by default) -->
-                    <!-- List View Container (hidden by default) -->
-<div id="list-view-container" style="display: none;">
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th width="50">#</th>
-                    <th>Tanggal</th>
-                    <th>Nama Pelanggan</th>
-                    <th>Layanan</th>
-                    <th>Lokasi</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if(!empty($events)): ?>
-                    <?php $counter = 1; ?>
-                    <?php foreach($events as $event): ?>
-                        <?php
-                        // Status badge dengan pengecekan isset
-                        $status = $event['status'] ?? 'pending'; // Default value jika tidak ada
-                        $badgeClass = [
-                            'pending' => 'bg-warning',
-                            'dikonfirmasi' => 'bg-info',
-                            'diproses' => 'bg-primary',
-                            'selesai' => 'bg-success',
-                            'dibatalkan' => 'bg-danger'
-                        ][$status] ?? 'bg-secondary';
-                        
-                        // Service type dengan pengecekan isset
-                        $jenisLayanan = $event['jenis_layanan'] ?? 'makeup';
-                        $serviceType = [
-                            'makeup' => 'Makeup',
-                            'kostum' => 'Kostum',
-                            'keduanya' => 'Makeup & Kostum'
-                        ][$jenisLayanan] ?? $jenisLayanan;
-                        
-                        // Data dengan pengecekan isset
-                        $namaLengkap = $event['nama_lengkap'] ?? 'Tidak diketahui';
-                        $noWhatsapp = $event['no_whatsapp'] ?? '';
-                        $lokasi = $event['lokasi_acara'] ?? 'Belum ditentukan';
-                        $kodePesanan = $event['kode_pesanan'] ?? '';
-                        $eventId = $event['id'] ?? 0;
-                        $tanggalAcara = $event['tanggal_acara'] ?? date('Y-m-d');
-                        ?>
-                        <tr>
-                            <td><?= $counter++ ?></td>
-                            <td>
-                                <strong><?= date('d/m/Y', strtotime($tanggalAcara)) ?></strong><br>
-                                <small class="text-muted"><?= date('l', strtotime($tanggalAcara)) ?></small>
-                            </td>
-                            <td>
-                                <div class="fw-bold"><?= htmlspecialchars($namaLengkap) ?></div>
-                                <?php if($noWhatsapp): ?>
-                                <small class="text-muted"><?= htmlspecialchars($noWhatsapp) ?></small>
-                                <?php endif; ?>
-                            </td>
-                            <td><?= $serviceType ?></td>
-                            <td><?= htmlspecialchars($lokasi) ?></td>
-                            <td>
-                                <span class="badge <?= $badgeClass ?>">
-                                    <?= ucfirst($status) ?>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="btn-group btn-group-sm">
-                                    <?php if($eventId): ?>
-                                    <a href="<?= base_url('admin/pesanan/detail/' . $eventId) ?>" 
-                                       class="btn btn-outline-primary" title="Detail">
-                                        <i class="bi bi-eye"></i>
-                                    </a>
-                                    <?php endif; ?>
+                    <div id="list-view-container" style="display: none;">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="50">#</th>
+                                        <th>Tanggal</th>
+                                        <th>Nama Pelanggan</th>
+                                        <th>Layanan</th>
+                                        <th>Lokasi</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                    $counter = 1;
+                                    $hasEvents = false;
                                     
-                                    <?php if($noWhatsapp): ?>
-                                    <a href="https://wa.me/<?= $noWhatsapp ?>" 
-                                       target="_blank" class="btn btn-outline-success" title="WhatsApp">
-                                        <i class="bi bi-whatsapp"></i>
-                                    </a>
+                                    if(!empty($events)): 
+                                        foreach($events as $event):
+                                            // Filter hanya event di bulan yang dipilih
+                                            if (isset($event['tanggal_acara'])) {
+                                                $eventDate = strtotime($event['tanggal_acara']);
+                                                $eventMonth = date('n', $eventDate); // 'n' untuk bulan tanpa leading zero
+                                                $eventYear = date('Y', $eventDate);
+                                                
+                                                // Cek apakah event di bulan yang dipilih
+                                                if ($eventMonth == $selectedMonth && $eventYear == $selectedYear) {
+                                                    $hasEvents = true;
+                                                    
+                                                    // Status badge dengan pengecekan isset
+                                                    $status = $event['status'] ?? 'pending';
+                                                    $badgeClass = [
+                                                        'pending' => 'bg-warning',
+                                                        'dikonfirmasi' => 'bg-info',
+                                                        'diproses' => 'bg-primary',
+                                                        'selesai' => 'bg-success',
+                                                        'dibatalkan' => 'bg-danger'
+                                                    ][$status] ?? 'bg-secondary';
+                                                    
+                                                    // Service type dengan pengecekan isset
+                                                    $jenisLayanan = $event['jenis_layanan'] ?? 'makeup';
+                                                    $serviceType = [
+                                                        'makeup' => 'Makeup',
+                                                        'kostum' => 'Kostum',
+                                                        'keduanya' => 'Makeup & Kostum'
+                                                    ][$jenisLayanan] ?? $jenisLayanan;
+                                                    
+                                                    // Data dengan pengecekan isset
+                                                    $namaLengkap = $event['nama_lengkap'] ?? 'Tidak diketahui';
+                                                    $noWhatsapp = $event['no_whatsapp'] ?? '';
+                                                    $lokasi = $event['lokasi_acara'] ?? 'Belum ditentukan';
+                                                    $kodePesanan = $event['kode_pesanan'] ?? '';
+                                                    $eventId = $event['id'] ?? 0;
+                                                    $tanggalAcara = $event['tanggal_acara'];
+                                                    ?>
+                                                    <tr>
+                                                        <td><?= $counter++ ?></td>
+                                                        <td>
+                                                            <strong><?= date('d/m/Y', strtotime($tanggalAcara)) ?></strong><br>
+                                                            <small class="text-muted"><?= date('l', strtotime($tanggalAcara)) ?></small>
+                                                        </td>
+                                                        <td>
+                                                            <div class="fw-bold"><?= htmlspecialchars($namaLengkap) ?></div>
+                                                            <?php if($noWhatsapp): ?>
+                                                            <small class="text-muted"><?= htmlspecialchars($noWhatsapp) ?></small>
+                                                            <?php endif; ?>
+                                                        </td>
+                                                        <td><?= $serviceType ?></td>
+                                                        <td><?= htmlspecialchars($lokasi) ?></td>
+                                                        <td>
+                                                            <span class="badge <?= $badgeClass ?>">
+                                                                <?= ucfirst($status) ?>
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn-group btn-group-sm">
+                                                                <?php if($eventId): ?>
+                                                                <a href="<?= base_url('admin/pesanan/detail/' . $eventId) ?>" 
+                                                                   class="btn btn-outline-primary" title="Detail">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </a>
+                                                                <?php endif; ?>
+                                                                
+                                                                <?php if($noWhatsapp): ?>
+                                                                <a href="https://wa.me/<?= $noWhatsapp ?>" 
+                                                                   target="_blank" class="btn btn-outline-success" title="WhatsApp">
+                                                                    <i class="bi bi-whatsapp"></i>
+                                                                </a>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php 
+                                                }
+                                            }
+                                        endforeach; 
+                                    endif; ?>
+                                    
+                                    <?php if(!$hasEvents): ?>
+                                        <tr>
+                                            <td colspan="7" class="text-center py-5">
+                                                <i class="bi bi-calendar-x fs-1 text-muted"></i>
+                                                <p class="mt-2 text-muted">Tidak ada acara pada periode ini</p>
+                                            </td>
+                                        </tr>
                                     <?php endif; ?>
-                                </div>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="7" class="text-center py-5">
-                            <i class="bi bi-calendar-x fs-1 text-muted"></i>
-                            <p class="mt-2 text-muted">Tidak ada acara pada periode ini</p>
-                        </td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
-    </div>
-</div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -322,52 +355,63 @@
             </div>
             
             <!-- Ringkasan Harian -->
-<div class="card mb-4">
-    <div class="card-header bg-light">
-        <h6 class="mb-0"><i class="bi bi-calendar-check"></i> Ringkasan Harian</h6>
-    </div>
-    <div class="card-body p-0">
-        <div class="list-group list-group-flush">
-            <?php if(!empty($monthlySummary) && is_array($monthlySummary)): ?>
-                <?php 
-                // Sort by date
-                ksort($monthlySummary);
-                $count = 0;
-                ?>
-                <?php foreach($monthlySummary as $date => $summary): ?>
-                    <?php 
-                    // Pastikan $summary adalah array dan memiliki key yang diperlukan
-                    if(is_array($summary) && isset($summary['total_events']) && $count < 7): 
-                    ?>
-                        <a href="javascript:void(0)" onclick="showDateEvents('<?= $date ?>')" 
-                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-bold"><?= date('d M', strtotime($date)) ?></div>
-                                <small class="text-muted"><?= date('l', strtotime($date)) ?></small>
-                            </div>
-                            <div>
-                                <span class="badge bg-primary rounded-pill">
-                                    <?= $summary['total_events'] ?> acara
-                                </span>
-                            </div>
-                        </a>
-                        <?php $count++; ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-                
-                <?php if($count === 0): ?>
-                    <div class="text-center py-3">
-                        <small class="text-muted">Tidak ada acara pada periode ini</small>
-                    </div>
-                <?php endif; ?>
-            <?php else: ?>
-                <div class="text-center py-3">
-                    <small class="text-muted">Tidak ada data ringkasan</small>
+            <div class="card mb-4">
+                <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-calendar-check"></i> Ringkasan Harian</h6>
                 </div>
-            <?php endif; ?>
-        </div>
-    </div>
-</div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        <?php 
+                        // Filter monthly summary hanya untuk bulan yang dipilih
+                        $filteredSummary = [];
+                        if(!empty($monthlySummary) && is_array($monthlySummary)) {
+                            foreach($monthlySummary as $date => $summary) {
+                                $dateMonth = date('n', strtotime($date)); // 'n' untuk bulan tanpa leading zero
+                                $dateYear = date('Y', strtotime($date));
+                                
+                                if ($dateMonth == $selectedMonth && $dateYear == $selectedYear) {
+                                    $filteredSummary[$date] = $summary;
+                                }
+                            }
+                            
+                            // Sort by date
+                            ksort($filteredSummary);
+                            $count = 0;
+                        }
+                        ?>
+                        
+                        <?php if(!empty($filteredSummary)): ?>
+                            <?php foreach($filteredSummary as $date => $summary): ?>
+                                <?php if($count < 7 && is_array($summary) && isset($summary['total_events'])): ?>
+                                    <a href="javascript:void(0)" onclick="showDateEvents('<?= $date ?>')" 
+                                       class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <div class="fw-bold"><?= date('d M', strtotime($date)) ?></div>
+                                            <small class="text-muted"><?= date('l', strtotime($date)) ?></small>
+                                        </div>
+                                        <div>
+                                            <span class="badge bg-primary rounded-pill">
+                                                <?= $summary['total_events'] ?> acara
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <?php $count++; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            
+                            <?php if($count === 0): ?>
+                                <div class="text-center py-3">
+                                    <small class="text-muted">Tidak ada acara pada periode ini</small>
+                                </div>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <div class="text-center py-3">
+                                <small class="text-muted">Tidak ada data ringkasan</small>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
             
             <!-- Informasi -->
             <div class="card">
@@ -599,8 +643,9 @@ $(document).ready(function() {
 function initializeCalendar() {
     const calendarEl = document.getElementById('calendar');
     
-    // Set initial date to selected month and year
-    const initialDate = new Date(<?= $selectedYear ?>, <?= $selectedMonth - 1 ?>, 1);
+    // JavaScript Date menggunakan bulan 1-12, sama seperti PHP
+    // Desember = 12, bukan 11
+    const initialDate = new Date(<?= $selectedYear ?>, <?= $selectedMonth ?>, 1);
     
     calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'id',
@@ -631,12 +676,11 @@ function initializeCalendar() {
                 data: {
                     start: fetchInfo.startStr,
                     end: fetchInfo.endStr,
-                    status: '' // No status filter for now
+                    status: ''
                 },
                 dataType: 'json',
                 success: function(events) {
                     successCallback(events);
-                    // Update badge pada tanggal
                     updateDateBadges(fetchInfo.start, fetchInfo.end);
                 },
                 error: function() {
@@ -651,7 +695,6 @@ function initializeCalendar() {
             showDateEvents(info.dateStr);
         },
         eventDidMount: function(info) {
-            // Tooltip untuk event
             $(info.el).tooltip({
                 title: info.event.extendedProps.details,
                 html: true,
@@ -661,10 +704,7 @@ function initializeCalendar() {
             });
         },
         dayCellDidMount: function(info) {
-            // Tambah badge untuk tanggal yang ada acara
             const dateStr = info.date.toISOString().split('T')[0];
-            
-            // Cek apakah ada event di tanggal ini
             const events = info.view.calendar.getEvents();
             const hasEvents = events.some(event => {
                 const eventDate = event.start.toISOString().split('T')[0];
@@ -673,14 +713,11 @@ function initializeCalendar() {
             
             if (hasEvents) {
                 $(info.el).addClass('date-with-events');
-                
-                // Hitung jumlah event
                 const eventCount = events.filter(event => {
                     const eventDate = event.start.toISOString().split('T')[0];
                     return eventDate === dateStr;
                 }).length;
                 
-                // Tambah badge jumlah jika lebih dari 1
                 if (eventCount > 1) {
                     const badge = document.createElement('div');
                     badge.className = 'event-badge bg-danger';
@@ -690,12 +727,9 @@ function initializeCalendar() {
                 }
             }
             
-            // Highlight dates with events from monthly summary
             const monthlySummary = <?= json_encode($monthlySummary) ?>;
-            if (monthlySummary[dateStr]) {
+            if (monthlySummary && monthlySummary[dateStr]) {
                 $(info.el).addClass('date-with-events');
-                
-                // Add small dot indicator
                 if (!info.el.querySelector('.event-badge')) {
                     const dot = document.createElement('div');
                     dot.className = 'event-badge bg-primary';
@@ -705,21 +739,7 @@ function initializeCalendar() {
             }
         },
         datesSet: function(info) {
-            // Update form with current view month/year
-            const currentDate = info.view.currentStart;
-            const currentMonth = currentDate.getMonth() + 1;
-            const currentYear = currentDate.getFullYear();
-            
-            // Only update if different from selected
-            if (currentMonth != <?= $selectedMonth ?> || currentYear != <?= $selectedYear ?>) {
-                // Update URL with new month/year
-                window.history.replaceState({}, '', 
-                    '<?= base_url("admin/calendar") ?>?year=' + currentYear + '&month=' + currentMonth);
-                
-                // Update form values
-                $('#month-select').val(currentMonth);
-                $('#year-select').val(currentYear);
-            }
+            // Tidak perlu update otomatis, biarkan form yang kontrol
         }
     });
     
@@ -728,15 +748,12 @@ function initializeCalendar() {
 
 // Update badge pada tanggal
 function updateDateBadges(start, end) {
-    // Kosongkan dulu semua badge
     $('.event-badge').remove();
     $('.date-with-events').removeClass('date-with-events');
     
-    // Ambil event untuk periode ini
     const events = calendar.getEvents();
     const eventDates = {};
     
-    // Group event by date
     events.forEach(event => {
         if (event.start) {
             const dateStr = event.start.toISOString().split('T')[0];
@@ -747,7 +764,6 @@ function updateDateBadges(start, end) {
         }
     });
     
-    // Update badge untuk setiap tanggal
     Object.keys(eventDates).forEach(dateStr => {
         const dateCell = document.querySelector(`[data-date="${dateStr}"]`);
         if (dateCell) {
@@ -761,7 +777,6 @@ function updateDateBadges(start, end) {
                 badge.textContent = eventCount;
                 dateCell.appendChild(badge);
             } else {
-                // Add small dot for single event
                 const dot = document.createElement('div');
                 dot.className = 'event-badge bg-primary';
                 dot.style.cssText = 'width: 6px; height: 6px; border-radius: 50%; position: absolute; top: 4px; right: 4px;';
@@ -770,7 +785,6 @@ function updateDateBadges(start, end) {
         }
     });
     
-    // Also check monthly summary for dates without events but with data
     <?php if(isset($monthlySummary) && is_array($monthlySummary)): ?>
     const monthlySummary = <?= json_encode($monthlySummary) ?>;
     if (monthlySummary) {
@@ -779,8 +793,6 @@ function updateDateBadges(start, end) {
                 const dateCell = document.querySelector(`[data-date="${dateStr}"]`);
                 if (dateCell) {
                     $(dateCell).addClass('date-with-events');
-                    
-                    // Add indicator dot
                     if (!dateCell.querySelector('.event-badge')) {
                         const dot = document.createElement('div');
                         dot.className = 'event-badge bg-info';
@@ -805,7 +817,6 @@ function showEventDetail(event) {
         day: 'numeric'
     });
     
-    // Load event detail via AJAX
     $.ajax({
         url: '<?= base_url("admin/pesanan/getDetail") ?>/' + eventId,
         type: 'GET',
@@ -822,7 +833,6 @@ function showEventDetail(event) {
             $('#eventDetailModalLabel').text('Detail Acara - ' + eventTitle);
             $('#btn-edit-event').attr('href', '<?= base_url("admin/pesanan/detail/") ?>' + eventId);
             
-            // Set WhatsApp button
             const phone = event.extendedProps.phone;
             if (phone) {
                 const whatsappUrl = `https://wa.me/${phone}?text=Halo%20${encodeURIComponent(event.extendedProps.customer)}%2C%20saya%20dari%20Maulia%20Wedding.%20Mengenai%20acara%20Anda%20tanggal%20${encodeURIComponent(eventDate)}%20...`;
@@ -856,7 +866,6 @@ function showDateEvents(dateStr) {
     $('#selected-date-title').text('Acara pada ' + formattedDate);
     $('#selected-date-info').text('Daftar semua acara yang terjadwal pada tanggal ini');
     
-    // Load events for this date
     $.ajax({
         url: '<?= base_url("admin/calendar/getEventsByDate") ?>?date=' + dateStr,
         type: 'GET',
@@ -875,7 +884,6 @@ function showDateEvents(dateStr) {
             if (response.success && response.events.length > 0) {
                 let html = '';
                 response.events.forEach(function(event, index) {
-                    // Status badge
                     const badgeClass = {
                         'pending': 'bg-warning',
                         'dikonfirmasi': 'bg-info',
@@ -884,7 +892,6 @@ function showDateEvents(dateStr) {
                         'dibatalkan': 'bg-danger'
                     }[event.status] || 'bg-secondary';
                     
-                    // Service type
                     const serviceType = {
                         'makeup': 'Makeup',
                         'kostum': 'Kostum',
@@ -946,98 +953,6 @@ function showDateEvents(dateStr) {
             `);
             $('#dateEventsModal').modal('show');
         }
-    });
-}
-
-// Print calendar view
-function printCalendar() {
-    const printContent = document.getElementById('calendar').cloneNode(true);
-    const printWindow = window.open('', '_blank');
-    
-    printWindow.document.write(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Kalender Acara - Maulia Wedding</title>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-            <style>
-                @media print {
-                    body { font-size: 11pt; margin: 0; }
-                    .fc { margin: 0 !important; }
-                    .fc .fc-toolbar-title { font-size: 1.2rem; }
-                    .fc-event { font-size: 9pt; padding: 1px 2px; }
-                    .no-print { display: none !important; }
-                }
-                .fc { margin-top: 10px; }
-                .print-header { 
-                    text-align: center; 
-                    margin-bottom: 10px;
-                    border-bottom: 2px solid #d4b8a3;
-                    padding-bottom: 5px;
-                }
-                .print-date { 
-                    text-align: right; 
-                    font-size: 0.9rem;
-                    color: #666;
-                    margin-bottom: 10px;
-                }
-                .print-info {
-                    font-size: 0.8rem;
-                    color: #666;
-                    margin-top: 10px;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="container-fluid">
-                <div class="print-header">
-                    <h4>Kalender Acara Maulia Wedding</h4>
-                    <p>Periode: <?= $months[$selectedMonth] ?> <?= $selectedYear ?></p>
-                </div>
-                <div class="print-date">
-                    Dicetak: ${new Date().toLocaleDateString('id-ID', {
-                        weekday: 'long',
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    })}
-                </div>
-                <div id="print-calendar"></div>
-                <div class="print-info">
-                    <p><strong>Informasi:</strong></p>
-                    <p>• Warna merah: Dibatalkan</p>
-                    <p>• Warna hijau: Selesai</p>
-                    <p>• Warna biru: Diproses</p>
-                    <p>• Warna biru muda: Dikonfirmasi</p>
-                    <p>• Warna kuning: Pending</p>
-                </div>
-            </div>
-        </body>
-        </html>
-    `);
-    
-    printWindow.document.getElementById('print-calendar').appendChild(printContent);
-    printWindow.document.close();
-    printWindow.focus();
-    
-    setTimeout(() => {
-        printWindow.print();
-        printWindow.close();
-    }, 500);
-}
-
-// Export calendar as image (optional)
-function exportCalendarAsImage() {
-    html2canvas(document.querySelector("#calendar"), {
-        backgroundColor: '#ffffff',
-        scale: 2
-    }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'kalender-<?= $selectedMonth ?>-<?= $selectedYear ?>.png';
-        link.href = canvas.toDataURL();
-        link.click();
     });
 }
 </script>
