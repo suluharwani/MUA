@@ -1,15 +1,4 @@
-:root {
-            --primary-color: #f9f7f4;
-            --secondary-color: #f4f0eb;
-            --accent-color: #e8d7c9;
-            --accent-dark: #d4b8a3;
-            --costume-color: #b8a7c8;
-            --text-color: #5a5a5a;
-            --heading-color: #333333;
-            --white: #ffffff;
-            --shadow: rgba(149, 157, 165, 0.1);
-            --success-color: #a8c8b8;
-        }
+
         
         body {
             font-family: 'Montserrat', sans-serif;

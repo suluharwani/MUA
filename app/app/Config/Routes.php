@@ -14,6 +14,7 @@ $routes->setAutoRoute(true);
 $routes->get('testroute', 'TestRoute::index');
 // Frontend Routes
 $routes->get('/', 'Home::index');
+$routes->get('dynamic.css', 'Home::dynamicCss');
 $routes->get('/paket-makeup', 'Home::paketMakeup');
 $routes->get('/sewa-kostum', 'Home::sewaKostum');
 $routes->get('sewa-kostum/(:segment)', 'Home::detailKostum/$1');
@@ -117,6 +118,10 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->post('pengaturan-ajax/initialize', 'Admin\PengaturanAjax::initialize');
     $routes->get('pengaturan-ajax/getCategories', 'Admin\PengaturanAjax::getCategories');
     $routes->get('pengaturan-ajax/getFieldTypes', 'Admin\PengaturanAjax::getFieldTypes');
+    $routes->post('pengaturan-ajax/uploadFile', 'Admin\PengaturanAjax::uploadFile');
+    $routes->post('pengaturan-ajax/deleteFile/(:any)', 'Admin\PengaturanAjax::deleteFile/$1');
+    $routes->get('pengaturan-ajax/getLogoInfo', 'Admin\PengaturanAjax::getLogoInfo');
+    $routes->get('pengaturan-ajax/getSettingByKey/(:any)', 'Admin\PengaturanAjax::getSettingByKey/$1');
 
     $routes->get('area', 'Admin\Area::index');
     $routes->get('area/tambah', 'Admin\Area::tambah');

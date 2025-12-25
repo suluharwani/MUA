@@ -2,7 +2,9 @@
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="navbar-brand" href="<?= base_url() ?>">
-            <i class="bi bi-flower1 me-2" style="color: var(--accent-dark);"></i>Maulia
+            <a class="navbar-brand" href="<?= base_url('admin') ?>">
+    <?= get_logo_html('logo-img', 'height: 40px;', false) ?>
+</a>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

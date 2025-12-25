@@ -14,6 +14,7 @@ class PengaturanModel extends Model
     protected $protectFields = true;
     
     protected $allowedFields = [
+        'id',
         'key_name',
         'value',
         'label',
@@ -32,14 +33,8 @@ class PengaturanModel extends Model
     protected $updatedField = 'updated_at';
     
     // Validation
-    protected $validationRules = [
-        'key_name' => 'required|alpha_dash|min_length[3]|max_length[50]|is_unique[pengaturan.key_name,id,{id}]',
-        'value' => 'permit_empty',
-        'label' => 'required|min_length[3]|max_length[100]',
-        'type' => 'required|in_list[text,textarea,number,email,tel,password,select,checkbox,radio,file,color,date]',
-        'category' => 'required|max_length[50]'
-    ];
-    
+protected $validationRules = [];
+protected $skipValidation = true;
     protected $validationMessages = [
         'key_name' => [
             'required' => 'Key name wajib diisi',
@@ -55,7 +50,6 @@ class PengaturanModel extends Model
         ]
     ];
     
-    protected $skipValidation = false;
     protected $cleanValidationRules = true;
     
     /**
@@ -570,4 +564,20 @@ class PengaturanModel extends Model
             'date' => 'Date'
         ];
     }
+    public function getCategoriesWithCount()
+{
+    $builder = $this->db->table($this->table);
+    $builder->select('category, COUNT(*) as count');
+    $builder->groupBy('category');
+    $builder->orderBy('category', 'ASC');
+    $query = $builder->get();
+    
+    $result = [];
+    foreach ($query->getResultArray() as $row) {
+        $result[$row['category']] = ucfirst($row['category']) . ' (' . $row['count'] . ')';
+    }
+    
+    return $result;
+}
+
 }

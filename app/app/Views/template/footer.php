@@ -104,7 +104,13 @@
 
 <!-- Custom JS -->
 <script>
-    <?php echo file_get_contents(FCPATH . 'assets/js/custom.js'); ?>
+    <?php 
+        // Load custom JS
+        $customJsPath = FCPATH . 'assets/js/custom.js';
+        if (file_exists($customJsPath)) {
+            echo file_get_contents($customJsPath);
+        }
+    ?>
 </script>
 
 <?= $this->renderSection('js') ?>

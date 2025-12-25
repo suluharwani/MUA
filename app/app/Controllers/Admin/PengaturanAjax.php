@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\PengaturanModel;
 
 class PengaturanAjax extends BaseController
 {
@@ -11,163 +12,133 @@ class PengaturanAjax extends BaseController
     public function __construct()
     {
         $this->pengaturanModel = new \App\Models\PengaturanModel();
-        helper(['form', 'text']);
+         helper(['form', 'text', 'file']);
     }
     
     public function index()
     {
+        $pengaturanModel = new \App\Models\PengaturanModel();
         $data = [
-            'title' => 'Pengaturan Website (AJAX)',
-            'categories' => $this->pengaturanModel->getCategories(),
-            'field_types' => $this->pengaturanModel->getFieldTypes(),
-            'system_info' => $this->pengaturanModel->getSystemInfo()
-        ];
+        'title' => 'Pengaturan Sistem',
+        'categories' => $pengaturanModel->getCategories(),
+        'field_types' => $pengaturanModel->getFieldTypes(),
+        'system_info' => $pengaturanModel->getSystemInfo()
+    ];
+    
         
         return view('admin/pengaturan/ajax_index', $data);
     }
+  public function getSettingByKey($key_name)
+{
+    $setting = $this->pengaturanModel->where('key_name', $key_name)->first();
     
+    if (!$setting) {
+        return $this->response->setJSON([
+            'status' => 'error',
+            'message' => 'Pengaturan tidak ditemukan'
+        ]);
+    }
+    
+    return $this->response->setJSON([
+        'status' => 'success',
+        'data' => $setting
+    ]);
+}  
 public function getSettings()
 {
-    $category = $this->request->getGet('category') ?? 'general';
     $draw = $this->request->getGet('draw');
-    $start = $this->request->getGet('start') ?? 0;
-    $length = $this->request->getGet('length') ?? 10;
-    $searchValue = $this->request->getGet('search')['value'] ?? '';
-    
-    // Convert to integers
-    $start = (int)$start;
-    $length = (int)$length;
-    
-    // Query data
-    $builder = $this->pengaturanModel->where('category', $category);
-    
-    // Total records
-    $totalRecords = $this->pengaturanModel->where('category', $category)->countAllResults();
-    
-    // Filtered records
-    if (!empty($searchValue)) {
-        $builder->groupStart()
-               ->like('key_name', $searchValue)
-               ->orLike('label', $searchValue)
-               ->orLike('value', $searchValue)
-               ->groupEnd();
-    }
-    
-    $filteredRecords = $builder->countAllResults();
-    
-    // Get data with ordering
+    $start = (int)$this->request->getGet('start');
+    $length = (int)$this->request->getGet('length');
+    $search = $this->request->getGet('search')['value'] ?? '';
+    $category = $this->request->getGet('category') ?? 'general';
     $orderColumn = $this->request->getGet('order')[0]['column'] ?? 0;
     $orderDir = $this->request->getGet('order')[0]['dir'] ?? 'asc';
-    $orderColumnName = $this->request->getGet('columns')[$orderColumn]['data'] ?? 'id';
     
-    // Map column names to database columns
-    $columnMap = [
-        'id' => 'id',
-        'key_name' => 'key_name',
-        'label' => 'label',
-        'value' => 'value',
-        'type' => 'type',
-        'category' => 'category',
-        'status' => 'is_active'
-    ];
+    $model = new PengaturanModel();
     
-    $dbColumn = $columnMap[$orderColumnName] ?? 'id';
+    // Total records tanpa filter
+    $totalRecords = $model->countAll();
     
-    $builder->orderBy($dbColumn, $orderDir);
-    
-    // Apply limit and offset
-    if ($length != -1 && $length > 0) {
-        $builder->limit($length, $start);
+    // Filter by category
+    if ($category && $category !== 'all') {
+        $model->where('category', $category);
     }
     
-    $settings = $builder->findAll();
+    // Apply search
+    if (!empty($search)) {
+        $model->groupStart()
+              ->like('key_name', $search)
+              ->orLike('label', $search)
+              ->orLike('value', $search)
+              ->groupEnd();
+    }
+    
+    // Filtered count dengan filter
+    $filteredCount = $model->countAllResults(false);
+    
+    // Apply ordering
+    $columns = ['id', 'key_name', 'label', 'value', 'type', 'category', 'is_active'];
+    $orderBy = $columns[$orderColumn] ?? 'id';
+    $model->orderBy($orderBy, $orderDir);
+    
+    // Apply pagination
+    $model->limit($length, $start);
+    
+    // Get data
+    $data = $model->findAll();
     
     // Format data for DataTables
-    $data = [];
-    foreach ($settings as $setting) {
-        $data[] = [
-            'id' => $setting['id'],
-            'key_name' => '<code>' . $setting['key_name'] . '</code>',
-            'label' => '<strong>' . $setting['label'] . '</strong>' . 
-                      ($setting['required'] ? ' <span class="text-danger">*</span>' : '') .
-                      ($setting['placeholder'] ? '<br><small class="text-muted">' . $setting['placeholder'] . '</small>' : ''),
-            'value' => $this->formatValue($setting),
-            'type' => '<span class="badge bg-secondary">' . $setting['type'] . '</span>',
-            'category' => '<span class="badge bg-info">' . ucfirst($setting['category']) . '</span>',
-            'status' => $this->getStatusBadge($setting['is_active']),
-            'actions' => $this->getActionButtons($setting)
+    $formattedData = [];
+    foreach ($data as $row) {
+        $formattedData[] = [
+            'id' => $row['id'],
+            'key_name' => $row['key_name'],
+            'label' => $row['label'],
+            'value' => $this->formatValue($row['value'], $row['type']),
+            'type' => ucfirst($row['type']),
+            'category' => ucfirst($row['category']),
+            'status' => $row['is_active'] == 1 
+                ? '<span class="badge bg-success">Aktif</span>' 
+                : '<span class="badge bg-danger">Nonaktif</span>',
+            'actions' => $this->getActionButtons($row)
         ];
     }
-    $this->response->setHeader('Content-Type', 'application/json');
-    $this->response->setHeader('Access-Control-Allow-Origin', '*');
+    
     return $this->response->setJSON([
         'draw' => intval($draw),
         'recordsTotal' => $totalRecords,
-        'recordsFiltered' => $filteredRecords,
-        'data' => $data
+        'recordsFiltered' => $filteredCount,
+        'data' => $formattedData
     ]);
 }
     
-    private function formatValue($setting)
-    {
-        $value = $setting['value'];
-        
-        if (empty($value)) {
-            return '<span class="text-muted fst-italic">(kosong)</span>';
-        }
-        
-        $type = $setting['type'];
-        
-        switch ($type) {
-            case 'password':
-                return '<span class="badge bg-dark"><i class="bi bi-key"></i> Password tersimpan</span>';
-                
-            case 'color':
-                return '<div class="d-flex align-items-center">
-                          <div class="color-preview me-2" style="width:20px;height:20px;background-color:' . $value . ';border-radius:3px;"></div>
-                          <span>' . $value . '</span>
-                        </div>';
-                
-            case 'select':
-            case 'radio':
-                if (!empty($setting['options'])) {
-                    $options = $this->pengaturanModel->parseOptions($setting['options']);
-                    return isset($options[$value]) ? $options[$value] : $value;
-                }
-                return $value;
-                
-            case 'checkbox':
-                if (!empty($setting['options'])) {
-                    $options = $this->pengaturanModel->parseOptions($setting['options']);
-                    $selected = !empty($value) ? explode(',', $value) : [];
-                    $labels = [];
-                    foreach ($selected as $val) {
-                        if (isset($options[$val])) {
-                            $labels[] = $options[$val];
-                        } else {
-                            $labels[] = $val;
-                        }
-                    }
-                    return !empty($labels) ? implode(', ', $labels) : '-';
-                }
-                return $value;
-                
-            case 'file':
-                if (!empty($value)) {
-                    $filename = basename($value);
-                    return '<a href="' . base_url($value) . '" target="_blank" class="text-decoration-none">
-                              <i class="bi bi-file-earmark me-1"></i>' . $filename . '
-                            </a>';
-                }
-                return '-';
-                
-            default:
-                if (strlen($value) > 50) {
-                    return '<span title="' . esc($value) . '">' . esc(substr($value, 0, 50)) . '...</span>';
-                }
-                return esc($value);
-        }
+private function formatValue($value, $type)
+{
+    if (empty($value)) return '<em class="text-muted">(kosong)</em>';
+    
+    $maxLength = 50;
+    
+    switch ($type) {
+        case 'color':
+            return '<div class="d-flex align-items-center">
+                      <div class="color-preview me-2" style="width: 20px; height: 20px; background-color: ' . $value . '; border: 1px solid #ddd;"></div>
+                      ' . $value . '
+                    </div>';
+        case 'textarea':
+            $shortText = strlen($value) > $maxLength ? substr($value, 0, $maxLength) . '...' : $value;
+            return '<span title="' . htmlspecialchars($value) . '">' . htmlspecialchars($shortText) . '</span>';
+        case 'password':
+            return '••••••••';
+        case 'file':
+            return '<a href="' . base_url($value) . '" target="_blank">' . basename($value) . '</a>';
+        default:
+            $shortText = strlen($value) > $maxLength ? substr($value, 0, $maxLength) . '...' : $value;
+            return '<span title="' . htmlspecialchars($value) . '">' . htmlspecialchars($shortText) . '</span>';
     }
+}
+
+// Helper method untuk action buttons
+
     
     private function getStatusBadge($status)
     {
@@ -237,77 +208,262 @@ public function getSettings()
     
 public function save()
 {
-    $id = $this->request->getPost('id');
+    $response = ['status' => 'error', 'message' => ''];
     
-    // Validasi manual untuk ID jika ada
-    if (!empty($id)) {
-        if (!is_numeric($id) || $id <= 0) {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'ID tidak valid'
-            ]);
+    $id = $this->request->getPost('id');
+    $key_name = trim($this->request->getPost('key_name'));
+    $label = trim($this->request->getPost('label'));
+    
+    // Setup validation rules
+    $validationRules = [
+        'key_name' => [
+            'rules' => 'required|alpha_dash|min_length[3]|max_length[50]',
+            'errors' => [
+                'required' => 'Key name wajib diisi',
+                'alpha_dash' => 'Key name hanya boleh berisi huruf, angka, dash, dan underscore',
+                'min_length' => 'Key name minimal 3 karakter',
+                'max_length' => 'Key name maksimal 50 karakter',
+            ]
+        ],
+        'label' => [
+            'rules' => 'required|min_length[3]|max_length[100]',
+            'errors' => [
+                'required' => 'Label wajib diisi',
+                'min_length' => 'Label minimal 3 karakter',
+                'max_length' => 'Label maksimal 100 karakter'
+            ]
+        ],
+        'type' => [
+            'rules' => 'required|in_list[text,textarea,number,email,tel,password,select,checkbox,radio,file,color,date]',
+            'errors' => [
+                'required' => 'Tipe wajib dipilih',
+                'in_list' => 'Tipe tidak valid'
+            ]
+        ],
+        'category' => [
+            'rules' => 'required|max_length[50]',
+            'errors' => [
+                'required' => 'Kategori wajib dipilih',
+                'max_length' => 'Kategori maksimal 50 karakter'
+            ]
+        ]
+    ];
+    
+    // Custom validation untuk uniqueness
+    $model = new PengaturanModel();
+    if (empty($id)) {
+        $validationRules['key_name']['rules'] .= '|is_unique[pengaturan.key_name]';
+        $validationRules['key_name']['errors']['is_unique'] = 'Key name sudah digunakan';
+    } else {
+        // Untuk update, cek uniqueness secara manual
+        $existing = $model->where('key_name', $key_name)
+                         ->where('id !=', $id)
+                         ->first();
+        if ($existing) {
+            $validationRules['key_name']['errors']['is_unique'] = 'Key name sudah digunakan';
+            // Tambahkan custom error
+            $response['errors'] = ['key_name' => 'Key name sudah digunakan'];
+            return $this->response->setJSON($response);
         }
     }
     
-    $validationRules = [
-        'key_name' => 'required|alpha_dash|min_length[3]|max_length[50]',
-        'label' => 'required|min_length[3]|max_length[100]',
-        'type' => 'required',
-        'category' => 'required'
-    ];
+    // Run validation
+    $validation = \Config\Services::validation();
+    $validation->setRules($validationRules);
     
-    // Unique check
-    if (empty($id)) {
-        $validationRules['key_name'] .= '|is_unique[pengaturan.key_name]';
-    } else {
-        $validationRules['key_name'] .= "|is_unique[pengaturan.key_name,id,{$id}]";
+    if (!$validation->withRequest($this->request)->run()) {
+        $response['errors'] = $validation->getErrors();
+        return $this->response->setJSON($response);
     }
     
-    if (!$this->validate($validationRules)) {
-        return $this->response->setJSON([
-            'status' => 'error',
-            'errors' => $this->validator->getErrors()
-        ]);
-    }
+    // Prepare data
     $data = [
-        'key_name' => $this->request->getPost('key_name'),
-        'label' => $this->request->getPost('label'),
+        'key_name' => $key_name,
+        'value' => $this->request->getPost('value') ?? '',
+        'label' => $label,
         'type' => $this->request->getPost('type'),
         'category' => $this->request->getPost('category'),
-        'value' => $this->request->getPost('value') ?? '',
-        'options' => $this->request->getPost('options') ?? '',
-        'placeholder' => $this->request->getPost('placeholder') ?? '',
-        'required' => $this->request->getPost('required') ? 1 : 0,
-        'order' => $this->request->getPost('order') ?? 0,
-        'is_active' => $this->request->getPost('is_active') ? 1 : 0
+        'options' => $this->request->getPost('options'),
+        'placeholder' => $this->request->getPost('placeholder'),
+        'order' => (int)($this->request->getPost('order') ?? 0),
+        'is_active' => $this->request->getPost('is_active') ? 1 : 0,
+        'required' => $this->request->getPost('required') ? 1 : 0
     ];
     
-    // Jika ada ID, tambahkan untuk update
-    if (!empty($id)) {
-        $data['id'] = $id;
+    // Handle file upload (sama seperti sebelumnya)
+    $type = $this->request->getPost('type');
+    if ($type === 'file') {
+        $file = $this->request->getFile('file_upload');
+        
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            // ... kode handle file upload ...
+        }
     }
     
     try {
-        if ($this->pengaturanModel->save($data)) {
-            return $this->response->setJSON([
-                'status' => 'success',
-                'message' => empty($id) ? 'Pengaturan berhasil ditambahkan' : 'Pengaturan berhasil diperbarui',
-                'id' => empty($id) ? $this->pengaturanModel->getInsertID() : $id
-            ]);
+        // Gunakan model dengan skipValidation
+        $model->skipValidation(true);
+        
+        if (!empty($id)) {
+            $result = $model->update($id, $data);
+            $message = 'Pengaturan berhasil diperbarui';
         } else {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'Gagal menyimpan pengaturan'
-            ]);
+            $result = $model->insert($data);
+            $message = 'Pengaturan berhasil ditambahkan';
         }
+        
+        if ($result) {
+            $response['status'] = 'success';
+            $response['message'] = $message;
+        } else {
+            $response['message'] = 'Gagal menyimpan pengaturan';
+        }
+        
     } catch (\Exception $e) {
-        return $this->response->setJSON([
-            'status' => 'error',
-            'message' => 'Terjadi kesalahan: ' . $e->getMessage()
-        ]);
+        $response['message'] = 'Terjadi kesalahan: ' . $e->getMessage();
     }
+    
+    return $this->response->setJSON($response);
 }
     
+    // Tambahkan method untuk upload file saja
+    public function uploadFile()
+    {
+        $response = ['status' => 'error', 'message' => ''];
+        
+        $key_name = $this->request->getPost('key_name');
+        $file = $this->request->getFile('file');
+        
+        if (!$file || !$file->isValid()) {
+            $response['message'] = 'File tidak valid';
+            return $this->response->setJSON($response);
+        }
+        
+        // Validasi tipe file
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'ico', 'webp'];
+        $extension = $file->getExtension();
+        
+        if (!in_array(strtolower($extension), $allowedExtensions)) {
+            $response['message'] = 'Format file tidak didukung. Gunakan: ' . implode(', ', $allowedExtensions);
+            return $this->response->setJSON($response);
+        }
+        
+        // Validasi ukuran file (max 5MB)
+        if ($file->getSize() > 5242880) {
+            $response['message'] = 'Ukuran file terlalu besar. Maksimal 5MB';
+            return $this->response->setJSON($response);
+        }
+        
+        // Tentukan folder berdasarkan key_name
+        $folder = 'uploads/settings/';
+        if (in_array($key_name, ['logo', 'logo_dark'])) {
+            $folder = 'uploads/logo/';
+        } elseif ($key_name === 'favicon') {
+            $folder = 'uploads/favicon/';
+        }
+        
+        // Buat folder jika belum ada
+        if (!is_dir(FCPATH . $folder)) {
+            mkdir(FCPATH . $folder, 0755, true);
+        }
+        
+        // Generate nama file unik
+        $fileName = $key_name . '_' . time() . '.' . $extension;
+        
+        try {
+            // Cari setting yang sudah ada
+            $setting = $this->pengaturanModel->where('key_name', $key_name)->first();
+            
+            // Hapus file lama jika ada
+            if ($setting && !empty($setting['value']) && file_exists(FCPATH . $setting['value'])) {
+                unlink(FCPATH . $setting['value']);
+            }
+            
+            // Pindahkan file
+            $file->move(FCPATH . $folder, $fileName);
+            
+            // Update atau insert setting
+            $filePath = $folder . $fileName;
+            
+            if ($setting) {
+                $this->pengaturanModel->update($setting['id'], ['value' => $filePath]);
+            } else {
+                // Buat setting baru
+                $label = ucfirst(str_replace('_', ' ', $key_name));
+                $this->pengaturanModel->insert([
+                    'key_name' => $key_name,
+                    'value' => $filePath,
+                    'label' => $label,
+                    'type' => 'file',
+                    'category' => 'tampilan',
+                    'is_active' => 1
+                ]);
+            }
+            
+            $response['status'] = 'success';
+            $response['message'] = 'File berhasil diupload';
+            $response['file_path'] = base_url($filePath);
+            $response['file_name'] = $fileName;
+            
+        } catch (\Exception $e) {
+            $response['message'] = 'Terjadi kesalahan: ' . $e->getMessage();
+        }
+        
+        return $this->response->setJSON($response);
+    }
+    
+    // Method untuk delete file
+    public function deleteFile($key_name)
+    {
+        $setting = $this->pengaturanModel->where('key_name', $key_name)->first();
+        
+        if (!$setting) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Pengaturan tidak ditemukan'
+            ]);
+        }
+        
+        try {
+            // Hapus file fisik
+            if (!empty($setting['value']) && file_exists(FCPATH . $setting['value'])) {
+                unlink(FCPATH . $setting['value']);
+            }
+            
+            // Update value menjadi kosong
+            $this->pengaturanModel->update($setting['id'], ['value' => '']);
+            
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'File berhasil dihapus'
+            ]);
+            
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+            ]);
+        }
+    }
+    
+    // Method untuk get logo dan favicon info
+    public function getLogoInfo()
+    {
+        $logo = $this->pengaturanModel->getByKey('logo');
+        $logo_dark = $this->pengaturanModel->getByKey('logo_dark');
+        $favicon = $this->pengaturanModel->getByKey('favicon');
+        
+        return $this->response->setJSON([
+            'status' => 'success',
+            'data' => [
+                'logo' => $logo ? base_url($logo) : null,
+                'logo_dark' => $logo_dark ? base_url($logo_dark) : null,
+                'favicon' => $favicon ? base_url($favicon) : null,
+                'logo_path' => $logo,
+                'favicon_path' => $favicon
+            ]
+        ]);
+    } 
     public function delete($id)
     {
         $setting = $this->pengaturanModel->find($id);
@@ -514,5 +670,36 @@ public function save()
             'data' => $types
         ]);
     }
+    public function getSettingsByCategory()
+{
+    $category = $this->request->getGet('category');
+    $model = new PengaturanModel();
     
+    if ($category && $category !== 'all') {
+        $model->where('category', $category);
+    }
+    
+    $settings = $model->orderBy('order', 'ASC')->findAll();
+    
+    $formattedData = [];
+    foreach ($settings as $row) {
+        $formattedData[] = [
+            'id' => $row['id'],
+            'key_name' => $row['key_name'],
+            'label' => $row['label'],
+            'value' => $this->formatValue($row['value'], $row['type']),
+            'type' => ucfirst($row['type']),
+            'category' => ucfirst($row['category']),
+            'status' => $row['is_active'] == 1 
+                ? '<span class="badge bg-success">Aktif</span>' 
+                : '<span class="badge bg-danger">Nonaktif</span>',
+            'actions' => $this->getActionButtons($row)
+        ];
+    }
+    
+    return $this->response->setJSON([
+        'status' => 'success',
+        'data' => $formattedData
+    ]);
+}
 }

@@ -22,15 +22,19 @@
 
     <!-- Category Tabs -->
     <ul class="nav nav-tabs mb-4" id="categoryTabs" role="tablist">
-        <?php foreach ($categories as $catKey => $catLabel): ?>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link category-tab <?= ($catKey == 'general') ? 'active' : '' ?>" 
-                    data-category="<?= $catKey ?>">
-                <?= $catLabel ?>
-            </button>
-        </li>
-        <?php endforeach; ?>
-    </ul>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link category-tab active" data-category="all">
+            Semua Kategori
+        </button>
+    </li>
+    <?php foreach ($categories as $catKey => $catLabel): ?>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link category-tab" data-category="<?= $catKey ?>">
+            <?= $catLabel ?>
+        </button>
+    </li>
+    <?php endforeach; ?>
+</ul>
 
     <!-- Settings Table -->
     <div class="card">
@@ -314,50 +318,95 @@ $(document).ready(function() {
     let allSettings = [];
     
     // Initialize DataTable
-    function initDataTable() {
-        dataTable = $('#settingsTable').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: {
-                url: '<?= base_url("admin/pengaturan-ajax/getSettings") ?>',
-                type: 'GET',
-                data: function(d) {
-                    d.category = currentCategory;
-                }
+    // Ganti fungsi initDataTable() dengan ini:
+function initDataTable() {
+    dataTable = $('#settingsTable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: '<?= base_url("admin/pengaturan-ajax/getSettings") ?>',
+            type: 'GET',
+            data: function(d) {
+                // Tambahkan parameter kategori ke DataTables
+                d.category = currentCategory;
+                
+                // DEBUG: Cek data yang dikirim
+                console.log('DataTables request:', {
+                    draw: d.draw,
+                    start: d.start,
+                    length: d.length,
+                    search: d.search.value,
+                    category: d.category,
+                    orderColumn: d.order[0].column,
+                    orderDir: d.order[0].dir
+                });
             },
-            columns: [
-                { data: 'id' },
-                { data: 'key_name' },
-                { data: 'label' },
-                { data: 'value' },
-                { data: 'type' },
-                { data: 'category' },
-                { data: 'status' },
-                { 
-                    data: 'actions',
-                    orderable: false,
-                    searchable: false
-                }
-            ],
-            order: [[0, 'asc']],
-            pageLength: 10,
-            responsive: true,
-            language: {
-                search: "Cari:",
-                lengthMenu: "Tampilkan _MENU_ data per halaman",
-                info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
-                infoEmpty: "Menampilkan 0 sampai 0 dari 0 data",
-                zeroRecords: "Data tidak ditemukan",
-                paginate: {
-                    first: "Pertama",
-                    last: "Terakhir",
-                    next: "Selanjutnya",
-                    previous: "Sebelumnya"
-                }
+            error: function(xhr, error, thrown) {
+                console.error('AJAX Error:', xhr.responseText);
+                Swal.fire('Error', 'Terjadi kesalahan saat memuat data', 'error');
             }
-        });
-    }
+        },
+        columns: [
+            { data: 'id' },
+            { data: 'key_name' },
+            { data: 'label' },
+            { data: 'value' },
+            { data: 'type' },
+            { data: 'category' },
+            { data: 'status' },
+            { 
+                data: 'actions',
+                orderable: false,
+                searchable: false
+            }
+        ],
+        order: [[0, 'asc']],
+        pageLength: 10,
+        responsive: true,
+        language: {
+            search: "Cari:",
+            lengthMenu: "Tampilkan _MENU_ data per halaman",
+            info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+            infoEmpty: "Menampilkan 0 sampai 0 dari 0 data",
+            zeroRecords: "Data tidak ditemukan",
+            paginate: {
+                first: "Pertama",
+                last: "Terakhir",
+                next: "Selanjutnya",
+                previous: "Sebelumnya"
+            }
+        }
+    });
+}
+
+// Perbaikan untuk category tab click:
+$('.category-tab').click(function(e) {
+    e.preventDefault();
     
+    $('.category-tab').removeClass('active');
+    $(this).addClass('active');
+    currentCategory = $(this).data('category');
+    
+    console.log('Mengubah kategori ke:', currentCategory);
+    
+    // Refresh DataTable dengan kategori baru
+    if (dataTable) {
+        dataTable.ajax.reload(null, false);
+    }
+});
+
+// Tambahkan event untuk semua kategori
+$('.category-tab').click(function() {
+    $('.category-tab').removeClass('active');
+    $(this).addClass('active');
+    currentCategory = $(this).data('category');
+    
+    // Reset pencarian
+    $('#searchInput').val('');
+    
+    // Reload DataTable
+    dataTable.ajax.reload(null, false);
+});
     // Initialize
     initDataTable();
     
@@ -368,7 +417,7 @@ $(document).ready(function() {
         currentCategory = $(this).data('category');
         
         // Reload DataTable
-        dataTable.ajax.reload();
+        dataTable.ajax.reload(null, false);
     });
     
     // Search function
@@ -482,7 +531,7 @@ $(document).ready(function() {
                 html = `<input type="date" name="value" class="form-control" value="${value}">`;
                 break;
             case 'file':
-                html = `<input type="text" name="value" class="form-control" value="${value}" placeholder="Path file...">`;
+                html = `<input type="file" name="value" class="form-control" value="${value}" placeholder="Path file...">`;
                 break;
             default:
                 html = `<input type="text" name="value" class="form-control" value="${value}">`;
@@ -533,7 +582,7 @@ $(document).ready(function() {
                     });
                     
                     $('#settingModal').modal('hide');
-                    dataTable.ajax.reload();
+                    dataTable.ajax.reload(null, false);
                 } else if (response.status === 'error' && response.errors) {
                     // Display validation errors
                     for (const [field, message] of Object.entries(response.errors)) {
@@ -570,7 +619,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     success: function(response) {
                         if (response.status === 'success') {
-                            dataTable.ajax.reload();
+                            dataTable.ajax.reload(null, false);
                             Swal.fire('Berhasil', response.message, 'success');
                         } else {
                             Swal.fire('Error', response.message, 'error');
@@ -605,7 +654,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     success: function(response) {
                         if (response.status === 'success') {
-                            dataTable.ajax.reload();
+                            dataTable.ajax.reload(null, false);
                             Swal.fire('Berhasil', response.message, 'success');
                         } else {
                             Swal.fire('Error', response.message, 'error');
@@ -673,7 +722,7 @@ $(document).ready(function() {
                     text: result.value.message,
                 }).then(() => {
                     $('#restoreModal').modal('hide');
-                    dataTable.ajax.reload();
+                    dataTable.ajax.reload(null, false);
                 });
             }
         }).catch(error => {
@@ -711,7 +760,7 @@ $(document).ready(function() {
                     title: 'Berhasil',
                     text: result.value.message,
                 }).then(() => {
-                    dataTable.ajax.reload();
+                    dataTable.ajax.reload(null, false);
                 });
             }
         }).catch(error => {
@@ -860,7 +909,7 @@ $('#quickEditForm').submit(function(e) {
         success: function(response) {
             if (response.status === 'success') {
                 $('#quickEditModal').modal('hide');
-                dataTable.ajax.reload();
+                dataTable.ajax.reload(null, false);
                 Swal.fire('Berhasil', 'Nilai berhasil diperbarui', 'success');
             } else {
                 Swal.fire('Error', response.message, 'error');

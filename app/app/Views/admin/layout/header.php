@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Admin - Maulia' ?></title>
+    <link rel="icon" href="<?= get_logo('favicon', 'assets/img/favicon.ico') ?>" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -85,8 +86,10 @@
             <div class="col-md-2 sidebar p-0">
                 <div class="p-3">
                     <h4 class="text-center mb-4">
-                        <i class="bi bi-flower1 me-2 text-warning"></i>
-                        Maulia Admin
+                        <a class="navbar-brand" href="<?= base_url('admin') ?>">
+    <?= get_logo_html('logo-img', 'height: 40px;', false) ?>
+</a>
+                     
                     </h4>
                     <nav class="nav flex-column">
                         <a class="nav-link <?= (uri_string() == 'admin') ? 'active' : '' ?>" href="<?= base_url('admin') ?>">
