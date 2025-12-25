@@ -27,7 +27,7 @@ if (!function_exists('get_logo_html')) {
         }
         
         if ($logo) {
-            $width = $model->getByKey('logo_width', '150');
+            $width = $model->getByKey('logo_width', '20');
             $height = $model->getByKey('logo_height', 'auto');
             
             $style_attr = "width: {$width}px; height: {$height};";

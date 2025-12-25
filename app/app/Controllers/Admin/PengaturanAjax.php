@@ -169,15 +169,15 @@ private function formatValue($value, $type)
         
         // Delete button (disable for system settings)
         $systemKeys = ['nama_toko', 'whatsapp', 'alamat', 'email', 'dp_percentage'];
-        if (!in_array($setting['key_name'], $systemKeys)) {
-            $buttons .= '<button type="button" class="btn btn-outline-danger delete-btn" data-id="' . $setting['id'] . '" data-name="' . esc($setting['label']) . '" title="Hapus">
-                            <i class="bi bi-trash"></i>
-                         </button>';
-        } else {
-            $buttons .= '<button type="button" class="btn btn-outline-secondary" disabled title="Pengaturan sistem tidak dapat dihapus">
-                            <i class="bi bi-trash"></i>
-                         </button>';
-        }
+        // if (!in_array($setting['key_name'], $systemKeys)) {
+        //     $buttons .= '<button type="button" class="btn btn-outline-danger delete-btn" data-id="' . $setting['id'] . '" data-name="' . esc($setting['label']) . '" title="Hapus">
+        //                     <i class="bi bi-trash"></i>
+        //                  </button>';
+        // } else {
+        //     $buttons .= '<button type="button" class="btn btn-outline-secondary" disabled title="Pengaturan sistem tidak dapat dihapus">
+        //                     <i class="bi bi-trash"></i>
+        //                  </button>';
+        // }
         
         $buttons .= '</div>';
         
@@ -213,6 +213,7 @@ public function save()
     $id = $this->request->getPost('id');
     $key_name = trim($this->request->getPost('key_name'));
     $label = trim($this->request->getPost('label'));
+    $type = $this->request->getPost('type');
     
     // Setup validation rules
     $validationRules = [
@@ -260,8 +261,6 @@ public function save()
                          ->where('id !=', $id)
                          ->first();
         if ($existing) {
-            $validationRules['key_name']['errors']['is_unique'] = 'Key name sudah digunakan';
-            // Tambahkan custom error
             $response['errors'] = ['key_name' => 'Key name sudah digunakan'];
             return $this->response->setJSON($response);
         }
@@ -281,7 +280,7 @@ public function save()
         'key_name' => $key_name,
         'value' => $this->request->getPost('value') ?? '',
         'label' => $label,
-        'type' => $this->request->getPost('type'),
+        'type' => $type,
         'category' => $this->request->getPost('category'),
         'options' => $this->request->getPost('options'),
         'placeholder' => $this->request->getPost('placeholder'),
@@ -290,18 +289,70 @@ public function save()
         'required' => $this->request->getPost('required') ? 1 : 0
     ];
     
-    // Handle file upload (sama seperti sebelumnya)
-    $type = $this->request->getPost('type');
+    // Handle file upload
     if ($type === 'file') {
-        $file = $this->request->getFile('file_upload');
+        $file = $this->request->getFile('value');
         
         if ($file && $file->isValid() && !$file->hasMoved()) {
-            // ... kode handle file upload ...
+            // Tentukan folder berdasarkan kategori atau key_name
+            $folder = 'uploads/settings/';
+            if (in_array($key_name, ['logo', 'logo_dark'])) {
+                $folder = 'uploads/logo/';
+            } elseif ($key_name === 'favicon') {
+                $folder = 'uploads/favicon/';
+            }
+            
+            // Buat folder jika belum ada
+            if (!is_dir(FCPATH . $folder)) {
+                mkdir(FCPATH . $folder, 0755, true);
+            }
+            
+            // Validasi tipe file
+            $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'ico', 'webp', 'pdf'];
+            $extension = $file->getExtension();
+            
+            if (!in_array(strtolower($extension), $allowedExtensions)) {
+                $response['message'] = 'Format file tidak didukung. Gunakan: ' . implode(', ', $allowedExtensions);
+                return $this->response->setJSON($response);
+            }
+            
+            // Validasi ukuran file (max 5MB)
+            if ($file->getSize() > 5242880) {
+                $response['message'] = 'Ukuran file terlalu besar. Maksimal 5MB';
+                return $this->response->setJSON($response);
+            }
+            
+            // Jika update, hapus file lama
+            if (!empty($id)) {
+                $oldSetting = $model->find($id);
+                if ($oldSetting && !empty($oldSetting['value']) && file_exists(FCPATH . $oldSetting['value'])) {
+                    unlink(FCPATH . $oldSetting['value']);
+                }
+            }
+            
+            // Generate nama file (gunakan key_name + timestamp untuk unik)
+            $newFileName = $key_name . '_' . time() . '.' . $extension;
+            $filePath = $folder . $newFileName;
+            
+            // Pindahkan file
+            if ($file->move(FCPATH . $folder, $newFileName)) {
+                $data['value'] = $filePath;
+            } else {
+                $response['message'] = 'Gagal mengupload file';
+                return $this->response->setJSON($response);
+            }
+        } else {
+            // Jika file tidak diupload dalam edit mode, pertahankan value yang ada
+            if (!empty($id)) {
+                $oldSetting = $model->find($id);
+                if ($oldSetting && $oldSetting['type'] === 'file') {
+                    $data['value'] = $oldSetting['value'];
+                }
+            }
         }
     }
     
     try {
-        // Gunakan model dengan skipValidation
         $model->skipValidation(true);
         
         if (!empty($id)) {
@@ -315,6 +366,12 @@ public function save()
         if ($result) {
             $response['status'] = 'success';
             $response['message'] = $message;
+            
+            // Jika file diupload, kirim path untuk preview
+            if ($type === 'file' && isset($filePath)) {
+                $response['file_path'] = base_url($filePath);
+                $response['file_name'] = basename($filePath);
+            }
         } else {
             $response['message'] = 'Gagal menyimpan pengaturan';
         }

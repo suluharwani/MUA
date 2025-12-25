@@ -5,9 +5,9 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3 mb-0"><?= $title ?></h1>
         <div>
-            <button type="button" class="btn btn-primary me-2" id="addBtn">
+            <!-- <button type="button" class="btn btn-primary me-2" id="addBtn">
                 <i class="bi bi-plus-circle"></i> Tambah
-            </button>
+            </button> -->
             <button type="button" class="btn btn-outline-secondary me-2" id="backupBtn">
                 <i class="bi bi-download"></i> Backup
             </button>
@@ -307,7 +307,20 @@
         </div>
     </div>
 </div>
-
+<!-- Add/Edit Modal -->
+<div class="modal fade" id="settingModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah/Edit Pengaturan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="settingForm" enctype="multipart/form-data"> <!-- TAMBAHKAN INI -->
+                <!-- ... konten form ... -->
+            </form>
+        </div>
+    </div>
+</div>
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
@@ -494,51 +507,63 @@ $('.category-tab').click(function() {
     });
     
     // Update value field based on type
-    function updateValueField(type, value = '') {
-        let html = '';
-        
-        switch (type) {
-            case 'textarea':
-                html = `<textarea name="value" class="form-control" rows="3">${value}</textarea>`;
-                break;
-            case 'number':
-                html = `<input type="number" name="value" class="form-control" value="${value}">`;
-                break;
-            case 'email':
-                html = `<input type="email" name="value" class="form-control" value="${value}">`;
-                break;
-            case 'tel':
-                html = `<input type="tel" name="value" class="form-control" value="${value}">`;
-                break;
-            case 'password':
-                html = `<input type="password" name="value" class="form-control" value="${value}" placeholder="Kosongkan jika tidak ingin mengubah">`;
-                break;
-            case 'select':
-                // This will be populated when saving, show textarea for now
-                html = `<input type="text" name="value" class="form-control" value="${value}">`;
-                break;
-            case 'checkbox':
-                // For checkbox, value is comma-separated
-                html = `<input type="text" name="value" class="form-control" value="${value}" placeholder="nilai1,nilai2,nilai3">`;
-                break;
-            case 'radio':
-                html = `<input type="text" name="value" class="form-control" value="${value}">`;
-                break;
-            case 'color':
-                html = `<input type="color" name="value" class="form-control form-control-color" value="${value || '#000000'}">`;
-                break;
-            case 'date':
-                html = `<input type="date" name="value" class="form-control" value="${value}">`;
-                break;
-            case 'file':
-                html = `<input type="file" name="value" class="form-control" value="${value}" placeholder="Path file...">`;
-                break;
-            default:
-                html = `<input type="text" name="value" class="form-control" value="${value}">`;
-        }
-        
-        $('#valueInputContainer').html(html);
+    // Update value field based on type
+function updateValueField(type, value = '') {
+    let html = '';
+    
+    switch (type) {
+        case 'textarea':
+            html = `<textarea name="value" class="form-control" rows="3">${value}</textarea>`;
+            break;
+        case 'number':
+            html = `<input type="number" name="value" class="form-control" value="${value}">`;
+            break;
+        case 'email':
+            html = `<input type="email" name="value" class="form-control" value="${value}">`;
+            break;
+        case 'tel':
+            html = `<input type="tel" name="value" class="form-control" value="${value}">`;
+            break;
+        case 'password':
+            html = `<input type="password" name="value" class="form-control" value="${value}" placeholder="Kosongkan jika tidak ingin mengubah">`;
+            break;
+        case 'select':
+            // This will be populated when saving, show textarea for now
+            html = `<input type="text" name="value" class="form-control" value="${value}">`;
+            break;
+        case 'checkbox':
+            // For checkbox, value is comma-separated
+            html = `<input type="text" name="value" class="form-control" value="${value}" placeholder="nilai1,nilai2,nilai3">`;
+            break;
+        case 'radio':
+            html = `<input type="text" name="value" class="form-control" value="${value}">`;
+            break;
+        case 'color':
+            html = `<input type="color" name="value" class="form-control form-control-color" value="${value || '#000000'}">`;
+            break;
+        case 'date':
+            html = `<input type="date" name="value" class="form-control" value="${value}">`;
+            break;
+        case 'file':
+            // File input dengan preview jika ada
+            let filePreview = '';
+            if (value) {
+                const fileName = value.split('/').pop();
+                filePreview = `
+                    <div class="mb-2">
+                        <small>File saat ini: <a href="${base_url(value)}" target="_blank">${fileName}</a></small>
+                        <br>
+                        <small class="text-muted">Unggah file baru untuk mengganti</small>
+                    </div>`;
+            }
+            html = filePreview + `<input type="file" name="value" class="form-control" accept=".jpg,.jpeg,.png,.gif,.svg,.ico,.webp">`;
+            break;
+        default:
+            html = `<input type="text" name="value" class="form-control" value="${value}">`;
     }
+    
+    $('#valueInputContainer').html(html);
+}
     
     // Type select change
     $('#typeSelect').change(function() {
@@ -633,40 +658,8 @@ $('.category-tab').click(function() {
         });
     });
     
-    // Delete setting
-    $(document).on('click', '.delete-btn', function() {
-        const id = $(this).data('id');
-        const name = $(this).data('name');
-        
-        Swal.fire({
-            title: 'Hapus Pengaturan',
-            html: `Yakin ingin menghapus <strong>${name}</strong>?`,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Ya, hapus',
-            cancelButtonText: 'Batal',
-            confirmButtonColor: '#dc3545'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    url: '<?= base_url("admin/pengaturan-ajax/delete/") ?>' + id,
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.status === 'success') {
-                            dataTable.ajax.reload(null, false);
-                            Swal.fire('Berhasil', response.message, 'success');
-                        } else {
-                            Swal.fire('Error', response.message, 'error');
-                        }
-                    },
-                    error: function() {
-                        Swal.fire('Error', 'Terjadi kesalahan', 'error');
-                    }
-                });
-            }
-        });
-    });
+
+
     
     // Backup
     $('#backupBtn').click(function() {

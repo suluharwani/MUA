@@ -2,8 +2,8 @@
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="navbar-brand" href="<?= base_url() ?>">
-            <a class="navbar-brand" href="<?= base_url('admin') ?>">
-    <?= get_logo_html('logo-img', 'height: 40px;', false) ?>
+            <a class="navbar-brand" href="<?= base_url('/') ?>">
+    <?= get_logo_html('logo-img', 'width: 80px;', false) ?>
 </a>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

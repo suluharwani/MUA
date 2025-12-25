@@ -87,7 +87,7 @@
                 <div class="p-3">
                     <h4 class="text-center mb-4">
                         <a class="navbar-brand" href="<?= base_url('admin') ?>">
-    <?= get_logo_html('logo-img', 'height: 40px;', false) ?>
+    <?= get_logo_html('logo-img') ?>
 </a>
                      
                     </h4>
